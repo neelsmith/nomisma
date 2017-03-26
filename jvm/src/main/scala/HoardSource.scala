@@ -128,6 +128,7 @@ object HoardSource {
 
 
   def geoForMints(mints: Set[String]) = {
+    val mintGeo =  Map[String,String]()
     val urlBase = "https://raw.githubusercontent.com/nomisma/data/master/id/"
     for (m <- mints) {
       val url = urlBase + m + ".rdf"
@@ -137,13 +138,14 @@ object HoardSource {
         val root = XML.loadString(rdf)
         val spatialThings = root \\ "SpatialThing"
         println(spatialForNode(spatialThings(0)))
+        val spatial = spatialForNode(spatialThings(0))
+        mintGeo += (spatial._1 -> spatial._2)
       } catch {
         case e : Throwable => println("Something went wrong: " + e)
       }
 
-
     }
-
+    mintGeo.toVector
   }
 }
 

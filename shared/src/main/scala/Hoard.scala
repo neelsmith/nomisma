@@ -1,5 +1,16 @@
 package edu.holycross.shot.nomisma
 
+
+/** A coin hoard.
+*
+* @param id Unique identifier: last element of `nomisma.org` URL identifier.
+* @param label Human-readable label; contentes of `prefLabel` element
+* in `nomisma.org` RDF XML.
+* @param closingDate Closing date of the hoard.
+* @param mints Mints represented in this hoard, identified by
+* `nomisma.org` identifier.
+* @param geo Location of hoard as a geographic point.
+*/
 case class Hoard (
   id: String,
   label: String,
@@ -8,7 +19,9 @@ case class Hoard (
   geo: Option[String]
 ) {
 
-  val dateLabel: String = {
+  /** Formatted string for closing date.
+  */
+  def dateLabel: String = {
     closingDate match {
       case None => "No date given"
       case _ => "Date: " + closingDate.get
