@@ -6,19 +6,27 @@ import scala.xml._
 import scala.collection.mutable.ArrayBuffer
 import scala.collection.mutable.Map
 
-// create a factory method to generate a hoard from an XML source
-// 1. create Hoard instances from `Hoard` elements in RDF-XML
-// 2. add spatial data from `SpatialThing` elements.
+
+/** Factory for generating [[HoardCollection]]s and for
+* retrieving spatial data for sets of locations.
+*/
 object HoardSource {
 
+  /** Create a [[HoardCollection]] from a file in
+  * nomisma.org's RDF format.
+  *
+  * @param fName Name of RDF file.
+  */
   def fromFile(fName : String) : HoardCollection = {
-    var hoards = ArrayBuffer.empty[Hoard]
+
+
     val root = XML.loadFile(fName)
     val spatialNodes = root \\ "SpatialThing"
-    val spatialIdx = spatialIndex(spatialNodes)
-
     val hoardNodes =  root \\ "Hoard"
 
+    val spatialIdx = spatialIndex(spatialNodes)
+
+    var hoards =  ArrayBuffer.empty[Hoard]
     for (ch <- hoardNodes)  {
       var hoardId = ""
       val chAtts = ch.attributes.toVector
@@ -46,44 +54,51 @@ object HoardSource {
           case _ => closingDate(closingNodes(0))
         }
       }
-      hoards += Hoard(hoardId,label.text,closing,mints.toVector,None )
+
+      val geoData = spatialIdx get hoardId
+      geoData match {
+        case None =>hoards += Hoard(hoardId,label.text,closing,mints.toVector,None )
+        case s: Some[String] => hoards += Hoard(hoardId,label.text,closing,mints.toVector,s )
+      }
+
     }
     HoardCollection(hoards.toVector)
   }
 
 
-
-  def spatialIndex(nodeSeq : NodeSeq) = {
-    var idx = Map[String,String]()
-
-    for (n <- nodeSeq) {
-      var hoardKey = ""
-      val attV = n.attributes.toVector
-      for (a <- attV) {
-        if (a.key == "about") {
-          hoardKey = idFromUrl( a.value.text)
-        } else {}
-      }
-      val lat = n \ "lat"
-      val lon = n \ "long"
-      val geoStr = lon.text + "," + lat.text
-      idx += (hoardKey -> geoStr)
+  /** Extract coordinate data from a `SpatialThing` node
+  * and pair it with the hoard ID.
+  *
+  * @param n `SpatialThing` node
+  */
+  def spatialForNode(n: scala.xml.Node) = {
+    var hoardKey = ""
+    val attV = n.attributes.toVector
+    for (a <- attV) {
+      if (a.key == "about") {
+        hoardKey = idFromUrl( a.value.text)
+      } else {}
     }
-    idx
+    val lat = n \ "lat"
+    val lon = n \ "long"
+    val geoStr = lon.text + "," + lat.text
+    (hoardKey,geoStr)
   }
 
 
-/*
-  def computeDate(hoardNode: scala.xml.Node): Option[String] = {
-    val rangeVals = hoardNode \\ "hasStartDate"
-    rangeVals.size match {
-      case 0 => Some(hoardNode.text)
-      case 2 => {Some(rangeVals(0).text + ":" + rangeVals(1).text)
-      }
-
-      case _ => None
+  /** Convert a sequence of `SpatialThing` nodes to
+  * a map of hoard to coordinate pairs.
+  *
+  * @param nodeSeq Sequence of `SpatialThing` nodes.
+  */
+  def spatialIndex(nodeSeq : NodeSeq) = {
+    var idx = Map[String,String]()
+    for (n <- nodeSeq) {
+      val spatial = spatialForNode(n)
+      idx += (spatial._1 -> spatial._2)
     }
-  }*/
+    idx
+  }
 
   def closingDate(hoardNode: scala.xml.Node) : Option[ClosingDate] = {
     val rangeVals = hoardNode \\ "hasStartDate"
@@ -111,57 +126,30 @@ object HoardSource {
     }
   }
 
-}
 
+  def geoForMints(mints: Set[String]) = {
+    val urlBase = "https://raw.githubusercontent.com/nomisma/data/master/id/"
+    for (m <- mints) {
+      val url = urlBase + m + ".rdf"
+      val rdf = scala.io.Source.fromURL(url).mkString
 
-
-/*
-
-
-
-
-var hoardId: String = ""
-//var geo: Option[String] = None
-var hoardDate: Option[String] = None
-var mints = ArrayBuffer.empty[String]
-
-
-  ch.label match {
-    case "Hoard" => {
-      //println(hoardId + ":" + geo)
-      geo = None
-      hoardDate = None
-      mints = ArrayBuffer.empty[String]
-
-      val lbl = ch \ "prefLabel"
-      hoardId = lbl.text
-
-      val mintList = ch \\ "hasMint"
-      for (m <- mintList) {
-        val attV = m.attributes.toVector
-        for (a <- attV) {
-          if (a.key == "resource") {
-            mints += a.value.text
-          } else {}
-
-        }
+      try {
+        val root = XML.loadString(rdf)
+        val spatialThings = root \\ "SpatialThing"
+        println(spatialForNode(spatialThings(0)))
+      } catch {
+        case e : Throwable => println("Something went wrong: " + e)
       }
-      hoardDate = computeDate(ch)
-
 
 
     }
-    case "SpatialThing" => {
-      val lat = ch \ "lat"
-      val lon = ch \ "long"
-      geo = Some(lon.text + "," + lat.text)
-      igch += Hoard(hoardId, hoardDate, geo, mints.toVector)
-    }
-    case "#PCDATA" =>
+
   }
 }
 
-val athensFinds = igch.filter(_.mints.contains("http://nomisma.org/id/athens"))
+
+/*
+val athensFinds = igch.filter(_.mints.contains("athens"))
 
 val plottable = athensFinds.filter(_.geo match {
   case None => false

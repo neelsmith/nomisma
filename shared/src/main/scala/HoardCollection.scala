@@ -13,5 +13,8 @@ case class HoardCollection(hoards: Vector[Hoard])  {
     hoards.size
   }
 
+  def mintSet: Set[String] = {
+    hoards.flatMap(_.mints).toSet
+  }
 
 }

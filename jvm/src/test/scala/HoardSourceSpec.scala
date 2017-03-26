@@ -15,10 +15,18 @@ class HoardSourceSpec extends FlatSpec {
     assert(hoards.size == 2387)
   }
 
-  it should "find some valid structures" in pending /*{
-    val srcFile = "jvm/src/test/resources/igch.rdf"
-    val hoards = HoardSource.fromFile(srcFile)
-    println(hoards.hoards(0).prettyPrint)
+  it should "fold in geographic coordinates insanely separated from hoard in RDF XML representation" in {
+    val srcFile = "jvm/src/test/resources/singlehoard.rdf"
+    val coll = HoardSource.fromFile(srcFile)
+    val hoard1 = coll.hoards(0)
+    assert (hoard1.geo.get == "39.215,44")
   }
-*/
+
+  it should "be able to retrieve spatial data for a set of mints" in {
+    //val mints = Set("athens","thessalian_league","thasos")
+    val mints = Set("athens")
+    val geo = HoardSource.geoForMints(mints)
+    println(geo)
+  }
+
 }
