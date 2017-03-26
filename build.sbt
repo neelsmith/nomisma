@@ -1,6 +1,7 @@
 name := "Utilities for working with numismatic data"
 
-crossScalaVersions := Seq("2.10.6","2.11.8", "2.12.1")
+//crossScalaVersions := Seq("2.10.6","2.11.8", "2.12.1")
+crossScalaVersions := Seq("2.11.8", "2.12.1")
 
 
 lazy val root = project.in(file(".")).
