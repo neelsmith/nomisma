@@ -136,7 +136,12 @@ object HoardSource {
   }
 
 
-  def geoForMints(mints: Set[String]) = {
+  /** Map a set of mint IDs to geometric locations
+  * by looking up RDF from nomisma.org github contrent.
+  *
+  * @param mints Set of mint IDs to look up.
+  */
+  def geoForMints(mints: Set[String]): Map[String,Point] = {
     val mintGeo =  Map[String,Point]()
     val urlBase = "https://raw.githubusercontent.com/nomisma/data/master/id/"
     for (m <- mints) {
@@ -154,7 +159,7 @@ object HoardSource {
       }
 
     }
-    mintGeo.toVector
+    mintGeo
   }
 }
 

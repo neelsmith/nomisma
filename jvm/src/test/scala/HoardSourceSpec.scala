@@ -24,11 +24,24 @@ class HoardSourceSpec extends FlatSpec {
     assert (hoard1.geo.get == expectedPoint)
   }
 
-  it should "be able to retrieve spatial data for a set of mints" in {
+  it should "be able to retrieve spatial data for a mint" in {
     //val mints = Set("athens","thessalian_league","thasos")
     val mints = Set("athens")
     val geo = HoardSource.geoForMints(mints)
-    println(geo)
+    assert(geo.size == 1)
+    val athensPoint = geo get "athens"
+    val expected = new Point(23.7225,37.974722)
+    assert(expected == athensPoint.get)
+  }
+
+  it should "be able to retrieve spatial data for multiple mints" in {
+    val mints = Set("athens","thessalian_league","thasos")
+
+    val geo = HoardSource.geoForMints(mints)
+    assert(geo.size == 3)
+    val athensPoint = geo get "athens"
+    val expected = new Point(23.7225,37.974722)
+    assert(expected == athensPoint.get)
   }
 
 }
