@@ -21,7 +21,7 @@ case class ClosingDate (d1: Integer, d2: Option[Integer] = None) {
 
   override def toString = {
     d2 match {
-      case d: Some[Integer] => s"${d1}-${d.get}"
+      case d: Some[Integer] => s"${d1}:${d.get}"
       case _ => d1.toString
     }
   }

@@ -11,7 +11,7 @@ case class Hoard (
   val dateLabel: String = {
     closingDate match {
       case None => "No date given"
-      case _ => "Date: " + closingDate
+      case _ => "Date: " + closingDate.get
     }
   }
 
