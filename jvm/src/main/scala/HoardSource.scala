@@ -12,8 +12,8 @@ import scala.collection.mutable.Map
 */
 object HoardSource {
 
-  /** Create a [[HoardCollection]] from a file in
-  * nomisma.org's RDF format.
+  /** Create a [[HoardCollection]] from a file in RDF format
+  * used by `nomisma.org`.
   *
   * @param fName Name of RDF file.
   */
@@ -100,6 +100,14 @@ object HoardSource {
     idx
   }
 
+
+
+  /** Create [[ClosingDate]] from informaiton in the
+  * parsed RDF XML for a hoard.
+  *
+  * @param hoardNode Parsed `Hoard` element in RDF XML used
+  * by `nomisma.org`.
+  */
   def closingDate(hoardNode: scala.xml.Node) : Option[ClosingDate] = {
     val rangeVals = hoardNode \\ "hasStartDate"
     rangeVals.size match {

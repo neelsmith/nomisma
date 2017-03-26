@@ -6,6 +6,8 @@ package edu.holycross.shot.nomisma
 * Closing date may be either a single integer year, or a
 * pair of integers for a range of years.
 *
+* @param d1 Earlier date in range, or single point.
+* @param d2 Later date in range, if any.
 */
 case class ClosingDate (d1: Integer, d2: Option[Integer] = None) {
   require (d1 != 0, "There is no year 0 in our era.")
