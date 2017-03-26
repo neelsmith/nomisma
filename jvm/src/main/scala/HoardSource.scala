@@ -4,7 +4,7 @@ import scala.io.Source
 import scala.xml._
 
 import scala.collection.mutable.ArrayBuffer
-
+import scala.collection.mutable.Map
 
 // create a factory method to generate a hoard from an XML source
 // 1. create Hoard instances from `Hoard` elements in RDF-XML
@@ -15,22 +15,19 @@ object HoardSource {
     var hoards = ArrayBuffer.empty[Hoard]
     val root = XML.loadFile(fName)
     val spatialNodes = root \\ "SpatialThing"
+    val spatialIdx = spatialIndex(spatialNodes)
+
     val hoardNodes =  root \\ "Hoard"
 
-    def computeDate(hoardNode: scala.xml.Node): Option[String] = {
-      val rangeVals = hoardNode \\ "hasStartDate"
-      rangeVals.size match {
-        case 0 => Some(hoardNode.text)
-        case 2 => {Some(rangeVals(0).text + "-" + rangeVals(1).text)
-        }
-
-        case _ => None
-      }
-    }
-
     for (ch <- hoardNodes)  {
-      val hoardId = ch \ "prefLabel"
-
+      var hoardId = ""
+      val chAtts = ch.attributes.toVector
+      for (att <- chAtts) {
+        if (att.key == "about") {
+          hoardId = idFromUrl(att.value.text)
+        } else {}
+      }
+      val label = ch \ "prefLabel"
 
       val mintList = ch \\ "hasMint"
       var mints = ArrayBuffer.empty[String]
@@ -42,10 +39,44 @@ object HoardSource {
           } else {}
         }
       }
-      hoards += Hoard(hoardId.text,computeDate(ch),mints.toVector,None )
+      hoards += Hoard(hoardId,label.text,computeDate(ch),mints.toVector,None )
     }
     HoardCollection(hoards.toVector)
   }
+
+
+
+  def spatialIndex(nodeSeq : NodeSeq) = {
+    var idx = Map[String,String]()
+
+    for (n <- nodeSeq) {
+      var hoardKey = ""
+      val attV = n.attributes.toVector
+      for (a <- attV) {
+        if (a.key == "about") {
+          hoardKey = idFromUrl( a.value.text)
+        } else {}
+      }
+      val lat = n \ "lat"
+      val lon = n \ "long"
+      val geoStr = lon.text + "," + lat.text
+      idx += (hoardKey -> geoStr)
+    }
+    idx
+  }
+
+  def computeDate(hoardNode: scala.xml.Node): Option[String] = {
+    val rangeVals = hoardNode \\ "hasStartDate"
+    rangeVals.size match {
+      case 0 => Some(hoardNode.text)
+      case 2 => {Some(rangeVals(0).text + "-" + rangeVals(1).text)
+      }
+
+      case _ => None
+    }
+  }
+
+
 }
 
 

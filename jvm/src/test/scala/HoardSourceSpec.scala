@@ -9,4 +9,10 @@ class HoardSourceSpec extends FlatSpec {
     assert(hoards.size == 2387)
   }
 
+  it should "find some valid structures" in {
+    val srcFile = "jvm/src/test/resources/igch.rdf"
+    val hoards = HoardSource.fromFile(srcFile)
+    println(hoards.hoards(0))
+  }
+
 }

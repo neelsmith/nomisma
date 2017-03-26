@@ -2,6 +2,7 @@ package edu.holycross.shot.nomisma
 
 case class Hoard (
   id: String,
+  label: String,
   dateStr: Option[String],
   mints: Vector[String],
   geo: Option[String]
