@@ -39,7 +39,14 @@ object HoardSource {
           } else {}
         }
       }
-      hoards += Hoard(hoardId,label.text,computeDate(ch),mints.toVector,None )
+      val closingNodes = ch \\ "hasClosingDate"
+      val closing =  {
+        closingNodes.size match {
+          case 0 => None
+          case _ => closingDate(closingNodes(0))
+        }
+      }
+      hoards += Hoard(hoardId,label.text,closing,mints.toVector,None )
     }
     HoardCollection(hoards.toVector)
   }
@@ -65,17 +72,44 @@ object HoardSource {
     idx
   }
 
+
+/*
   def computeDate(hoardNode: scala.xml.Node): Option[String] = {
     val rangeVals = hoardNode \\ "hasStartDate"
     rangeVals.size match {
       case 0 => Some(hoardNode.text)
-      case 2 => {Some(rangeVals(0).text + "-" + rangeVals(1).text)
+      case 2 => {Some(rangeVals(0).text + ":" + rangeVals(1).text)
+      }
+
+      case _ => None
+    }
+  }*/
+
+  def closingDate(hoardNode: scala.xml.Node) : Option[ClosingDate] = {
+    val rangeVals = hoardNode \\ "hasStartDate"
+    rangeVals.size match {
+      case 0 =>
+        try {
+          Some(ClosingDate(hoardNode.text.toInt, None))
+        } catch {
+          case e: java.lang.NumberFormatException => {
+            println("UNABLE TO PARSE "+ hoardNode.text + s" (length ${hoardNode.text.size})")
+            None
+          }
+        }
+      case 2 =>
+      try {
+       Some(ClosingDate(rangeVals(0).text.toInt,rangeVals(1).text.toInt))
+      } catch {
+        case e: java.lang.NumberFormatException => {
+          println("UNABLE TO PARSE "+ hoardNode.text)
+          None
+        }
       }
 
       case _ => None
     }
   }
-
 
 }
 

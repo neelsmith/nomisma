@@ -1388,8 +1388,8 @@
         <nmo:hasFindspot rdf:resource="http://coinhoards.org/id/igch2307#findspot"/>
         <nmo:hasClosingDate>
             <dcterms:PeriodOfTime>
-                <nmo:hasStartDate rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear">-0017</nmo:hasStartDate>
-                <nmo:hasStartDate rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear">-0018</nmo:hasStartDate>
+              <nmo:hasStartDate rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear">-0018</nmo:hasStartDate>
+              <nmo:hasStartDate rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear">-0017</nmo:hasStartDate>
             </dcterms:PeriodOfTime>
         </nmo:hasClosingDate>
         <dcterms:tableOfContents>
@@ -19288,8 +19288,8 @@
         <nmo:hasFindspot rdf:resource="http://coinhoards.org/id/igch2308#findspot"/>
         <nmo:hasClosingDate>
             <dcterms:PeriodOfTime>
-                <nmo:hasStartDate rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear">-0017</nmo:hasStartDate>
                 <nmo:hasStartDate rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear">-0018</nmo:hasStartDate>
+                <nmo:hasStartDate rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear">-0017</nmo:hasStartDate>
             </dcterms:PeriodOfTime>
         </nmo:hasClosingDate>
         <dcterms:tableOfContents>

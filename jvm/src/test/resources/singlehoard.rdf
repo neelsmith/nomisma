@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#"
+         xmlns:foaf="http://xmlns.com/foaf/0.1/"
+         xmlns:org="http://www.w3.org/ns/org#"
+         xmlns:dcmitype="http://purl.org/dc/dcmitype/"
+         xmlns:xs="http://www.w3.org/2001/XMLSchema"
+         xmlns:nmo="http://nomisma.org/ontology#"
+         xmlns:void="http://rdfs.org/ns/void#"
+         xmlns:dcterms="http://purl.org/dc/terms/"
+         xmlns:nm="http://nomisma.org/id/"
+         xmlns:nomisma="http://nomisma.org/"
+         xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+         xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+         xmlns:skos="http://www.w3.org/2004/02/skos/core#">
+    <nmo:Hoard rdf:about="http://coinhoards.org/id/igch1122">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:prefLabel xml:lang="en">IGCH 1122</skos:prefLabel>
+        <nmo:hasFindspot rdf:resource="http://coinhoards.org/id/igch1122#findspot"/>
+        <nmo:hasClosingDate>
+            <dcterms:PeriodOfTime>
+                <nmo:hasStartDate rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear">-0170</nmo:hasStartDate>
+                <nmo:hasStartDate rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear">-0130</nmo:hasStartDate>
+            </dcterms:PeriodOfTime>
+        </nmo:hasClosingDate>
+        <dcterms:tableOfContents>
+            <dcmitype:Collection>
+                <nmo:hasMint rdf:resource="http://nomisma.org/id/panticapaeum"/>
+                <nmo:hasMint rdf:resource="http://nomisma.org/id/phanagoria"/>
+            </dcmitype:Collection>
+        </dcterms:tableOfContents>
+        <void:inDataset rdf:resource="http://coinhoards.org/"/>
+    </nmo:Hoard>
+    <geo:SpatialThing rdf:about="http://coinhoards.org/id/igch1122#findspot">
+        <geo:lat>44</geo:lat>
+        <geo:long>39.215</geo:long>
+    </geo:SpatialThing>
+    </rdf:RDF>
+    

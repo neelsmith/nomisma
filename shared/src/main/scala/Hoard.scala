@@ -3,20 +3,20 @@ package edu.holycross.shot.nomisma
 case class Hoard (
   id: String,
   label: String,
-  dateStr: Option[String],
+  closingDate: Option[ClosingDate],
   mints: Vector[String],
   geo: Option[String]
 ) {
 
   val dateLabel: String = {
-    dateStr match {
+    closingDate match {
       case None => "No date given"
-      case _ => "Date: " + dateStr.get
+      case _ => "Date: " + closingDate
     }
   }
 
   def prettyPrint = {
-    println(id)
+    println(s"${label} (${id})")
     println(dateLabel)
     geo match {
       case None => println("Location unknown")
