@@ -12,7 +12,7 @@ class HoardSourceSpec extends FlatSpec {
   it should "find some valid structures" in {
     val srcFile = "jvm/src/test/resources/igch.rdf"
     val hoards = HoardSource.fromFile(srcFile)
-    println(hoards.hoards(0))
+    println(hoards.hoards(0).prettyPrint)
   }
 
 }

@@ -35,7 +35,7 @@ object HoardSource {
         val attV = m.attributes.toVector
         for (a <- attV) {
           if (a.key == "resource") {
-            mints += a.value.text
+            mints += idFromUrl(a.value.text)
           } else {}
         }
       }

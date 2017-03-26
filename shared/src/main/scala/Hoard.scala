@@ -24,10 +24,12 @@ case class Hoard (
     }
     println("Contains coins from mints:")
     for (m <- mints) {
-      println("\t" + m)
+      println("\t" + m.split(' ').map(_.capitalize).mkString(" "))
     }
   }
 
+
+// lOD URL for mint!
 /*
   def kmlPoint: String = {
     val mintsList = mints.mkString("\n")
