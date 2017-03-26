@@ -3,6 +3,8 @@ package edu.holycross.shot.nomisma
 import scala.io.Source
 import scala.xml._
 
+import com.esri.core.geometry._
+
 import scala.collection.mutable.ArrayBuffer
 import scala.collection.mutable.Map
 
@@ -58,7 +60,7 @@ object HoardSource {
       val geoData = spatialIdx get hoardId
       geoData match {
         case None =>hoards += Hoard(hoardId,label.text,closing,mints.toVector,None )
-        case s: Some[String] => hoards += Hoard(hoardId,label.text,closing,mints.toVector,s )
+        case s: Some[Point] => hoards += Hoard(hoardId,label.text,closing,mints.toVector,s )
       }
 
     }
@@ -81,8 +83,7 @@ object HoardSource {
     }
     val lat = n \ "lat"
     val lon = n \ "long"
-    val geoStr = lon.text + "," + lat.text
-    (hoardKey,geoStr)
+    (hoardKey,new Point(lon.text.toDouble,lat.text.toDouble))
   }
 
 
@@ -92,7 +93,7 @@ object HoardSource {
   * @param nodeSeq Sequence of `SpatialThing` nodes.
   */
   def spatialIndex(nodeSeq : NodeSeq) = {
-    var idx = Map[String,String]()
+    var idx = Map[String,Point]()
     for (n <- nodeSeq) {
       val spatial = spatialForNode(n)
       idx += (spatial._1 -> spatial._2)
@@ -136,7 +137,7 @@ object HoardSource {
 
 
   def geoForMints(mints: Set[String]) = {
-    val mintGeo =  Map[String,String]()
+    val mintGeo =  Map[String,Point]()
     val urlBase = "https://raw.githubusercontent.com/nomisma/data/master/id/"
     for (m <- mints) {
       val url = urlBase + m + ".rdf"

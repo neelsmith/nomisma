@@ -1,5 +1,7 @@
 package edu.holycross.shot.nomisma
 
+import com.esri.core.geometry._
+
 
 /** A coin hoard.
 *
@@ -16,7 +18,7 @@ case class Hoard (
   label: String,
   closingDate: Option[ClosingDate],
   mints: Vector[String],
-  geo: Option[String]
+  geo: Option[Point]
 ) {
 
   /** Formatted string for closing date.

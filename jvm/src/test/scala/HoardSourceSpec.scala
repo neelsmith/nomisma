@@ -1,5 +1,6 @@
 package edu.holycross.shot.nomisma
 import org.scalatest.FlatSpec
+import com.esri.core.geometry._
 
 class HoardSourceSpec extends FlatSpec {
 
@@ -19,7 +20,8 @@ class HoardSourceSpec extends FlatSpec {
     val srcFile = "jvm/src/test/resources/singlehoard.rdf"
     val coll = HoardSource.fromFile(srcFile)
     val hoard1 = coll.hoards(0)
-    assert (hoard1.geo.get == "39.215,44")
+    val expectedPoint = new Point(39.215,44)
+    assert (hoard1.geo.get == expectedPoint)
   }
 
   it should "be able to retrieve spatial data for a set of mints" in {
