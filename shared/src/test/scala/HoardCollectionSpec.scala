@@ -46,4 +46,17 @@ class HoardCollectionSpec extends FlatSpec {
     val hoardCollection = HoardCollection(Vector(hoard1,hoard2))
     println(hoardCollection.toKml)
   }
+
+  it should "compute the maximum and minimum for closing date point" in pending
+
+  it should "compute the maximum and minimum for actual closing date values" in pending
+
+  it should "cluster hoards by year span" in pending
+
+  it should "bin hoards in equal divisions by year" in pending
+
+  it should "create a cooccurrence matrix by mints" in pending
+
+  it should "output a tabular one-hot view of hoard contents" in pending
+
 }
