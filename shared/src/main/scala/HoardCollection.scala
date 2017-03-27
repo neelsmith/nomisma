@@ -35,7 +35,16 @@ import js.annotation.JSExport
   * hoards with known geographic location.
   */
   def located: HoardCollection = {
-     HoardCollection(hoards.filter(_.geo !=  None))
+    HoardCollection(hoards.filter(_.geo !=  None))
+  }
+
+  def dated: HoardCollection = {
+    HoardCollection(hoards.filter(_.closingDate !=  None))
+  }
+
+
+  def closingDateVector: Vector[ClosingDate] = {
+    dated.hoards.map(_.closingDate.get)
   }
 
   /** Set of mints represented in this collection
@@ -45,6 +54,44 @@ import js.annotation.JSExport
     hoards.flatMap(_.mints).toSet
   }
 
+  /** Maximum of all `pointAverage` values in the collection.
+  */
+  def maxAvgDate = {
+    val temp = dated.hoards.map(_.pointAverage.get)
+    temp.max
+  }
+
+  def maxDate = {
+    val d1List = dated.hoards.map(_.closingDate.get.d1)
+    //val d2List = dated.hoards.filter(_.closingDate.get.d2 != None).map(_.closingDate.get.d2)
+    //if (d1List.max > d2List.max) { d1List.max} else {d2List.max}
+    d1List.max
+
+  }
+
+  /** Minimum of all `pointAverage` values in the collection.
+  */
+  def minAvgDate = {
+    val temp = dated.hoards.map(_.pointAverage.get)
+    temp.min
+  }
+
+  def trimToAvgDateRange(d1: Integer, d2: Integer) = {
+    dated.hoards.filter(_.pointAverage.get >= d1).filter(_.pointAverage.get <= d2)
+  }
+
+
+/*
+  val maxDate: Integer = {
+    val maxD1 = hoards.map(_.closingDate.d1).max
+    val maxD2 = hoards.map(_.closingDate.d2).max
+    if (maxD1 > maxD2) {
+      maxD1
+    } else {
+      maxD2
+    }
+  }
+*/
   def toKml: String = {
     preface + hoards.map(_.kmlPoint).mkString("\n") + trail
   }

@@ -13,3 +13,5 @@ import js.annotation.JSExport
   hoard: Point,
   mintPoints: Vector[MintPoint]
 )
+
+@JSExport case class ContentsGraphCollection (hoards: Vector[ContentsGraph])

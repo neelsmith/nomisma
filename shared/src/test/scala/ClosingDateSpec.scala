@@ -11,6 +11,8 @@ class ClosingDateSpec extends FlatSpec {
       case _ => fail("Second date value should have been None")
     }
   }
+
+
   it should "support constructor with two integer values" in {
     val rangeDate = ClosingDate(-450,-430)
     assert(rangeDate.d1 == -450)

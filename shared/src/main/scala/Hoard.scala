@@ -24,6 +24,15 @@ import js.annotation.JSExport
   geo: Option[Point]
 ) {
 
+
+  def pointAverage: Option[Integer] = {
+    closingDate match {
+      case None => None
+      case cd: Some[ClosingDate] => Some(cd.get.pointAverage)
+    }
+  }
+
+
   /** Formatted string for closing date.
   */
   def dateLabel: String = {

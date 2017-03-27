@@ -36,6 +36,16 @@ class HoardCollectionSpec extends FlatSpec {
     assert(hoardCollection.located.size == 1)
   }
 
+  it should "be able to create a collection containing only dated hoards" in {
+    val pointDate = ClosingDate(-450)
+    val hoard1 = Hoard("dummy hoard 1", "dummy1",Some(pointDate),Vector("athens", "samos"),Some(new Point(23,36)))
+
+    val hoard2 = Hoard("dummy hoard 2", "dummy2",None,Vector("athens","chios","samos"),None)
+
+    val hoardCollection = HoardCollection(Vector(hoard1,hoard2))
+    assert(hoardCollection.dated.size == 1)
+  }
+
 
   it should "create a KML string of the whole collection" in {
     val pointDate = ClosingDate(-450)
@@ -47,13 +57,7 @@ class HoardCollectionSpec extends FlatSpec {
     println(hoardCollection.toKml)
   }
 
-  it should "compute the maximum and minimum for closing date point" in pending
 
-  it should "compute the maximum and minimum for actual closing date values" in pending
-
-  it should "cluster hoards by year span" in pending
-
-  it should "bin hoards in equal divisions by year" in pending
 
   it should "create a cooccurrence matrix by mints" in pending
 

@@ -23,51 +23,6 @@ object HoardSource {
   */
   def fromFile(fName : String) : HoardCollection = {
     HoardCollection(Source.fromFile(fName).getLines.mkString("\n"))
-/*
-    val root = XML.loadFile(fName)
-    val spatialNodes = root \\ "SpatialThing"
-    val hoardNodes =  root \\ "Hoard"
-
-    val spatialIdx = spatialIndex(spatialNodes)
-
-    var hoards =  ArrayBuffer.empty[Hoard]
-    for (ch <- hoardNodes)  {
-      var hoardId = ""
-      val chAtts = ch.attributes.toVector
-      for (att <- chAtts) {
-        if (att.key == "about") {
-          hoardId = idFromUrl(att.value.text)
-        } else {}
-      }
-      val label = ch \ "prefLabel"
-
-      val mintList = ch \\ "hasMint"
-      var mints = ArrayBuffer.empty[String]
-      for (m <- mintList) {
-        val attV = m.attributes.toVector
-        for (a <- attV) {
-          if (a.key == "resource") {
-            mints += idFromUrl(a.value.text)
-          } else {}
-        }
-      }
-      val closingNodes = ch \\ "hasClosingDate"
-      val closing =  {
-        closingNodes.size match {
-          case 0 => None
-          case _ => closingDate(closingNodes(0))
-        }
-      }
-
-      val geoData = spatialIdx get hoardId
-      geoData match {
-        case None =>hoards += Hoard(hoardId,label.text,closing,mints.toVector,None )
-        case s: Some[Point] => hoards += Hoard(hoardId,label.text,closing,mints.toVector,s )
-      }
-
-    }
-    HoardCollection(hoards.toVector)
-    */
   }
 
 
