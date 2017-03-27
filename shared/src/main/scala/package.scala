@@ -11,4 +11,8 @@ package object nomisma {
     "http://nomisma.org/id/" + id
   }
 
+  def prettyId(id: String) : String = {
+    id.replaceAll("_"," ").split(' ').map(_.capitalize).mkString(" ")    
+  }
+
 }

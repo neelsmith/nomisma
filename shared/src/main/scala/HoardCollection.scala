@@ -38,4 +38,8 @@ case class HoardCollection(hoards: Vector[Hoard])  {
     hoards.flatMap(_.mints).toSet
   }
 
+  def toKml: String = {
+    preface + hoards.map(_.kmlPoint).mkString("\n") + trail
+  }
+
 }

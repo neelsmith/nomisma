@@ -1,7 +1,6 @@
 package edu.holycross.shot.nomisma
 
 
-// how igch models a closing date
 /** Closing date of a hoard as modelled by `nomisma.org`.
 * Closing date may be either a single integer year, or a
 * pair of integers for a range of years.

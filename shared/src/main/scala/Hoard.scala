@@ -39,25 +39,39 @@ case class Hoard (
     }
     println("Contains coins from mints:")
     for (m <- mints) {
-      println("\t" + m.split(' ').map(_.capitalize).mkString(" "))
+      println("\t" + prettyId(m))
     }
   }
 
+  def geoString : String = {
+    geo match {
+      case None => ""
+      case ptOpt: Some[Point] => {
+        val pt = ptOpt.get
+        pt.getX().toString +","+pt.getY().toString
+      }
+    }
 
-// lOD URL for mint!
-/*
+  }
+
+  def mintsHtml: String = {
+    val wrapped = mints.map {
+      s => "<li><a href='" + urlFromId(s) + "'>" + s + "</a></li>"
+    }
+    "<ul>" + wrapped.mkString("\n") + "</ul>"
+  }
   def kmlPoint: String = {
-    val mintsList = mints.mkString("\n")
-    """
+
+    s"""
     <Placemark>
     <name>${id}</name>
-    <description>${dateLabel}\n\n""" +
-    raw."""${mintsList}</description>
+    <description><p>${dateLabel}</p>""" +
+    s"""${mintsHtml}</description>
     <Point>
-      <coordinates>${geo.getOrElse("")},0</coordinates>
+      <coordinates>${geoString},0</coordinates>
     </Point>
     </Placemark>
     """
   }
-  */
+
 }

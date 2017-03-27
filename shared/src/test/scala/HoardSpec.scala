@@ -19,8 +19,15 @@ class HoardSpec extends FlatSpec {
         assert(pt.get.getY() == 44)
       }
 
-      case _ => fail("Expedted to find a point here.")
+      case _ => fail("Expected to find a point here.")
     }
   }
+
+  it should "export a record to KML" in pending/*{
+
+    val pointDate = ClosingDate(-450)
+    val hoard = Hoard("dummy hoard", "dummy",Some(pointDate),Vector("athens","chios"),Some(new Point(39.215,44)))
+    val kml = hoard.kmlPoint
+  }*/
 
 }
