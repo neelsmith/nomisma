@@ -1,6 +1,6 @@
 package edu.holycross.shot.nomisma
 import org.scalatest.FlatSpec
-import com.esri.core.geometry._
+//import com.esri.core.geometry._
 
 class HoardSourceSpec extends FlatSpec {
 
@@ -20,7 +20,7 @@ class HoardSourceSpec extends FlatSpec {
     val srcFile = "jvm/src/test/resources/singlehoard.rdf"
     val coll = HoardSource.fromFile(srcFile)
     val hoard1 = coll.hoards(0)
-    val expectedPoint = new Point(39.215,44)
+    val expectedPoint =  Point(39.215,44)
     assert (hoard1.geo.get == expectedPoint)
   }
 
@@ -32,7 +32,7 @@ class HoardSourceSpec extends FlatSpec {
     assert(geo.size == 1)
     val actualEntry = geo(0)
     assert (actualEntry.mint == "athens")
-    assert(actualEntry.pt == new Point(23.7225,37.974722))
+    assert(actualEntry.pt ==  Point(23.7225,37.974722))
     //val athensPoint = geo get "athens"
     //val expected = new Point(23.7225,37.974722)
     //assert(expected == athensPoint.get)

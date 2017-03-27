@@ -1,6 +1,6 @@
 package edu.holycross.shot.nomisma
 import org.scalatest.FlatSpec
-import com.esri.core.geometry._
+//import com.esri.core.geometry._
 
 class ContentsGraphSpec extends FlatSpec {
 
@@ -9,7 +9,7 @@ class ContentsGraphSpec extends FlatSpec {
     val hoard = Hoard("dummy hoard", "dummy",Some(pointDate),Vector("athens"),Some(new Point(23,26)))
     hoard.prettyPrint
 
-    
+
   }
 
 

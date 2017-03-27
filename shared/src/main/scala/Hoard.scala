@@ -1,7 +1,10 @@
 package edu.holycross.shot.nomisma
 
-import com.esri.core.geometry._
+//import com.esri.core.geometry._
+import scala.xml._
 
+import scala.scalajs.js
+import js.annotation.JSExport
 
 /** A coin hoard.
 *
@@ -13,7 +16,7 @@ import com.esri.core.geometry._
 * `nomisma.org` identifier.
 * @param geo Location of hoard as a geographic point.
 */
-case class Hoard (
+@JSExport case class Hoard (
   id: String,
   label: String,
   closingDate: Option[ClosingDate],
@@ -48,7 +51,7 @@ case class Hoard (
       case None => ""
       case ptOpt: Some[Point] => {
         val pt = ptOpt.get
-        pt.getX().toString +","+pt.getY().toString
+        pt.x.toString +","+pt.y.toString
       }
     }
 
@@ -73,5 +76,4 @@ case class Hoard (
     </Placemark>
     """
   }
-
 }

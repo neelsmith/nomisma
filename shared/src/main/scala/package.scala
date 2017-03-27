@@ -1,5 +1,7 @@
 package edu.holycross.shot
 
+
+
 /** A library for working with freely available numismatic
 * data from `nomisma.org`.
 *
@@ -13,7 +15,8 @@ package edu.holycross.shot
 *
 */
 package object nomisma {
-
+  import scala.xml._
+  //import com.esri.core.geometry._
 
   /** Extract the unique ID value from a long
   * identifying URL.
@@ -38,6 +41,25 @@ package object nomisma {
   */
   def prettyId(id: String) : String = {
     id.replaceAll("_"," ").split(' ').map(_.capitalize).mkString(" ")
+  }
+
+
+  /** Extract coordinate data from a `SpatialThing` node
+  * and pair it with the hoard ID.
+  *
+  * @param n `SpatialThing` node
+  */
+  def spatialForNode(n: scala.xml.Node) = {
+    var hoardKey = ""
+    val attV = n.attributes.toVector
+    for (a <- attV) {
+      if (a.key == "about") {
+        hoardKey = idFromUrl( a.value.text)
+      } else {}
+    }
+    val lat = n \ "lat"
+    val lon = n \ "long"
+    (hoardKey,Point(lon.text.toDouble,lat.text.toDouble))
   }
 
 }

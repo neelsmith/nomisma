@@ -1,9 +1,11 @@
 package edu.holycross.shot.nomisma
 
 import scala.io.Source
+
+
 import scala.xml._
 
-import com.esri.core.geometry._
+//import com.esri.core.geometry._
 
 import scala.collection.mutable.ArrayBuffer
 import scala.collection.mutable.Map
@@ -20,7 +22,8 @@ object HoardSource {
   * @param fName Name of RDF file.
   */
   def fromFile(fName : String) : HoardCollection = {
-
+    HoardCollection(Source.fromFile(fName).getLines.mkString("\n"))
+/*
     val root = XML.loadFile(fName)
     val spatialNodes = root \\ "SpatialThing"
     val hoardNodes =  root \\ "Hoard"
@@ -64,75 +67,9 @@ object HoardSource {
 
     }
     HoardCollection(hoards.toVector)
+    */
   }
 
-
-  /** Extract coordinate data from a `SpatialThing` node
-  * and pair it with the hoard ID.
-  *
-  * @param n `SpatialThing` node
-  */
-  def spatialForNode(n: scala.xml.Node) = {
-    var hoardKey = ""
-    val attV = n.attributes.toVector
-    for (a <- attV) {
-      if (a.key == "about") {
-        hoardKey = idFromUrl( a.value.text)
-      } else {}
-    }
-    val lat = n \ "lat"
-    val lon = n \ "long"
-    (hoardKey,new Point(lon.text.toDouble,lat.text.toDouble))
-  }
-
-
-  /** Convert a sequence of `SpatialThing` nodes to
-  * a map of hoard to coordinate pairs.
-  *
-  * @param nodeSeq Sequence of `SpatialThing` nodes.
-  */
-  def spatialIndex(nodeSeq : NodeSeq): scala.collection.mutable.Map[String,Point] = {
-    var idx = scala.collection.mutable.Map[String,Point]()
-    for (n <- nodeSeq) {
-      val spatial = spatialForNode(n)
-      idx += (spatial._1 -> spatial._2)
-    }
-    idx
-  }
-
-
-
-  /** Create [[ClosingDate]] from informaiton in the
-  * parsed RDF XML for a hoard.
-  *
-  * @param hoardNode Parsed `Hoard` element in RDF XML used
-  * by `nomisma.org`.
-  */
-  def closingDate(hoardNode: scala.xml.Node) : Option[ClosingDate] = {
-    val rangeVals = hoardNode \\ "hasStartDate"
-    rangeVals.size match {
-      case 0 =>
-        try {
-          Some(ClosingDate(hoardNode.text.toInt, None))
-        } catch {
-          case e: java.lang.NumberFormatException => {
-            println("UNABLE TO PARSE "+ hoardNode.text + s" (length ${hoardNode.text.size})")
-            None
-          }
-        }
-      case 2 =>
-      try {
-       Some(ClosingDate(rangeVals(0).text.toInt,rangeVals(1).text.toInt))
-      } catch {
-        case e: java.lang.NumberFormatException => {
-          println("UNABLE TO PARSE "+ hoardNode.text)
-          None
-        }
-      }
-
-      case _ => None
-    }
-  }
 
   def geoForMint(mint: String): MintPoint = {
     val urlBase = "https://raw.githubusercontent.com/nomisma/data/master/id/"
@@ -148,7 +85,8 @@ object HoardSource {
     } catch {
       case e : Throwable => {
         println("Something went wrong: " + e)
-        MintPoint(mint, new Point())
+        //MintPoint(mint, new Point())
+        throw e
       }
     }
   }

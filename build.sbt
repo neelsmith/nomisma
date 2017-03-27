@@ -22,7 +22,8 @@ lazy val crossed = crossProject.in(file(".")).
       libraryDependencies ++= Seq(
         "org.scala-js" %% "scalajs-stubs" % scalaJSVersion % "provided",
         "org.scalatest" %%% "scalatest" % "3.0.1" % "test",
-        "com.esri.geometry" % "esri-geometry-api" % "1.2.1"
+        "org.scala-lang.modules" %% "scala-xml" % "1.0.6"/*,
+        "com.esri.geometry" % "esri-geometry-api" % "1.2.1"*/
       )
     ).
     jvmSettings(

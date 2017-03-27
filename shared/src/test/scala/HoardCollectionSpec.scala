@@ -2,7 +2,7 @@ package edu.holycross.shot.nomisma
 import org.scalatest.FlatSpec
 
 
-import com.esri.core.geometry._
+//import com.esri.core.geometry._
 
 class HoardCollectionSpec extends FlatSpec {
 
