@@ -56,7 +56,7 @@ case class Hoard (
 
   def mintsHtml: String = {
     val wrapped = mints.map {
-      s => "<li><a href='" + urlFromId(s) + "'>" + s + "</a></li>"
+      s => "<li><a href='" + urlFromId(s) + "'>" + prettyId(s) + "</a></li>"
     }
     "<ul>" + wrapped.mkString("\n") + "</ul>"
   }
