@@ -63,7 +63,6 @@ import js.annotation.JSExport
         pt.x.toString +","+pt.y.toString
       }
     }
-
   }
 
   def mintsHtml: String = {

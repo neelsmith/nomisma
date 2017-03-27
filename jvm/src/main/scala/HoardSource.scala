@@ -25,23 +25,41 @@ object HoardSource {
     HoardCollection(Source.fromFile(fName).getLines.mkString("\n"))
   }
 
+  def rdfForId(url: String): Option[String] = {
+    try {
+      Some(scala.io.Source.fromURL(url).mkString)
+    } catch {
+      case e: Throwable => {
+        println("Couldn't get to url " + url)
+        None
+      }
+    }
+  }
 
-  def geoForMint(mint: String): MintPoint = {
+  def geoForMint(mint: String): Option[MintPoint] = {
     val urlBase = "https://raw.githubusercontent.com/nomisma/data/master/id/"
 
     val url = urlBase + mint + ".rdf"
-    val rdf = scala.io.Source.fromURL(url).mkString
-
-    try {
-      val root = XML.loadString(rdf)
-      val spatialThings = root \\ "SpatialThing"
-      val spatial = spatialForNode(spatialThings(0))
-      MintPoint(spatial._1 , spatial._2)
-    } catch {
-      case e : Throwable => {
-        println("Something went wrong: " + e)
-        //MintPoint(mint, new Point())
-        throw e
+    println("GET URL " + url)
+    rdfForId(url) match {
+      case None => None
+      case rdf: Some[String] => {
+        val root = XML.loadString(rdf.get)
+        val spatialThings = root \\ "SpatialThing"
+        if (spatialThings.size != 1) {
+          println("No spatial data for " + mint + "(url " + url + ")")
+          None
+        } else {
+          try {
+            val spatial = spatialForNode(spatialThings(0))
+            Some(MintPoint(spatial._1 , spatial._2))
+          } catch {
+            case e : Throwable => {
+              println("Something went wrong: " + e)
+              None
+            }
+          }
+        }
       }
     }
   }
@@ -51,21 +69,39 @@ object HoardSource {
   *
   * @param mints Set of mint IDs to look up.
   */
-  def geoForMints(mints: Set[String]): Vector[MintPoint] = {//: Map[String,Point] = {
+  def geoForMints(mints: Set[String]): MintPointCollection = {
     var rslt = scala.collection.mutable.ArrayBuffer[MintPoint]()
+
     for (m <- mints)  {
       val geo = geoForMint(m)
-      rslt += geo
+      geo match {
+        case None =>
+        case pt : Some[MintPoint] => rslt += pt.get
+      }
+
     }
-    rslt.toVector
+    MintPointCollection(rslt.toVector)
   }
 
   def contentsGraph(hoardCollection: HoardCollection) = {
+    var rslt = scala.collection.mutable.ArrayBuffer[ContentsGraph]()
+    val mintsGeo = geoForMints(hoardCollection.located.mintSet)
+
+    println("Analyzing " + hoardCollection.size + " hoards.")
+    var count = 0
     for (h <- hoardCollection.hoards) yield {
+      count = count + 1
+      println("Hoard "+ count)
       // get list of mints, and collection their geo.
-      val mintsGeo = geoForMints(h.mints.toSet)
-      ContentsGraph(h.id,h.geo.get,mintsGeo)
+
+      try {
+        val cg = ContentsGraph(h.id,h.geo.get,mintsGeo.forMints(h.mints).mintPoints)
+        rslt += cg
+      } catch {
+        case e: Throwable => println("Failed on " + h.id)
+      }
     }
+    ContentsGraphCollection(rslt.toVector)
   }
 }
 

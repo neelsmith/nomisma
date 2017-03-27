@@ -4,8 +4,6 @@ package edu.holycross.shot.nomisma
 import scala.scalajs.js
 import js.annotation.JSExport
 
-@JSExport case class MintPoint(mint: String, pt: Point)
-
 /**
 */
 @JSExport case class ContentsGraph (

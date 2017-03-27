@@ -17,7 +17,7 @@ class HoardCollectionDateSpec extends FlatSpec {
     println("hoard1 avg " + hoard1.pointAverage)
     println("Hoard2 avg " + hoard2.pointAverage)
     assert(hoardCollection.maxAvgDate == -440)
-    //assert(hoardCollection.minAvgDate == -450)
+    assert(hoardCollection.minAvgDate == -450)
   }
 
   it should "filter a list of date averages" in {
@@ -36,7 +36,9 @@ class HoardCollectionDateSpec extends FlatSpec {
     val rangeDate = ClosingDate(-450, -430)
     println("RANGE DATE = " + rangeDate)
     println("IT HAS PTAVG " + rangeDate.pointAverage)
-  }/*
+  }
+
+  /*
 
     val pointDate = ClosingDate(-450)
     val hoard1 = Hoard("dummy hoard 1", "dummy1",Some(pointDate),Vector("athens", "samos"),None)
