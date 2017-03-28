@@ -8,8 +8,6 @@ class ContentsGraphSpec extends FlatSpec {
     val pointDate = ClosingDate(-450)
     val hoard = Hoard("dummy hoard", "dummy",Some(pointDate),Vector("athens"),Some(new Point(23,26)))
     hoard.prettyPrint
-
-
   }
 
 

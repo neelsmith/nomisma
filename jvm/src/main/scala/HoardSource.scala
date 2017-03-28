@@ -83,7 +83,7 @@ object HoardSource {
     MintPointCollection(rslt.toVector)
   }
 
-  def contentsGraph(hoardCollection: HoardCollection) = {
+  def contentsGraph(hoardCollection: HoardCollection): ContentsGraphCollection = {
     var rslt = scala.collection.mutable.ArrayBuffer[ContentsGraph]()
     val mintsGeo = geoForMints(hoardCollection.located.mintSet)
 

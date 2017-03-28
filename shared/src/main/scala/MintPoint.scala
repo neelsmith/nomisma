@@ -7,6 +7,10 @@ import js.annotation.JSExport
 @JSExport case class MintPoint(mint: String, pt: Point)
 
 @JSExport case class MintPointCollection(mintPoints: Vector[MintPoint] )  {
+
+  def size: Integer = {
+    mintPoints.size
+  }
   def forMint(mintName: String): Option[MintPoint] = {
     val srch = mintPoints.filter(_.mint == mintName)
     if (srch.isEmpty) {

@@ -62,4 +62,25 @@ package object nomisma {
     (hoardKey,Point(lon.text.toDouble,lat.text.toDouble))
   }
 
+
+  /** Create KML string for line linking two points.
+  *
+  * @param label Human-readable label for line.
+  * @param pr1 String representation of an x,y pair.
+  * @param pr2 String representation of second x,y pair.
+  */
+  def kmlLine(label: String, pr1: String, pr2: String): String = {
+    val lineString = raw"""
+    <Placemark>
+        <name>${label}</name>
+        <description></description>
+        <LineString>
+            <extrude>1</extrude>
+            <tessellate>1</tessellate>
+            <coordinates>${pr1} ${pr2}</coordinates>
+        </LineString>
+    </Placemark>
+    """"
+    lineString
+  }
 }

@@ -4,4 +4,9 @@ package edu.holycross.shot.nomisma
 import scala.scalajs.js
 import js.annotation.JSExport
 
-@JSExport case class Point(x: Double, y: Double)
+@JSExport case class Point(x: Double, y: Double) {
+
+  override def toString = {
+    x.toString + "," + y.toString
+  }
+}

@@ -30,7 +30,7 @@ class HoardSourceSpec extends FlatSpec {
     val geo = HoardSource.geoForMints(mints)
 
     assert(geo.size == 1)
-    val actualEntry = geo(0)
+    val actualEntry = geo.mintPoints(0)
     assert (actualEntry.mint == "athens")
     assert(actualEntry.pt ==  Point(23.7225,37.974722))
     //val athensPoint = geo get "athens"

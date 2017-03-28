@@ -5,7 +5,7 @@
 
 ## Current version: not yet released.
 
-Status: active development. [Release notes](releases.md)
+Status: still early development, but in active development. [Release notes](releases.md)
 
 ## License
 
