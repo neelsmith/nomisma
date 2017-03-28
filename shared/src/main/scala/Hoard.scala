@@ -71,13 +71,33 @@ import js.annotation.JSExport
     }
     "<ul>" + wrapped.mkString("\n") + "</ul>"
   }
+
+
+
+  def sizeUrl: String = {
+    mints.size match {
+      case n if (n >= 36) => "#group6"
+      case n if (n >= 22 && n < 36) => "#group5"
+      case n if (n >= 7 && n < 22) => "#group4"
+      case n if (n >= 4 && n < 7) => "#group3"
+      case n if (n >= 2 && n < 4) => "#group2"
+      case n if (n == 1) => "#group1"
+
+    }
+  }
+
+  def mintUrl: String = {
+    "<a href='http://coinhoards.org/id/" + id + "'>" + label + "</a>"
+  }
+
   def kmlPoint: String = {
 
-    s"""
+    raw"""
     <Placemark>
     <name>${id}</name>
-    <description><p>${dateLabel}</p>""" +
-    s"""${mintsHtml}</description>
+    <description><p>${mintUrl}, ${dateLabel}</p>
+    ${mintsHtml}</description>
+    <styleUrl>${sizeUrl}</styleUrl>
     <Point>
       <coordinates>${geoString},0</coordinates>
     </Point>
