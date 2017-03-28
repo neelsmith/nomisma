@@ -11,6 +11,7 @@ import js.annotation.JSExport
     <name>${mint}</name>
     <description><p>Mint ${mint}</p>
     </description>
+    <styleUrl>#mint_style</styleUrl>
     <Point>
       <coordinates>${pt},0</coordinates>
     </Point>

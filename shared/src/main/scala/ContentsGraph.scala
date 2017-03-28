@@ -20,6 +20,8 @@ import js.annotation.JSExport
   mintPoints: Vector[MintPoint]
 ) {
 
+
+
   def mintsHtml = {
     val wrapped = mintPoints.map {
       pt => "<li><a href='" + urlFromId(pt.mint) + "'>" + prettyId(pt.mint) + "</a></li>"
@@ -37,6 +39,7 @@ import js.annotation.JSExport
     <description><p>Hoard ${id}</p>
     ${mintsHtml}
     </description>
+    <styleUrl>#hoard_style</styleUrl>
     <Point>
       <coordinates>${hoard},0</coordinates>
     </Point>
