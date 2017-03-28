@@ -4,9 +4,22 @@ package edu.holycross.shot.nomisma
 import scala.scalajs.js
 import js.annotation.JSExport
 
-@JSExport case class MintPoint(mint: String, pt: Point)
+@JSExport case class MintPoint(mint: String, pt: Point) {
+
+  def toKml: String = {
+    raw"""<Placemark>
+    <name>${mint}</name>
+    <description><p>Mint ${mint}</p>
+    </description>
+    <Point>
+      <coordinates>${pt},0</coordinates>
+    </Point>
+    </Placemark>"""
+  }
+}
 
 @JSExport case class MintPointCollection(mintPoints: Vector[MintPoint] )  {
+
 
   def size: Integer = {
     mintPoints.size

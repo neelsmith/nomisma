@@ -20,6 +20,12 @@ import js.annotation.JSExport
   mintPoints: Vector[MintPoint]
 ) {
 
+  def mintsHtml = {
+    val wrapped = mintPoints.map {
+      pt => "<li><a href='" + urlFromId(pt.mint) + "'>" + prettyId(pt.mint) + "</a></li>"
+    }
+    "<ul>" + wrapped.mkString("\n") + "</ul>"
+  }
 
   /** Create KML string for this hoard's
   * relations to mints represented in the hoard.
@@ -28,17 +34,20 @@ import js.annotation.JSExport
     val referencePoint = raw"""
     <Placemark>
     <name>${id}</name>
-    <description>""" +
-    s"""${id}</description>
+    <description><p>Hoard ${id}</p>
+    ${mintsHtml}
+    </description>
     <Point>
       <coordinates>${hoard},0</coordinates>
     </Point>
     </Placemark>
     """
-    var lineStrings = scala.collection.mutable.ArrayBuffer[String]()
+    var mintStrings = scala.collection.mutable.ArrayBuffer[String]()
     for (m <- mintPoints ) {
-      lineStrings += kmlLine("${id} - ${m.mint}", hoard.toString, m.pt.toString)
+      mintStrings += kmlLine("${id} - ${m.mint}", hoard.toString, m.pt.toString)
+      mintStrings += m.toKml
+
     }
-    referencePoint + "\n\n" + lineStrings.mkString("\n\n")
+    referencePoint + "\n\n" + mintStrings.mkString("\n\n")
   }
 }
