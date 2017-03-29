@@ -50,5 +50,12 @@ def printHoards = {
   }
 }
 
+def printCsv = {
+  for ((hoard,coll) <- hoardSets) {
+    val hoardColl = HoardCollection(coll)
+    val hoardGeo = hoardColl.toKml
+    new PrintWriter(hoard + "-hoards.kml") { write(hoardGeo); close}
+  }
+}
 
 //

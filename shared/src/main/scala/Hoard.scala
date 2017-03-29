@@ -91,7 +91,9 @@ import js.annotation.JSExport
   }
 
   def kmlPoint: String = {
-
+    geo match {
+      case None => ""
+      case _ =>
     raw"""
     <Placemark>
     <name>${id}</name>
@@ -103,5 +105,20 @@ import js.annotation.JSExport
     </Point>
     </Placemark>
     """
+  }
+  }
+  def delimited(delimiter: String = "#"): String = {
+    val dateDisplay = {
+       closingDate match {
+         case None => ""
+         case _ => closingDate.get
+       }
+    }
+
+    geo match {
+      case None => ""
+      case _ =>
+        raw"""${id}${delimiter}${label}${delimiter}${dateDisplay}${delimiter}${geo.get.x}${delimiter}${geo.get.y}"""
+    }
   }
 }

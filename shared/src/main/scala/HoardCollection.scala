@@ -142,6 +142,11 @@ import js.annotation.JSExport
     preface + hoards.map(_.kmlPoint).mkString("\n") + trail
   }
 
+  def delimitedText(separator: String = "#"): String = {
+    val csvHeader = "id,label,date,lon,lat\n"
+    csvHeader + hoards.map(_.delimited(separator)).mkString("\n")
+  }
+
 }
 
 
