@@ -20,6 +20,7 @@ val hoardSets = Map(
 )
 
 import java.io.PrintWriter
+/*
 for ((hoard,coll) <- hoardSets) {
   println(hoard + ": " + coll.size + " hoards")
   val cg = HoardSource.contentsGraph(HoardCollection(coll))
@@ -32,6 +33,29 @@ for ((hoard,coll) <- hoardSets) {
   new PrintWriter(hoard + "-hoards.kml") { write(hoardGeo); close}
 }
 
+*/
+def printLinkMaps = {
+  for ((hoard,coll) <- hoardSets) {
+    println(hoard + ": " + coll.size + " hoards")
+    val cg = HoardSource.contentsGraph(HoardCollection(coll))
+    val mintLinks = cg.toKml
+    new PrintWriter(hoard + "-mintLinks.kml") { write(mintLinks); close}
+  }
+}
+def printHoards = {
+  for ((hoard,coll) <- hoardSets) {
+    val hoardColl = HoardCollection(coll)
+    val hoardGeo = hoardColl.toKml
+    new PrintWriter(hoard + "-hoards.kml") { write(hoardGeo); close}
+  }
+}
 
+def printCsv = {
+  for ((hoard,coll) <- hoardSets) {
+    val hoardColl = HoardCollection(coll)
+    val hoardGeo = hoardColl.toKml
+    new PrintWriter(hoard + "-hoards.kml") { write(hoardGeo); close}
+  }
+}
 
 //

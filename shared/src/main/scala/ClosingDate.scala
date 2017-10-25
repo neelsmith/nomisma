@@ -43,6 +43,13 @@ import js.annotation.JSExport
     }
   }
 
+  def toString(separator: String): String = {
+    d2 match {
+      case d: Some[Integer] => s"${d1}${separator}${d.get}"
+      case _ => d1.toString
+    }
+  }
+
 
 }
 

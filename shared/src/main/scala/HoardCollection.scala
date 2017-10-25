@@ -13,8 +13,64 @@ import js.annotation.JSExport
 * @param hoards Vector of [[Hoard]]s in this collection.
 */
 @JSExport case class HoardCollection(hoards: Vector[Hoard])  {
+  /*
+<<<<<<< HEAD
 
-
+=======
+  val preface = """<?xml version="1.0" encoding="UTF-8"?>
+  <kml xmlns="http://www.opengis.net/kml/2.2">
+    <Document>
+    <Style id="group1">
+      <IconStyle>
+        <scale>0.5</scale>
+        <Icon>
+          <href>http://maps.google.com/mapfiles/kml/shapes/placemark_circle_highlight.png</href>
+        </Icon>
+      </IconStyle>
+    </Style>
+    <Style id="group2">
+      <IconStyle>
+        <Icon>
+          <scale>1.0</scale>
+            <href>http://maps.google.com/mapfiles/kml/shapes/placemark_circle_highlight.png</href>
+        </Icon>
+      </IconStyle>
+    </Style>
+    <Style id="group3">
+      <IconStyle>
+        <Icon>
+          <scale>8.0</scale>
+            <href>http://maps.google.com/mapfiles/kml/shapes/placemark_circle_highlight.png</href>
+        </Icon>
+      </IconStyle>
+    </Style>
+    <Style id="group4">
+      <IconStyle>
+        <Icon>
+          <scale>16.0</scale>
+            <href>http://maps.google.com/mapfiles/kml/shapes/placemark_circle_highlight.png</href>
+        </Icon>
+      </IconStyle>
+    </Style>
+    <Style id="group5">
+      <IconStyle>
+        <Icon>
+          <scale>32.0</scale>
+            <href>http://maps.google.com/mapfiles/kml/shapes/placemark_circle_highlight.png</href>
+        </Icon>
+      </IconStyle>
+    </Style>
+    <Style id="group6">
+      <IconStyle>
+        <Icon>
+          <scale>64.0</scale>
+            <href>http://maps.google.com/mapfiles/kml/shapes/placemark_circle_highlight.png</href>
+        </Icon>
+      </IconStyle>
+    </Style>
+  """
+>>>>>>> 3d7500cf10ba0aa4f0147491182cdd723b159a34
+*/
   /** Conclusion to KML document.
   */
   val trail = "</Document></kml>"
@@ -91,11 +147,12 @@ import js.annotation.JSExport
     }
   }
 */
-  def toKml: String = {
+/*  def toKml: String = {
     preface + hoards.map(_.kmlPoint).mkString("\n") + trail
   }
 
-
+<<<<<<< HEAD
+*/
   /** Preface to KML document.
   */
   val preface = """<?xml version="1.0" encoding="UTF-8"?>
@@ -150,7 +207,14 @@ import js.annotation.JSExport
       </IconStyle>
     </Style>
   """
-
+  /*
+=======
+  def delimitedText(separator: String = "#"): String = {
+    val csvHeader = "id,label,date,lon,lat\n"
+    csvHeader + hoards.map(_.delimited(separator)).mkString("\n")
+  }
+>>>>>>> 3d7500cf10ba0aa4f0147491182cdd723b159a34
+*/
 }
 
 

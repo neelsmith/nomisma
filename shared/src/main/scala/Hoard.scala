@@ -71,6 +71,8 @@ import js.annotation.JSExport
     }
     "<ul>" + wrapped.mkString("\n") + "</ul>"
   }
+  /*
+<<<<<<< HEAD
 
 
   def sizeUrl: String = {
@@ -78,15 +80,15 @@ import js.annotation.JSExport
       case n if (n >= 36) => "#group6"
       case n if (n >= 22 && n < 36) => "#group5"
 
-      case _ => "#group1"
+      case _ => "#group1" */
       /*
       case n if (n >= 36) => "#group6"
       case n if (n >= 36) => "#group6"
       case n if (n >= 36) => "#group6"
       case n if (n >= 36) => "#group6"
       */
-    }
-  }
+    //}
+  //}
   /*
   36-66
   22-33
@@ -95,19 +97,65 @@ import js.annotation.JSExport
   2-3
   1
   */
-  def kmlPoint: String = {
 
-    s"""
+  /*
+  def kmlPoint: String = {
+=======
+>>>>>>> 3d7500cf10ba0aa4f0147491182cdd723b159a34
+*/
+
+
+  def sizeUrl: String = {
+    mints.size match {
+      case n if (n >= 36) => "#group6"
+      case n if (n >= 22 && n < 36) => "#group5"
+      case n if (n >= 7 && n < 22) => "#group4"
+      case n if (n >= 4 && n < 7) => "#group3"
+      case n if (n >= 2 && n < 4) => "#group2"
+      case n if (n == 1) => "#group1"
+
+    }
+  }
+
+  def mintUrl: String = {
+    "<a href='http://coinhoards.org/id/" + id + "'>" + label + "</a>"
+  }
+
+  def kmlPoint: String = {
+    geo match {
+      case None => ""
+      case _ =>
+    raw"""
     <Placemark>
     <name>${id}</name>
+<<<<<<< HEAD
     <description><p>${dateLabel}</p>
     ${mintsHtml}
     </description>
+=======
+    <description><p>${mintUrl}, ${dateLabel}</p>
+    ${mintsHtml}</description>
+>>>>>>> 3d7500cf10ba0aa4f0147491182cdd723b159a34
     <styleUrl>${sizeUrl}</styleUrl>
     <Point>
       <coordinates>${geoString},0</coordinates>
     </Point>
     </Placemark>
     """
+  }
+  }
+  def delimited(delimiter: String = "#"): String = {
+    val dateDisplay = {
+       closingDate match {
+         case None => ""
+         case _ => closingDate.get
+       }
+    }
+
+    geo match {
+      case None => ""
+      case _ =>
+        raw"""${id}${delimiter}${label}${delimiter}${dateDisplay}${delimiter}${geo.get.x}${delimiter}${geo.get.y}"""
+    }
   }
 }
