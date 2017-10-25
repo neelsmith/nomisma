@@ -71,13 +71,39 @@ import js.annotation.JSExport
     }
     "<ul>" + wrapped.mkString("\n") + "</ul>"
   }
+
+
+  def sizeUrl: String = {
+    mints.size match {
+      case n if (n >= 36) => "#group6"
+      case n if (n >= 22 && n < 36) => "#group5"
+
+      case _ => "#group1"
+      /*
+      case n if (n >= 36) => "#group6"
+      case n if (n >= 36) => "#group6"
+      case n if (n >= 36) => "#group6"
+      case n if (n >= 36) => "#group6"
+      */
+    }
+  }
+  /*
+  36-66
+  22-33
+  7-19
+  4-6
+  2-3
+  1
+  */
   def kmlPoint: String = {
 
     s"""
     <Placemark>
     <name>${id}</name>
-    <description><p>${dateLabel}</p>""" +
-    s"""${mintsHtml}</description>
+    <description><p>${dateLabel}</p>
+    ${mintsHtml}
+    </description>
+    <styleUrl>${sizeUrl}</styleUrl>
     <Point>
       <coordinates>${geoString},0</coordinates>
     </Point>

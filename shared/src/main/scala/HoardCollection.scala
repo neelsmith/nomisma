@@ -13,12 +13,7 @@ import js.annotation.JSExport
 * @param hoards Vector of [[Hoard]]s in this collection.
 */
 @JSExport case class HoardCollection(hoards: Vector[Hoard])  {
-  /** Preface to KML document.
-  */
-  val preface = """<?xml version="1.0" encoding="UTF-8"?>
-  <kml xmlns="http://www.opengis.net/kml/2.2">
-    <Document>
-  """
+
 
   /** Conclusion to KML document.
   */
@@ -31,6 +26,10 @@ import js.annotation.JSExport
     hoards.size
   }
 
+
+  def hasMint : HoardCollection = {
+    HoardCollection(hoards.filter(_.mints.nonEmpty))
+  }
   /** Create a new HoardCollection containing only
   * hoards with known geographic location.
   */
@@ -95,6 +94,62 @@ import js.annotation.JSExport
   def toKml: String = {
     preface + hoards.map(_.kmlPoint).mkString("\n") + trail
   }
+
+
+  /** Preface to KML document.
+  */
+  val preface = """<?xml version="1.0" encoding="UTF-8"?>
+  <kml xmlns="http://www.opengis.net/kml/2.2">
+    <Document>
+    <Style id="group1">
+      <IconStyle>
+        <scale>0.5</scale>
+        <Icon>
+          <href>http://maps.google.com/mapfiles/kml/shapes/placemark_circle_highlight.png</href>
+        </Icon>
+      </IconStyle>
+    </Style>
+    <Style id="group2">
+      <IconStyle>
+        <Icon>
+          <scale>1.0</scale>
+            <href>http://maps.google.com/mapfiles/kml/shapes/placemark_circle_highlight.png</href>
+        </Icon>
+      </IconStyle>
+    </Style>
+    <Style id="group3">
+      <IconStyle>
+        <Icon>
+          <scale>2.0</scale>
+            <href>http://maps.google.com/mapfiles/kml/shapes/placemark_circle_highlight.png</href>
+        </Icon>
+      </IconStyle>
+    </Style>
+    <Style id="group4">
+      <IconStyle>
+        <Icon>
+          <scale>4.0</scale>
+            <href>http://maps.google.com/mapfiles/kml/shapes/placemark_circle_highlight.png</href>
+        </Icon>
+      </IconStyle>
+    </Style>
+    <Style id="group5">
+      <IconStyle>
+        <Icon>
+          <scale>6.0</scale>
+            <href>http://maps.google.com/mapfiles/kml/shapes/placemark_circle_highlight.png</href>
+        </Icon>
+      </IconStyle>
+    </Style>
+    <Style id="group6">
+      <IconStyle>
+        <Icon>
+          <scale>8.0</scale>
+            <href>http://maps.google.com/mapfiles/kml/shapes/placemark_circle_highlight.png</href>
+        </Icon>
+      </IconStyle>
+    </Style>
+  """
 
 }
 
