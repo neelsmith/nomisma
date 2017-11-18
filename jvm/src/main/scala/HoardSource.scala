@@ -1,11 +1,10 @@
 package edu.holycross.shot.nomisma
 
 import scala.io.Source
-
+import java.io.File
 
 import scala.xml._
 
-//import com.esri.core.geometry._
 
 import scala.collection.mutable.ArrayBuffer
 import scala.collection.mutable.Map
@@ -16,7 +15,7 @@ import scala.collection.mutable.Map
 */
 object HoardSource {
 
-  /** Create a [[HoardCollection]] from a file in RDF format
+  /** Create a [[HoardCollection]] from a file in the RDF format
   * used by `nomisma.org`.
   *
   * @param fName Name of RDF file.
@@ -25,6 +24,11 @@ object HoardSource {
     HoardCollection(Source.fromFile(fName).getLines.mkString("\n"))
   }
 
+
+  /** Retreive RDF data from a URL.
+  *
+  * @param url Location of RDF source file.
+  */
   def rdfForId(url: String): Option[String] = {
     try {
       Some(scala.io.Source.fromURL(url).mkString)
@@ -36,6 +40,29 @@ object HoardSource {
     }
   }
 
+
+  /** Retreive RDF data from a File.
+  *
+  * @param url Location of RDF source file.
+  */
+  def rdfForFile(f: File): Option[String] = {
+    try {
+      Some(scala.io.Source.fromFile(f).mkString)
+    } catch {
+      case e: Throwable => {
+        println("Couldn't get contents from File " + f)
+        None
+      }
+    }
+  }
+
+
+
+  /** Create an optional [MintPoint] by consulting nomisma.org's github repo.
+  *
+  * @param mint String identifier for mint to look up.
+  *
+  */
   def geoForMint(mint: String): Option[MintPoint] = {
     val urlBase = "https://raw.githubusercontent.com/nomisma/data/master/id/"
 
@@ -83,6 +110,11 @@ object HoardSource {
     MintPointCollection(rslt.toVector)
   }
 
+
+
+
+  /**
+  */
   def contentsGraph(hoardCollection: HoardCollection): ContentsGraphCollection = {
     var rslt = scala.collection.mutable.ArrayBuffer[ContentsGraph]()
     val mintsGeo = geoForMints(hoardCollection.located.mintSet)
@@ -104,20 +136,3 @@ object HoardSource {
     ContentsGraphCollection(rslt.toVector)
   }
 }
-
-
-/*
-val athensFinds = igch.filter(_.mints.contains("athens"))
-
-val plottable = athensFinds.filter(_.geo match {
-  case None => false
-  case _ => true
-})
-
-val kmlDocStr = preface + athensFinds.map(_.kmlPoint).mkString("\n") + trail
-
-
-import java.io.PrintWriter
-new PrintWriter("athenscoins.kml") { write(kmlDocStr); close }
-
-*/

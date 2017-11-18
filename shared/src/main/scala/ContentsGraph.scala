@@ -1,6 +1,5 @@
 package edu.holycross.shot.nomisma
 
-//import com.esri.core.geometry._
 import scala.scalajs.js
 import js.annotation.JSExport
 
@@ -21,7 +20,8 @@ import js.annotation.JSExport
 ) {
 
 
-
+  /** A Vector of labelling HTML LI elements for each mints.
+  */
   def mintsHtml = {
     val wrapped = mintPoints.map {
       pt => "<li><a href='" + urlFromId(pt.mint) + "'>" + prettyId(pt.mint) + "</a></li>"
