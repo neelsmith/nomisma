@@ -28,4 +28,13 @@ For maven, ivy or gradle equivalents, refer to <https://bintray.com/neelsmith/ma
 
 
 
-`nomisma` is built using [sbt](http://www.scala-sbt.org/). To build from source and test, use normal `sbt` commands (`compile`, `test` ...).
+`nomisma` is built using [sbt](http://www.scala-sbt.org/). To build from source and test, use normal `sbt` commands (`compile`, `test` ...)
+
+## Documentation
+
+Is being planned for <https://neelsmith.github.io/nomisma/>.
+
+
+## Data sets
+
+The directory `ids` is a copy of this directory in the `nomisma.org` data repository: <https://github.com/nomisma/data/tree/master/id>.  It was last refreshed on Nov 18, 2017.
