@@ -3,9 +3,9 @@
 
 `nomisma` is a cross-platform library for working with freely available numismatic data from <http://nomisma.org>.
 
-## Current version: not yet released.
+## Current version: **0.2.0**.
 
-Status: still early development, but in active development. [Release notes](releases.md)
+Status: early development. [Release notes](releases.md)
 
 ## License
 

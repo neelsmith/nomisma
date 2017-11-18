@@ -1,0 +1,720 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xmlns:bmo="http://collection.britishmuseum.org/id/ontology/" xmlns:nm="http://nomisma.org/id/" xmlns:nmo="http://nomisma.org/ontology#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:void="http://rdfs.org/ns/void#" xmlns:wordnet="http://ontologi.es/WordNet/class/">
+    <wordnet:Deity rdf:about="http://collection.britishmuseum.org/id/person-institution/56988">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:prefLabel xml:lang="en">Apollo</skos:prefLabel>
+        <skos:definition xml:lang="en">One of the twelve Olympian gods; son of Zeus/Jupiter (q.v.) and Leto/Latona (q.v.); brother of Artemis/Diana (q.v.); a major deity representing, in opposition to Dionysos/Bacchus (q.v.), the rational and civilized aspects of human nature; patron of the arts and leader of the Muses (q.v.); later, manifested as Phoebus (q.v.), he became identified with the sun-god Helios/Sol (q.v.).</skos:definition>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Etruscan"/>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Greek"/>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Roman"/>
+        <void:inDataset rdf:resource="http://collection.britishmuseum.org/id/person-institution"/>
+    </wordnet:Deity>
+    <wordnet:Deity rdf:about="http://collection.britishmuseum.org/id/person-institution/58996">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:prefLabel xml:lang="en">Kronos/Saturn</skos:prefLabel>
+        <skos:definition xml:lang="en">Titan (q.v.) and agricultural deity ruling on earth during the Golden Age; he castrated and deposed his father, Uranus (q.v.); father of Zeus/Jupiter (q.v.), by whom he and his fellow Titans were subsequently overthrown; later sometimes identified as the personification of Time (q.v.). Also the personification of the planet Saturn.</skos:definition>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Greek"/>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Roman"/>
+        <void:inDataset rdf:resource="http://collection.britishmuseum.org/id/person-institution"/>
+    </wordnet:Deity>
+    <wordnet:Deity rdf:about="http://collection.britishmuseum.org/id/person-institution/57060">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:prefLabel xml:lang="en">Athena/Minerva</skos:prefLabel>
+        <skos:definition xml:lang="en">One of the twelve Olympian gods; goddess of wisdom and just causes; patron of many civilizing arts, domestic crafts and the city of Athens; daughter of Zeus/Jupiter (q.v.), she emerged fully armed from her father's head. Pallas was a daughter of Triton and friend of Athena/Minerva (q.v.), with whom she sparred; one day Zeus/Jupiter (q.v.) intervened, standing in front of Athena with the aegid; Pallas, struck with fear, was not able to parry Athena's blow and was killed. In sorrow, Athena took the name of Pallas-Athena, carved a wooden statue of her friend (the Palladium) and placed it alongside Zeus. Athena is sometimes therefore referred to as Pallas in later depictions but these depications are in fact usually of Athena (i.e. a female figure with Corinthian helmet and shield).</skos:definition>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Etruscan"/>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Greek"/>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Roman"/>
+        <void:inDataset rdf:resource="http://collection.britishmuseum.org/id/person-institution"/>
+    </wordnet:Deity>
+    <wordnet:Deity rdf:about="http://collection.britishmuseum.org/id/person-institution/58628">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:prefLabel xml:lang="en">Herakles/Hercules</skos:prefLabel>
+        <skos:definition xml:lang="en">Celebrated hero; particularly famed for the completion of the Twelve Labours imposed upon him by Eurystheus (q.v.); deified at death. Sometimes called Alcides (descendant of Alcaeus).</skos:definition>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Etruscan"/>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Greek"/>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Roman"/>
+        <void:inDataset rdf:resource="http://collection.britishmuseum.org/id/person-institution"/>
+    </wordnet:Deity>
+    <wordnet:Deity rdf:about="http://collection.britishmuseum.org/id/person-institution/58637">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:prefLabel xml:lang="en">Hermes/Mercury</skos:prefLabel>
+        <skos:definition xml:lang="en">One of the twelve Olympian gods; patron deity of travellers and, subsequently, of commerce; also, sometimes, a trickster; son of Zeus/Jupiter (q.v.) amd Maia (q.v.); messenger of the gods and often a guide to mortals; protector of both shepherds and their flocks; later he became a personification of Eloquence and Reason; his image, the Herm, was often placed at roadsides to mark distances or boundaries. Specific manifestations include Hermes Psychopompos (as conductor of the souls of the dead). Use also for personifications of the planet.</skos:definition>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Etruscan"/>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Greek"/>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Roman"/>
+        <void:inDataset rdf:resource="http://collection.britishmuseum.org/id/person-institution"/>
+    </wordnet:Deity>
+    <wordnet:Deity rdf:about="http://collection.britishmuseum.org/id/person-institution/60208">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:prefLabel xml:lang="en">Roma</skos:prefLabel>
+        <skos:definition xml:lang="en">Goddess and personification of the city of Rome.</skos:definition>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Roman"/>
+        <void:inDataset rdf:resource="http://collection.britishmuseum.org/id/person-institution"/>
+    </wordnet:Deity>
+    <wordnet:Deity rdf:about="http://collection.britishmuseum.org/id/person-institution/58921">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:prefLabel xml:lang="en">Zeus/Jupiter</skos:prefLabel>
+        <skos:definition xml:lang="en">One of the twelve Olympian gods and chief god of the Roman pantheon; specifically a god of the sky, he embodied all the benign and vengeful powers and functions of divinity; he led the other Olympian gods in their overthrow of the Titans (q.v.) and, as the husband of Hera/Juno (q.v.), is particularly known for his many infidelities. Includes the specific manifestations Jupiter Tonans ('Lightning Jupiter'), Zeus Keraunios ('The Thunderer') and Zeus Horkios (God of Oaths). Also includes the manifestation Zeus/Jupiter Dolichenus, originating in eastern Turkey. The term is also used for the personification of the planet. For depictions of the actual planet, see the Place Thesaurus.</skos:definition>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Etruscan"/>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Greek"/>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Roman"/>
+        <void:inDataset rdf:resource="http://collection.britishmuseum.org/id/person-institution"/>
+    </wordnet:Deity>
+    <wordnet:Deity rdf:about="http://collection.britishmuseum.org/id/person-institution/60915">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:prefLabel xml:lang="en">Nike/Victoria/Victory</skos:prefLabel>
+        <skos:definition xml:lang="en">Goddess and, more generally, personification of victory; messenger of the gods; she crowned victorious warriors, athletes and artists.</skos:definition>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Greek"/>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Roman"/>
+        <void:inDataset rdf:resource="http://collection.britishmuseum.org/id/person-institution"/>
+    </wordnet:Deity>
+    <wordnet:Deity rdf:about="http://collection.britishmuseum.org/id/person-institution/57951">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:prefLabel xml:lang="en">Dioskouroi/Dioscuri</skos:prefLabel>
+        <skos:definition xml:lang="en">The twin gods Castor and Pollux; gods friendly to men and often saviours in times of crisis. Sons of Leda (q.v.) and Zeus/Jupiter (q.v.); brothers of Helen (q.v.) and Clytemnestra (q.v.); they abducted Phoebe (q.v.) and Hilaeria (q.v.), the daughters of Leucippus (q.v.).</skos:definition>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Etruscan"/>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Greek"/>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Roman"/>
+        <void:inDataset rdf:resource="http://collection.britishmuseum.org/id/person-institution"/>
+    </wordnet:Deity>
+    <wordnet:Deity rdf:about="http://collection.britishmuseum.org/id/person-institution/59284">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:prefLabel xml:lang="en">Ares/Mars</skos:prefLabel>
+        <skos:definition xml:lang="en">One of the twelve Olympian gods; god of war; son of Zeus/Jupiter (q.v.) and Hera/Juno (q.v.); lover of Aphrodite/Venus (q.v.); brother of Bellona (q.v.); father of Romulus (q.v.) and Remus (q.v.). Includes the specific manifestation as triumphant, Mars Ultor. Also used for the personification of the planet Mars.</skos:definition>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Etruscan"/>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Greek"/>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Roman"/>
+        <void:inDataset rdf:resource="http://collection.britishmuseum.org/id/person-institution"/>
+    </wordnet:Deity>
+    <wordnet:Deity rdf:about="http://collection.britishmuseum.org/id/person-institution/57039">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:prefLabel xml:lang="en">Artemis/Diana</skos:prefLabel>
+        <skos:definition xml:lang="en">One of the twelve Olympian gods; daughter of Zeus/Jupiter (q.v.) and Leto/Latona (q.v.); twin sister of Apollo (q.v.); a virgin huntress; symbol of chastity and protector of wildlife, also associated with helping women at childbirth; she later became identified with the moon-goddess, Selene/Luna (q.v.) and is sometimes associated with the goddess of the Underworld, Hecate (q.v.).</skos:definition>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Greek"/>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Roman"/>
+        <void:inDataset rdf:resource="http://collection.britishmuseum.org/id/person-institution"/>
+    </wordnet:Deity>
+    <wordnet:Deity rdf:about="http://collection.britishmuseum.org/id/person-institution/58624">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:prefLabel xml:lang="en">Hera/Juno</skos:prefLabel>
+        <skos:definition xml:lang="en">One of the twelve Olympian gods and chief goddess of the Greek and Roman pantheon; sister and consort of adulterous Zeus/Jupiter (q.v.); protector of women and patron deity of marriage and childbirth.</skos:definition>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Etruscan"/>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Greek"/>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Roman"/>
+        <void:inDataset rdf:resource="http://collection.britishmuseum.org/id/person-institution"/>
+    </wordnet:Deity>
+    <wordnet:Deity rdf:about="http://collection.britishmuseum.org/id/person-institution/58616">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:prefLabel xml:lang="en">Helios/Sol</skos:prefLabel>
+        <skos:definition xml:lang="en">Sun god; sometimes associated with Apollo (q.v.). Use also for personifications of the sun.</skos:definition>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Etruscan"/>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Greek"/>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Kushan"/>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Roman"/>
+        <void:inDataset rdf:resource="http://collection.britishmuseum.org/id/person-institution"/>
+    </wordnet:Deity>
+    <wordnet:Deity rdf:about="http://collection.britishmuseum.org/id/person-institution/57655">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:prefLabel xml:lang="en">Eros/Cupid</skos:prefLabel>
+        <skos:definition xml:lang="en">God of love; son of Aphrodite/Venus (q.v.); brother of Anteros (q.v.); lover of Psyche (q.v.).</skos:definition>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Greek"/>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Roman"/>
+        <void:inDataset rdf:resource="http://collection.britishmuseum.org/id/person-institution"/>
+    </wordnet:Deity>
+    <wordnet:Deity rdf:about="http://collection.britishmuseum.org/id/person-institution/56979">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:prefLabel xml:lang="en">Aphrodite/Venus</skos:prefLabel>
+        <skos:definition xml:lang="en">One of the twelve Olympian gods; goddess of love and fertility; mother of Eros/Cupid (q.v.), Anteros (q.v.) and Hermaphroditos (q.v.). Also used for the personification of the planet Venus.</skos:definition>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Etruscan"/>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Greek"/>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Roman"/>
+        <void:inDataset rdf:resource="http://collection.britishmuseum.org/id/person-institution"/>
+    </wordnet:Deity>
+    <wordnet:Deity rdf:about="http://collection.britishmuseum.org/id/person-institution/58623">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:prefLabel xml:lang="en">Hephaistos/Vulcan</skos:prefLabel>
+        <skos:definition xml:lang="en">One of the twelve Olympian gods; god of fire and metal; lame son of Zeus/Jupiter (q.v.) and Hera/Juno (q.v.); cuckcolded husband of Aphrodite/Venus (q.v.); he forged the divine weapons of many gods and heroes and educated primitive men, teaching them the proper use of fire.</skos:definition>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Greek"/>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Roman"/>
+        <void:inDataset rdf:resource="http://collection.britishmuseum.org/id/person-institution"/>
+    </wordnet:Deity>
+    <wordnet:Deity rdf:about="http://collection.britishmuseum.org/id/person-institution/59100">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:prefLabel xml:lang="en">Libertas</skos:prefLabel>
+        <skos:definition xml:lang="en">Goddess or personification of freedom; particularly, in ancient Rome, associated with the freedoms and rights of the ordinary citizen. Often shown carrying the cap of liberty on a staff.</skos:definition>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Roman"/>
+        <void:inDataset rdf:resource="http://collection.britishmuseum.org/id/person-institution"/>
+    </wordnet:Deity>
+    <wordnet:Deity rdf:about="http://collection.britishmuseum.org/id/person-institution/175498">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:prefLabel xml:lang="en">Liber</skos:prefLabel>
+        <skos:definition xml:lang="en">Roman fertility god worshipped on the Aventine Hill in a triad with Ceres (q.v.) and Libera, his female counterpart. Sometimes associated with Dionysos/Bacchus (q.v.).</skos:definition>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Roman"/>
+        <void:inDataset rdf:resource="http://collection.britishmuseum.org/id/person-institution"/>
+    </wordnet:Deity>
+    <wordnet:Deity rdf:about="http://collection.britishmuseum.org/id/person-institution/59792">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:prefLabel xml:lang="en">Piety</skos:prefLabel>
+        <skos:definition xml:lang="en">Personification of piety and Roman goddess of duty and devotion (as Pietas).</skos:definition>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Roman"/>
+        <void:inDataset rdf:resource="http://collection.britishmuseum.org/id/person-institution"/>
+    </wordnet:Deity>
+    <wordnet:Deity rdf:about="http://collection.britishmuseum.org/id/person-institution/57930">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:prefLabel xml:lang="en">Demeter/Ceres</skos:prefLabel>
+        <skos:definition xml:lang="en">One of the twelve Olympian gods; goddess of fertility and agriculture, particularly associated with corn; her daughter, Persephone/Proserpine (q.v.) was abducted by Hades/Pluto (q.v.).</skos:definition>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Etruscan"/>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Greek"/>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Roman"/>
+        <void:inDataset rdf:resource="http://collection.britishmuseum.org/id/person-institution"/>
+    </wordnet:Deity>
+    <wordnet:Deity rdf:about="http://collection.britishmuseum.org/id/person-institution/57657">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:prefLabel xml:lang="en">Cybele</skos:prefLabel>
+        <skos:definition xml:lang="en">Mother-goddess, sometimes associated with Demeter/Ceres (q.v.), responsible for the total welfare of her followers; lover of Attis (q.v.).</skos:definition>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Greek"/>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Roman"/>
+        <void:inDataset rdf:resource="http://collection.britishmuseum.org/id/person-institution"/>
+    </wordnet:Deity>
+    <wordnet:Deity rdf:about="http://collection.britishmuseum.org/id/person-institution/58668">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:prefLabel xml:lang="en">Hygieia/Salus</skos:prefLabel>
+        <skos:definition xml:lang="en">Hygieia was the daughter of Asclepius (q.v.) and the deity and personification of health. The Roman goddess Salus came to be identified with Hygieia, encapsulating the safety and welfare of the state and the Emperor. Use also for the personification of Health in general.</skos:definition>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Greek"/>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Roman"/>
+        <void:inDataset rdf:resource="http://collection.britishmuseum.org/id/person-institution"/>
+    </wordnet:Deity>
+    <wordnet:Deity rdf:about="http://collection.britishmuseum.org/id/person-institution/59726">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:prefLabel xml:lang="en">Pan/Faunus</skos:prefLabel>
+        <skos:definition xml:lang="en">God of shepherds, huntsmen and all inhabitants of the country; half-man half-goat; inventor of the flute. A related rustic divinity, Opaon Melanthios, sometimes associated with Apollo as a god of healing, is also depicted with similar iconography.</skos:definition>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Greek"/>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Roman"/>
+        <void:inDataset rdf:resource="http://collection.britishmuseum.org/id/person-institution"/>
+    </wordnet:Deity>
+    <wordnet:Deity rdf:about="http://collection.britishmuseum.org/id/person-institution/145004">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:prefLabel xml:lang="en">Tarpeia</skos:prefLabel>
+        <skos:definition xml:lang="en">Tarpeia, in Roman legend, a Roman woman who betrayed her city to the Sabines for what they wore on their left arms (their gold bracelets). As they entered Rome they crushed her under a mound of shields, which they also wore on their left arms. The Tarpeian rock at Rome, from which criminals were thrown to death, bears her name.</skos:definition>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Roman"/>
+        <void:inDataset rdf:resource="http://collection.britishmuseum.org/id/person-institution"/>
+    </wordnet:Deity>
+    <wordnet:Deity rdf:about="http://collection.britishmuseum.org/id/person-institution/59828">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:prefLabel xml:lang="en">Poseidon/Neptune</skos:prefLabel>
+        <skos:definition xml:lang="en">One of the twelve Olympian gods; brother of Zeus/Jupiter (q.v.); god of the sea and its inhabitants; protector of sailors; god and creator of horses.</skos:definition>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Greek"/>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Roman"/>
+        <void:inDataset rdf:resource="http://collection.britishmuseum.org/id/person-institution"/>
+    </wordnet:Deity>
+    <wordnet:Deity rdf:about="http://collection.britishmuseum.org/id/person-institution/58396">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:prefLabel xml:lang="en">Genius</skos:prefLabel>
+        <skos:definition xml:lang="en">Roman deity and the personification or spirit of a person, place, institution or concept. Also widely used in modern iconography.</skos:definition>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Roman"/>
+        <void:inDataset rdf:resource="http://collection.britishmuseum.org/id/person-institution"/>
+    </wordnet:Deity>
+    <wordnet:Deity rdf:about="http://collection.britishmuseum.org/id/person-institution/59294">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:prefLabel xml:lang="en">Medusa</skos:prefLabel>
+        <skos:definition xml:lang="en">The most famous of the three Gorgons; the mortal sister of Sthenno and Euryale; decapitated by Perseus (q.v.); at the moment of her death, Pegasus (q.v.) and Chrysaor (q.v.) sprung from her head.</skos:definition>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Greek"/>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Roman"/>
+        <void:inDataset rdf:resource="http://collection.britishmuseum.org/id/person-institution"/>
+    </wordnet:Deity>
+    <wordnet:Deity rdf:about="http://collection.britishmuseum.org/id/person-institution/75120">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:prefLabel xml:lang="en">Moneta</skos:prefLabel>
+        <skos:definition xml:lang="en">Roman personification of the mint, depicted on coins and weights. The mint was originally near the temple of Juno Moneta in Rome, from which it derived its name. Moneta is sometimes depicted in triplicate on medallions, representing the striking of gold, silver and bronze.</skos:definition>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Roman"/>
+        <void:inDataset rdf:resource="http://collection.britishmuseum.org/id/person-institution"/>
+    </wordnet:Deity>
+    <wordnet:Deity rdf:about="http://collection.britishmuseum.org/id/person-institution/80685">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:prefLabel xml:lang="en">Virtus</skos:prefLabel>
+        <skos:definition xml:lang="en">The personification of courage or valour. (Note: although Virtus should properly be depicted as a Roma-like female figure, the concept of Virtus is often symbolised by Mars)</skos:definition>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Roman"/>
+        <void:inDataset rdf:resource="http://collection.britishmuseum.org/id/person-institution"/>
+    </wordnet:Deity>
+    <wordnet:Deity rdf:about="http://collection.britishmuseum.org/id/person-institution/58260">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:prefLabel xml:lang="en">Tyche/Fortuna</skos:prefLabel>
+        <skos:definition xml:lang="en">Goddess of chance, fate, luck and fortune. Also a city goddess, usually depicted with a mural crown.</skos:definition>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Greek"/>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Roman"/>
+        <void:inDataset rdf:resource="http://collection.britishmuseum.org/id/person-institution"/>
+    </wordnet:Deity>
+    <wordnet:Deity rdf:about="http://collection.britishmuseum.org/id/person-institution/59758">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:prefLabel xml:lang="en">Persephone/Proserpina</skos:prefLabel>
+        <skos:definition xml:lang="en">Daughter of Demeter/Ceres (q.v.); carried away by Hades/Pluto (q.v.) to be his wife and queen of the underworld.</skos:definition>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Etruscan"/>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Greek"/>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Roman"/>
+        <void:inDataset rdf:resource="http://collection.britishmuseum.org/id/person-institution"/>
+    </wordnet:Deity>
+    <wordnet:Deity rdf:about="http://collection.britishmuseum.org/id/person-institution/60911">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:prefLabel xml:lang="en">Vesta</skos:prefLabel>
+        <skos:definition xml:lang="en">Goddess of the hearth and, more generally, of fire; her cult both expressed and guaranteed Rome's permanence; patron goddess of the Vestals. Often identified with the Greek deity Hestia (q.v.).</skos:definition>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Roman"/>
+        <void:inDataset rdf:resource="http://collection.britishmuseum.org/id/person-institution"/>
+    </wordnet:Deity>
+    <wordnet:Deity rdf:about="http://collection.britishmuseum.org/id/person-institution/54025">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:prefLabel xml:lang="en">Isis</skos:prefLabel>
+        <skos:definition xml:lang="en">Goddess of immense magical power and symbolic mother of the king; sister and consort of Osiris (q.v.); mother of Horus (q.v.). [The name can also occasionally refer to private individuals (e.g. daughters of various kings, or high priestesses of Amun) but it is not currently possible to distinguish them in the collections of the Department of Ancient Egypt and Sudan.] Titles/Epithets (recorded in inscriptions as) - God's Wife of Amun and King's Daughter.</skos:definition>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Egyptian"/>
+        <void:inDataset rdf:resource="http://collection.britishmuseum.org/id/person-institution"/>
+    </wordnet:Deity>
+    <wordnet:Deity rdf:about="http://collection.britishmuseum.org/id/person-institution/69204">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:prefLabel xml:lang="en">Euterpe</skos:prefLabel>
+        <skos:definition xml:lang="en">One of the nine Muses (q.v.); particularly associated with music and lyric poetry.</skos:definition>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Greek"/>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Roman"/>
+        <void:inDataset rdf:resource="http://collection.britishmuseum.org/id/person-institution"/>
+    </wordnet:Deity>
+    <wordnet:Deity rdf:about="http://collection.britishmuseum.org/id/person-institution/57638">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:prefLabel xml:lang="en">Concordia</skos:prefLabel>
+        <skos:definition xml:lang="en">Personification of unanimity, oneness of mind, or an agreement between members of the Roman state. The Greek equivalent is Homonoia. Worshipped as a goddess by the Romans.</skos:definition>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Greek"/>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Roman"/>
+        <void:inDataset rdf:resource="http://collection.britishmuseum.org/id/person-institution"/>
+    </wordnet:Deity>
+    <wordnet:Deity rdf:about="http://collection.britishmuseum.org/id/person-institution/59759">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:prefLabel xml:lang="en">Perseus</skos:prefLabel>
+        <skos:definition xml:lang="en">Son of Zeus/Jupiter (q.v.) and Danae (q.v.); hero, his deeds included the killing of the Gorgon, Medusa (q.v.), and the rescue of Andromeda (q.v.).</skos:definition>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Etruscan"/>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Greek"/>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Roman"/>
+        <void:inDataset rdf:resource="http://collection.britishmuseum.org/id/person-institution"/>
+    </wordnet:Deity>
+    <wordnet:Deity rdf:about="http://collection.britishmuseum.org/id/person-institution/57291">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:prefLabel xml:lang="en">Bonus Eventus</skos:prefLabel>
+        <skos:definition xml:lang="en">Personification of good outcomes of all human activities and especially of harvests.</skos:definition>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Roman"/>
+        <void:inDataset rdf:resource="http://collection.britishmuseum.org/id/person-institution"/>
+    </wordnet:Deity>
+    <wordnet:Deity rdf:about="http://collection.britishmuseum.org/id/person-institution/69649">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:prefLabel xml:lang="en">Flora</skos:prefLabel>
+        <skos:definition xml:lang="en">Roman goddess of flowering or blossoming plants, mainly cereals. [Grk Chloris; married to Zephyr (q.v.).]</skos:definition>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Greek"/>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Roman"/>
+        <void:inDataset rdf:resource="http://collection.britishmuseum.org/id/person-institution"/>
+    </wordnet:Deity>
+    <wordnet:Deity rdf:about="http://collection.britishmuseum.org/id/person-institution/69305">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:prefLabel xml:lang="en">Fides</skos:prefLabel>
+        <skos:definition xml:lang="en">Fides is the Roman personification of good faith and loyalty depicted as a woman wearing a long chiton and peplos. See also Graces and one of the Theological Virtues.</skos:definition>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Roman"/>
+        <void:inDataset rdf:resource="http://collection.britishmuseum.org/id/person-institution"/>
+    </wordnet:Deity>
+    <wordnet:Deity rdf:about="http://collection.britishmuseum.org/id/person-institution/58247">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:prefLabel xml:lang="en">Felicitas</skos:prefLabel>
+        <skos:definition xml:lang="en">Goddess of happiness and good fortune, widely depicted on Roman coins as a personification of prosperity and success.</skos:definition>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Roman"/>
+        <void:inDataset rdf:resource="http://collection.britishmuseum.org/id/person-institution"/>
+    </wordnet:Deity>
+    <wordnet:Deity rdf:about="http://collection.britishmuseum.org/id/person-institution/76227">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:prefLabel xml:lang="en">Pax</skos:prefLabel>
+        <skos:definition xml:lang="en">The personification of peace. Also a Roman deity, probably recognised as a deity for the first time by the emperor Augustus.</skos:definition>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Greek"/>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Roman"/>
+        <void:inDataset rdf:resource="http://collection.britishmuseum.org/id/person-institution"/>
+    </wordnet:Deity>
+    <wordnet:Deity rdf:about="http://collection.britishmuseum.org/id/person-institution/58608">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:prefLabel xml:lang="en">Hecate</skos:prefLabel>
+        <skos:definition xml:lang="en">A chthonian goddess of both benign and terrible aspect; protector of warriors, athletes, hunters, herders and fishermen; associated with magic, witchcraft, lunar lore, predators and other nocturnal creatures, doorways and crossroads; her rites often featured dog sacrifices and illuminated cakes.</skos:definition>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Greek"/>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Roman"/>
+        <void:inDataset rdf:resource="http://collection.britishmuseum.org/id/person-institution"/>
+    </wordnet:Deity>
+    <wordnet:Deity rdf:about="http://collection.britishmuseum.org/id/person-institution/59551">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:prefLabel xml:lang="en">Nemesis</skos:prefLabel>
+        <skos:definition xml:lang="en">Goddess and personifcation of retribution.</skos:definition>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Greek"/>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Roman"/>
+        <void:inDataset rdf:resource="http://collection.britishmuseum.org/id/person-institution"/>
+    </wordnet:Deity>
+    <wordnet:Deity rdf:about="http://collection.britishmuseum.org/id/person-institution/61143">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:prefLabel xml:lang="en">Zeus/Jupiter Ammon</skos:prefLabel>
+        <skos:definition xml:lang="en">Syncretic deity, combining the attributes of the gods Zeus/Jupiter (q.v.) and Amun (q.v.).</skos:definition>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Egyptian"/>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Greek"/>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Roman"/>
+        <void:inDataset rdf:resource="http://collection.britishmuseum.org/id/person-institution"/>
+    </wordnet:Deity>
+    <wordnet:Deity rdf:about="http://collection.britishmuseum.org/id/person-institution/59843">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:prefLabel xml:lang="en">Providentia</skos:prefLabel>
+        <skos:definition xml:lang="en">Personification of foresight; goddess of an official cult celebrating the imperial family's protection and care for the state.</skos:definition>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Roman"/>
+        <void:inDataset rdf:resource="http://collection.britishmuseum.org/id/person-institution"/>
+    </wordnet:Deity>
+    <wordnet:Deity rdf:about="http://collection.britishmuseum.org/id/person-institution/64218">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:prefLabel xml:lang="en">Abundantia</skos:prefLabel>
+        <skos:definition xml:lang="en">Personification of Abundance, or Plenty; usually a female figure with a cornucopia, and, especially in Roman imagery, a rudder.</skos:definition>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Roman"/>
+        <void:inDataset rdf:resource="http://collection.britishmuseum.org/id/person-institution"/>
+    </wordnet:Deity>
+    <wordnet:Deity rdf:about="http://collection.britishmuseum.org/id/person-institution/98260">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:prefLabel xml:lang="en">Securitas</skos:prefLabel>
+        <skos:definition xml:lang="en">The personification of security.</skos:definition>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Roman"/>
+        <void:inDataset rdf:resource="http://collection.britishmuseum.org/id/person-institution"/>
+    </wordnet:Deity>
+    <wordnet:Deity rdf:about="http://collection.britishmuseum.org/id/person-institution/59099">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:prefLabel xml:lang="en">Liberalitas</skos:prefLabel>
+        <skos:definition xml:lang="en">Goddess or personification of plenty and largesse.</skos:definition>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Roman"/>
+        <void:inDataset rdf:resource="http://collection.britishmuseum.org/id/person-institution"/>
+    </wordnet:Deity>
+    <wordnet:Deity rdf:about="http://collection.britishmuseum.org/id/person-institution/85985">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:prefLabel xml:lang="en">Aequitas</skos:prefLabel>
+        <skos:definition xml:lang="en">Roman personification of fair-dealing. The Greek equivalent Dikaiosyne (justice or righteousness) is sometimes represented in the same manner.</skos:definition>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Greek"/>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Roman"/>
+        <void:inDataset rdf:resource="http://collection.britishmuseum.org/id/person-institution"/>
+    </wordnet:Deity>
+    <wordnet:Deity rdf:about="http://collection.britishmuseum.org/id/person-institution/58658">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:prefLabel xml:lang="en">Spes</skos:prefLabel>
+        <skos:definition xml:lang="en">A deity and personification of hope; particularly associated with the safety of the younger generation and, later, specifically associated with the imperial succession. Can be equated with the Greek deity Elpis.</skos:definition>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Roman"/>
+        <void:inDataset rdf:resource="http://collection.britishmuseum.org/id/person-institution"/>
+    </wordnet:Deity>
+    <wordnet:Deity rdf:about="http://collection.britishmuseum.org/id/person-institution/159682">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:prefLabel xml:lang="en">Tiber</skos:prefLabel>
+        <skos:definition xml:lang="en">Male personification of the River Tiber. Usually represented as a bearded river god resting on an amphora.</skos:definition>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Roman"/>
+        <void:inDataset rdf:resource="http://collection.britishmuseum.org/id/person-institution"/>
+    </wordnet:Deity>
+    <wordnet:Deity rdf:about="http://collection.britishmuseum.org/id/person-institution/92677">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:prefLabel xml:lang="en">Honos</skos:prefLabel>
+        <skos:definition xml:lang="en">The Roman personification of honour, worshipped jointly with Virtus (q.v.) in a temple in Rome.</skos:definition>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Roman"/>
+        <void:inDataset rdf:resource="http://collection.britishmuseum.org/id/person-institution"/>
+    </wordnet:Deity>
+    <wordnet:Deity rdf:about="http://collection.britishmuseum.org/id/person-institution/186067">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:prefLabel xml:lang="en">Juventas</skos:prefLabel>
+        <skos:definition xml:lang="en">Roman female representation of youthfulness appearing on coins. The legend is also used on coins to accompany a figure in military dress.</skos:definition>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Roman"/>
+        <void:inDataset rdf:resource="http://collection.britishmuseum.org/id/person-institution"/>
+    </wordnet:Deity>
+    <wordnet:Deity rdf:about="http://collection.britishmuseum.org/id/person-institution/57049">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:prefLabel xml:lang="en">Asclepius</skos:prefLabel>
+        <skos:definition xml:lang="en">God of medicine and healing; son of Apollo (q.v.).</skos:definition>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Greek"/>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Roman"/>
+        <void:inDataset rdf:resource="http://collection.britishmuseum.org/id/person-institution"/>
+    </wordnet:Deity>
+    <wordnet:Deity rdf:about="http://collection.britishmuseum.org/id/person-institution/58896">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:prefLabel xml:lang="en">Janus</skos:prefLabel>
+        <skos:definition xml:lang="en">The two-faced god of beginnings; guardian of doorways and gateways. N.B. The decorative feature referred to as a 'Janus face' is also recorded in the Description field in records for Oceanic objects where a face is shown on two sides.</skos:definition>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Roman"/>
+        <void:inDataset rdf:resource="http://collection.britishmuseum.org/id/person-institution"/>
+    </wordnet:Deity>
+    <wordnet:Deity rdf:about="http://collection.britishmuseum.org/id/person-institution/59743">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:prefLabel xml:lang="en">Pegasus</skos:prefLabel>
+        <skos:definition xml:lang="en">Winged horse; he sprung from the blood of the Medusa (q.v.) when Perseus (q.v.) decapitated her; the mount of Perseus (q.v.), when he rescued Andromeda (q.v.), and of Bellerophon (q.v.), when he killed the Chimaera (q.v.); he caused the the Hippocrene spring to gush forth with a stamp of his hoof upon a rock.</skos:definition>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Greek"/>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Roman"/>
+        <void:inDataset rdf:resource="http://collection.britishmuseum.org/id/person-institution"/>
+    </wordnet:Deity>
+    <wordnet:Deity rdf:about="http://collection.britishmuseum.org/id/person-institution/178090">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:prefLabel xml:lang="en">Indulgentia</skos:prefLabel>
+        <skos:definition xml:lang="en">The Roman personification of indulgence or mercy.</skos:definition>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Roman"/>
+        <void:inDataset rdf:resource="http://collection.britishmuseum.org/id/person-institution"/>
+    </wordnet:Deity>
+    <wordnet:Deity rdf:about="http://collection.britishmuseum.org/id/person-institution/132743">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:prefLabel xml:lang="en">Pudicitia</skos:prefLabel>
+        <skos:definition xml:lang="en">Goddess who presided over chastity.</skos:definition>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Roman"/>
+        <void:inDataset rdf:resource="http://collection.britishmuseum.org/id/person-institution"/>
+    </wordnet:Deity>
+    <wordnet:Deity rdf:about="http://collection.britishmuseum.org/id/person-institution/58409">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:prefLabel xml:lang="en">Graces/Charities</skos:prefLabel>
+        <skos:definition xml:lang="en">The Three Graces or Charities - Aglaia/Aglaea (Radiance), Euphrosyne (Joy) and Thalia (Flowering) - personifications of grace, charm and beauty and the attendants of several goddesses, particularly Aphrodite/Venus (q.v.); the traditional grouping of Faith, Hope and Charity (qq.v.) as The Three Graces is a later, although well established, convention.</skos:definition>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Greek"/>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Roman"/>
+        <void:inDataset rdf:resource="http://collection.britishmuseum.org/id/person-institution"/>
+    </wordnet:Deity>
+    <wordnet:Deity rdf:about="http://collection.britishmuseum.org/id/person-institution/187735">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:prefLabel xml:lang="en">Fecunditas</skos:prefLabel>
+        <skos:definition xml:lang="en">Roman personification, particularly used to represent the fertility of the imperial marriage.</skos:definition>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Roman"/>
+        <void:inDataset rdf:resource="http://collection.britishmuseum.org/id/person-institution"/>
+    </wordnet:Deity>
+    <wordnet:Deity rdf:about="http://collection.britishmuseum.org/id/person-institution/60209">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:prefLabel xml:lang="en">Romulus</skos:prefLabel>
+        <skos:definition xml:lang="en">Son of Mars (q.v.) and Rhea Silvia (q.v.); mythological founder, with his twin brother Remus, of Rome. Abandoned as infants, they were suckled by a wolf, before being found on the banks of the Tiber. Later instigated the Rape of the Sabine Women in order to populate the new city.</skos:definition>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Roman"/>
+        <void:inDataset rdf:resource="http://collection.britishmuseum.org/id/person-institution"/>
+    </wordnet:Deity>
+    <wordnet:Deity rdf:about="http://collection.britishmuseum.org/id/person-institution/60203">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:prefLabel xml:lang="en">Remus</skos:prefLabel>
+        <skos:definition xml:lang="en">Son of Mars (q.v.) and Rhea Silvia (q.v.); mythological founder, with his twin brother Romulus (q.v.), of Rome.</skos:definition>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Roman"/>
+        <void:inDataset rdf:resource="http://collection.britishmuseum.org/id/person-institution"/>
+    </wordnet:Deity>
+    <wordnet:Deity rdf:about="http://collection.britishmuseum.org/id/person-institution/60374">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:prefLabel xml:lang="en">Serapis</skos:prefLabel>
+        <skos:definition xml:lang="en">Syncretic Egyptian and Hellenistic deity, combining the attributes of the gods Osiris (q.v.) and Apis (q.v.), his cult was associated with life after death and agricultural fecundity; subsequently conflated with many deities of the Greek pantheon: Zeus (q.v.); Hades (q.v.); Dionysos (q.v.); Helios (q.v.); Asclepius (q.v.).</skos:definition>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Egyptian"/>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Greek"/>
+        <void:inDataset rdf:resource="http://collection.britishmuseum.org/id/person-institution"/>
+    </wordnet:Deity>
+    <wordnet:Deity rdf:about="http://collection.britishmuseum.org/id/person-institution/71928">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:prefLabel xml:lang="en">Hours/Seasons/Year</skos:prefLabel>
+        <skos:definition xml:lang="en">Goddesses and, more generally, personfications of the seasons; they guard the gates of Olympus; often associated with the birth, upbringing and marriages of gods and heroes; as a personification of the Year, usually depicted as a mother with four young children each representing one of the seasons; see entries for Spring, Summer, Autumn and Winter.</skos:definition>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Greek"/>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Roman"/>
+        <void:inDataset rdf:resource="http://collection.britishmuseum.org/id/person-institution"/>
+    </wordnet:Deity>
+    <wordnet:Deity rdf:about="http://collection.britishmuseum.org/id/person-institution/57949">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:prefLabel xml:lang="en">Dionysos/Bacchus</skos:prefLabel>
+        <skos:definition xml:lang="en">One of the twelve Olympian gods; god of fertility, celebration, ritual and especially wine and intoxication; often associated with theatre; the 'twice born' son of Zeus/Jupiter (q.v.) and Semele (q.v.), his riotous nature is often directly contrasted with the sobriety and reason of Apollo (q.v.). Sometimes depicted with Ariadne (q.v.).</skos:definition>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Etruscan"/>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Greek"/>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Roman"/>
+        <void:inDataset rdf:resource="http://collection.britishmuseum.org/id/person-institution"/>
+    </wordnet:Deity>
+    <wordnet:Deity rdf:about="http://collection.britishmuseum.org/id/person-institution/58248">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:prefLabel xml:lang="en">Feronia</skos:prefLabel>
+        <skos:definition xml:lang="en">Goddess, perhaps responsible for converting the savage forces of nature for human use.</skos:definition>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Italic"/>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Roman"/>
+        <void:inDataset rdf:resource="http://collection.britishmuseum.org/id/person-institution"/>
+    </wordnet:Deity>
+    <wordnet:Deity rdf:about="http://collection.britishmuseum.org/id/person-institution/56894">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:prefLabel xml:lang="en">Aeneas</skos:prefLabel>
+        <skos:definition xml:lang="en">Son of Venus (q.v.) and Anchises (q.v.), father of Ascanius (q.v.); lover of Dido (q.v.); Prince of Troy and founder of Rome. At the request of Venus he was immortalised and became worshipped as the god Indiges.</skos:definition>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Greek"/>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Roman"/>
+        <void:inDataset rdf:resource="http://collection.britishmuseum.org/id/person-institution"/>
+    </wordnet:Deity>
+    <wordnet:Deity rdf:about="http://collection.britishmuseum.org/id/person-institution/56951">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:prefLabel xml:lang="en">Anchises</skos:prefLabel>
+        <skos:definition xml:lang="en">Lover of Venus/Aphrodite (q.v.), who bore him a son, Aeneas (q.v.); carried by the latter when fleeing Troy.</skos:definition>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Greek"/>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Roman"/>
+        <void:inDataset rdf:resource="http://collection.britishmuseum.org/id/person-institution"/>
+    </wordnet:Deity>
+    <wordnet:Deity rdf:about="http://collection.britishmuseum.org/id/person-institution/60762">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:prefLabel xml:lang="en">Tutela</skos:prefLabel>
+        <skos:definition xml:lang="en">Protective deity of Gaulish origin.</skos:definition>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Gaulish"/>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Roman"/>
+        <void:inDataset rdf:resource="http://collection.britishmuseum.org/id/person-institution"/>
+    </wordnet:Deity>
+    <wordnet:Deity rdf:about="http://collection.britishmuseum.org/id/person-institution/60692">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:prefLabel xml:lang="en">Tellus</skos:prefLabel>
+        <skos:definition xml:lang="en">Earth-goddess and patron of the place of cultivation.</skos:definition>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Roman"/>
+        <void:inDataset rdf:resource="http://collection.britishmuseum.org/id/person-institution"/>
+    </wordnet:Deity>
+    <wordnet:Deity rdf:about="http://collection.britishmuseum.org/id/person-institution/182064">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:prefLabel xml:lang="en">Maia</skos:prefLabel>
+        <skos:definition xml:lang="en">The eldest of the Pleiades; daughter of Atlas (q.v.), mother of Hermes/Mercury (q.v.). Later identified with the Roman Maia Maiestas and associated with Vulcan. Depicted on coins of Domitian (q.v.).</skos:definition>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Greek"/>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Roman"/>
+        <void:inDataset rdf:resource="http://collection.britishmuseum.org/id/person-institution"/>
+    </wordnet:Deity>
+    <wordnet:Deity rdf:about="http://collection.britishmuseum.org/id/person-institution/57603">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:prefLabel xml:lang="en">Cerberus</skos:prefLabel>
+        <skos:definition xml:lang="en">Three-headed dog; guardian of the entrance to the underworld.</skos:definition>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Greek"/>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Roman"/>
+        <void:inDataset rdf:resource="http://collection.britishmuseum.org/id/person-institution"/>
+    </wordnet:Deity>
+    <wordnet:Deity rdf:about="http://collection.britishmuseum.org/id/person-institution/59564">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:prefLabel xml:lang="en">Nile</skos:prefLabel>
+        <skos:definition xml:lang="en">Personification of the River Nile.</skos:definition>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Greek"/>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Roman"/>
+        <void:inDataset rdf:resource="http://collection.britishmuseum.org/id/person-institution"/>
+    </wordnet:Deity>
+    <wordnet:Deity rdf:about="http://collection.britishmuseum.org/id/person-institution/176463">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:prefLabel xml:lang="en">Achaea</skos:prefLabel>
+        <skos:definition xml:lang="en">Personification of the province of Achaea.</skos:definition>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Roman"/>
+        <void:inDataset rdf:resource="http://collection.britishmuseum.org/id/person-institution"/>
+    </wordnet:Deity>
+    <wordnet:Deity rdf:about="http://collection.britishmuseum.org/id/person-institution/132605">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:prefLabel xml:lang="en">Rhea/Ops</skos:prefLabel>
+        <skos:definition xml:lang="en">Goddess; wife of Cronos/Saturn (q.v.); mother of Zeus/Jupiter (q.v.)</skos:definition>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Greek"/>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Roman"/>
+        <void:inDataset rdf:resource="http://collection.britishmuseum.org/id/person-institution"/>
+    </wordnet:Deity>
+    <wordnet:Deity rdf:about="http://collection.britishmuseum.org/id/person-institution/60206">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:prefLabel xml:lang="en">Rhea Silvia</skos:prefLabel>
+        <skos:definition xml:lang="en">A vestal virgin and mother of Romulus (q.v.) and Remus (q.v.) by Mars (q.v.); later married to river god Tiberinus.</skos:definition>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Greek"/>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Roman"/>
+        <void:inDataset rdf:resource="http://collection.britishmuseum.org/id/person-institution"/>
+    </wordnet:Deity>
+    <wordnet:Deity rdf:about="http://collection.britishmuseum.org/id/person-institution/59671">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:prefLabel xml:lang="en">Orontes</skos:prefLabel>
+        <skos:definition xml:lang="en">Personification of the River Orontes.</skos:definition>
+        <void:inDataset rdf:resource="http://collection.britishmuseum.org/id/person-institution"/>
+    </wordnet:Deity>
+    <wordnet:Deity rdf:about="http://collection.britishmuseum.org/id/person-institution/57048">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:prefLabel xml:lang="en">Ascanius</skos:prefLabel>
+        <skos:definition xml:lang="en">Son of Aeneas (q.v.) and Creusa (q.v.); fled to Latium with his father after the fall of Troy. However, according to another tradition, he was the son of Aeneas and Lavinia and was born in Latium. Founder of the city of Alba Longa. Sometimes called Iulus or Julus, which links him to the Julian family, who claimed to have descended from him and thus, by extent, from Venus.</skos:definition>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Greek"/>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Roman"/>
+        <void:inDataset rdf:resource="http://collection.britishmuseum.org/id/person-institution"/>
+    </wordnet:Deity>
+    <wordnet:Deity rdf:about="http://collection.britishmuseum.org/id/person-institution/60883">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:prefLabel xml:lang="en">Odysseus/Ulysses</skos:prefLabel>
+        <skos:definition xml:lang="en">Hero of Homer's Odyssey; King of Ithaca; husband of Penelope (q.v.) and father of Telemachus (q.v.).</skos:definition>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Greek"/>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Roman"/>
+        <void:inDataset rdf:resource="http://collection.britishmuseum.org/id/person-institution"/>
+    </wordnet:Deity>
+    <wordnet:Deity rdf:about="http://collection.britishmuseum.org/id/person-institution/132168">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:prefLabel xml:lang="en">Argos</skos:prefLabel>
+        <skos:definition xml:lang="en">Dog of Odyseus/Ulysses (q.v.).</skos:definition>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Greek"/>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Roman"/>
+        <void:inDataset rdf:resource="http://collection.britishmuseum.org/id/person-institution"/>
+    </wordnet:Deity>
+    <wordnet:Deity rdf:about="http://collection.britishmuseum.org/id/person-institution/142516">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:prefLabel xml:lang="en">Anapias</skos:prefLabel>
+        <skos:definition xml:lang="en">Young man from Catana (or Catania), Sicily; he and his brother Amphinomus (q.v.) saved their parents by carrying them away during an eruption of mount Aetna; both of the young men have been used as symbols of pietas and appear on Roman coins struck c.40 BC and featuring the portrait of Pompey the Great (q.v.) and on coins struck by the Republican moneyer M. Herennius (q.v.).</skos:definition>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Roman"/>
+        <void:inDataset rdf:resource="http://collection.britishmuseum.org/id/person-institution"/>
+    </wordnet:Deity>
+    <wordnet:Deity rdf:about="http://collection.britishmuseum.org/id/person-institution/142515">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:prefLabel xml:lang="en">Amphinomus</skos:prefLabel>
+        <skos:definition xml:lang="en">Young man from Catana (or Catania), Sicily; he and his brother Anapias (q.v.) saved their parents by carrying them away during an eruption of mount Aetna; both of the young men have been used as symbols of pietas and appear on Roman coins struck c.40 BC and featuring the portrait of Pompey the Great (q.v.) and on coins struck by the Republican moneyer M. Herennius (q.v.).</skos:definition>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Roman"/>
+        <void:inDataset rdf:resource="http://collection.britishmuseum.org/id/person-institution"/>
+    </wordnet:Deity>
+    <wordnet:Deity rdf:about="http://collection.britishmuseum.org/id/person-institution/188366">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:prefLabel xml:lang="en">Saeculum Frugiferum</skos:prefLabel>
+        <skos:definition xml:lang="en">Personification of the Fertility of the Age. An African god with the Greek name of Aion Karpophoros and the patron deity of Hadrumetum, depicted on Roman coins of the Severan period.</skos:definition>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Greek"/>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Roman"/>
+        <void:inDataset rdf:resource="http://collection.britishmuseum.org/id/person-institution"/>
+    </wordnet:Deity>
+    <wordnet:Deity rdf:about="http://collection.britishmuseum.org/id/person-institution/188733">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:prefLabel xml:lang="en">Dea Caelestis</skos:prefLabel>
+        <skos:definition xml:lang="en">Deity worshipped in Carthage in the Roman period.</skos:definition>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Roman"/>
+        <void:inDataset rdf:resource="http://collection.britishmuseum.org/id/person-institution"/>
+    </wordnet:Deity>
+    <wordnet:Deity rdf:about="http://collection.britishmuseum.org/id/person-institution/60755">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:prefLabel xml:lang="en">Triton</skos:prefLabel>
+        <skos:definition xml:lang="en">Half-man and half-fish; son of Poseidon/Neptune (q.v.) and Amphitrite (q.v.); also generic name for such mythological figures.</skos:definition>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Greek"/>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Roman"/>
+        <void:inDataset rdf:resource="http://collection.britishmuseum.org/id/person-institution"/>
+    </wordnet:Deity>
+    <wordnet:Deity rdf:about="http://collection.britishmuseum.org/id/person-institution/53770">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:prefLabel xml:lang="en">Horus</skos:prefLabel>
+        <skos:definition xml:lang="en">Falcon-god who has many manifestations; son of Osiris (q.v.) and Isis (q.v.); 'Lord of the Sky'; symbol of divine kingship recorded in inscriptions as Good God.</skos:definition>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Egyptian"/>
+        <void:inDataset rdf:resource="http://collection.britishmuseum.org/id/person-institution"/>
+    </wordnet:Deity>
+    <wordnet:Deity rdf:about="http://collection.britishmuseum.org/id/person-institution/198685">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:prefLabel xml:lang="en">Mens</skos:prefLabel>
+        <skos:definition xml:lang="en">Roman personification of the concept of mind or understanding (sometimes as Bona Mens, 'good understanding'). A temple was dedicated to her in ancient Rome and she appears (rarely) on coins.</skos:definition>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Roman"/>
+        <void:inDataset rdf:resource="http://collection.britishmuseum.org/id/person-institution"/>
+    </wordnet:Deity>
+    <wordnet:Deity rdf:about="http://collection.britishmuseum.org/id/person-institution/59809">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:prefLabel xml:lang="en">Hades/Pluto</skos:prefLabel>
+        <skos:definition xml:lang="en">Ruler of the underworld; brother of Zeus/Jupiter (q.v.) and husband of Persephone/Proserpine (q.v.).</skos:definition>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Greek"/>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Roman"/>
+        <void:inDataset rdf:resource="http://collection.britishmuseum.org/id/person-institution"/>
+    </wordnet:Deity>
+    <wordnet:Deity rdf:about="http://collection.britishmuseum.org/id/person-institution/60691">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:prefLabel xml:lang="en">Telesphoros</skos:prefLabel>
+        <skos:definition xml:lang="en">Youthful god of healing.</skos:definition>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Etruscan"/>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Greek"/>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Roman"/>
+        <void:inDataset rdf:resource="http://collection.britishmuseum.org/id/person-institution"/>
+    </wordnet:Deity>
+    <wordnet:Deity rdf:about="http://collection.britishmuseum.org/id/person-institution/57016">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:prefLabel xml:lang="en">Ariadne</skos:prefLabel>
+        <skos:definition xml:lang="en">Daughter of king Minos (q.v.) of Crete; abandoned lover of Theseus (q.v); she was rescued by Dionysos/Bacchus (q.v.) on Naxos</skos:definition>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Etruscan"/>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Greek"/>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Roman"/>
+        <void:inDataset rdf:resource="http://collection.britishmuseum.org/id/person-institution"/>
+    </wordnet:Deity>
+    <wordnet:Deity rdf:about="http://collection.britishmuseum.org/id/person-institution/60385">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:prefLabel xml:lang="en">Silenos</skos:prefLabel>
+        <skos:definition xml:lang="en">A rural god and chief follower of Dionysos/Bacchus (q.v.).</skos:definition>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Greek"/>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Roman"/>
+        <void:inDataset rdf:resource="http://collection.britishmuseum.org/id/person-institution"/>
+    </wordnet:Deity>
+    <wordnet:Deity rdf:about="http://collection.britishmuseum.org/id/person-institution/169677">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:prefLabel xml:lang="en">Perpetuitas</skos:prefLabel>
+        <skos:definition xml:lang="en">Roman personification of perpetuity.</skos:definition>
+        <bmo:PX_nationality rdf:resource="http://collection.britishmuseum.org/id/thesauri/nationality/Roman"/>
+        <void:inDataset rdf:resource="http://collection.britishmuseum.org/id/person-institution"/>
+    </wordnet:Deity>
+</rdf:RDF>

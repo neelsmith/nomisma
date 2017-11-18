@@ -135,6 +135,10 @@ import js.annotation.JSExport
     dated.hoards.filter(_.pointAverage.get >= d1).filter(_.pointAverage.get <= d2)
   }
 
+  def csv: String = {
+    val hdr = "ID,label,date1,date2,mints,lon,lat\n"
+    hdr + hoards.map(_.csv).mkString("\n")
+  }
 
 /*
   val maxDate: Integer = {

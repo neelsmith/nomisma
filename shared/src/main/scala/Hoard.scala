@@ -25,6 +25,18 @@ import js.annotation.JSExport
 ) {
 
 
+  def csv : String  = {
+
+    val mintList = mints.mkString("#")
+    s"${id},${label},${closingCsv},${mintList},${geoCsv}"
+  }
+
+  val closingCsv: String = {
+    closingDate match {
+      case None => ","
+      case _ => closingDate.get.csv(",")
+    }
+  }
   def pointAverage: Option[Integer] = {
     closingDate match {
       case None => None
@@ -63,6 +75,16 @@ import js.annotation.JSExport
         pt.x.toString +","+pt.y.toString
       }
     }
+  }
+
+  def geoCsv : String = {
+      geo match {
+        case None => ","
+        case ptOpt: Some[Point] => {
+          val pt = ptOpt.get
+          pt.x.toString +","+pt.y.toString
+        }
+      }
   }
 
   def mintsHtml: String = {

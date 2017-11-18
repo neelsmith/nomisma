@@ -1,3 +1,3 @@
 # Release notes
 
-No releases yet.
+**0.2.0**:  test release not suitable for production work.

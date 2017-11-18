@@ -23,6 +23,12 @@ class HoardSpec extends FlatSpec {
     }
   }
 
+  it should "format a record as CSV" in {
+      val pointDate = ClosingDate(-450)
+      val hoard = Hoard("dummy hoard", "dummy",Some(pointDate),Vector("athens"),Some(new Point(39.215,44)))
+      println("CSV IS " + hoard.csv)
+  }
+
   it should "export a record to KML" in pending/*{
 
     val pointDate = ClosingDate(-450)

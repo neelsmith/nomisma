@@ -54,9 +54,17 @@ class HoardCollectionSpec extends FlatSpec {
     val hoard2 = Hoard("dummy hoard 2", "dummy2",Some(pointDate),Vector("athens","chios","samos"),Some(new Point(23.5,36)))
 
     val hoardCollection = HoardCollection(Vector(hoard1,hoard2))
-    println(hoardCollection.toKml)
+    //println(hoardCollection.toKml)
   }
 
+  it should "create a CSV string of the whole collection" in {
+    val pointDate = ClosingDate(-450)
+    val hoard1 = Hoard("dummy hoard", "dummy",Some(pointDate),Vector("athens"),Some(new Point(39.215,44)))
+    val hoard2 = Hoard("dummy hoard 2", "dummy2",Some(pointDate),Vector("athens","chios","samos"),Some(new Point(23.5,36)))
+    val hoardCollection = HoardCollection(Vector(hoard1,hoard2))
+
+    println("CSV FOR ALL = " + hoardCollection.csv)
+  }
 
 
   it should "create a cooccurrence matrix by mints" in pending
