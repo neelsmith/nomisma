@@ -1,0 +1,20 @@
+
+
+# Setup
+title:            nomisma
+tagline:          'Library for working with data from nomisma.org
+description:      'Edit simple tables to build complete FST parsers with customizable vocabulary and rule sets.'
+baseurl: '/nomisma/'
+
+
+author:
+  name:           'Neel Smith'
+
+
+links:
+  - title: Github source
+    url: https://github.com/neelsmith/nomisma
+    external: true
+  - title: Me on github
+    url: http://neelsmith.github.io/
+    external: true
