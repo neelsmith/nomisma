@@ -1,8 +1,12 @@
 
 
+
+# Permalinks
+permalink:        pretty
+
 # Setup
 title:            nomisma
-tagline:          'Library for working with data from nomisma.org
+tagline:          'Library for working with data from nomisma.org'
 description:      'Edit simple tables to build complete FST parsers with customizable vocabulary and rule sets.'
 baseurl: '/nomisma/'
 
