@@ -6,8 +6,8 @@ permalink:        pretty
 
 # Setup
 title:            nomisma
-tagline:          'Library for working with data from nomisma.org'
-description:      'Edit simple tables to build complete FST parsers with customizable vocabulary and rule sets.'
+tagline:          'A library for working with data from nomisma.org'
+description:      'Work with simple tabular representations of data for coin issues, mints and hoards freely available from nomisma.org'
 baseurl: '/nomisma/'
 
 

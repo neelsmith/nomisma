@@ -7,6 +7,10 @@
 
 Status: early development. [Release notes](releases.md)
 
+Current models implemented in Scala are based on content of the *Inventory of Greek Coin Hoards* (*IGCH*).
+
+The `quarry` directory has some kludgey scripts to work with data from the *Online Coins of the Roman Empire* (*OCRE*). Before a 1.0 release, the *OCRE* material will be integrated with classes based on *IGCH* to implement a consistent set of objects for issues, mints and hoards.
+
 ## License
 
 [GPL 3.0](https://opensource.org/licenses/gpl-3.0.html)
