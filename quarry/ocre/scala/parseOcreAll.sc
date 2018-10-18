@@ -37,7 +37,58 @@ case class Description (coin: String, side: String, typeDesc: String)
 */
 case class Portrait (coin:String, side: String, portrait: String)
 
-case class Ocre(legends: Vector[Legend], typeDescriptions: Vector[Description], portraits: Vector[Portrait])
+
+case class BasicIssue(id: String, label:  String,
+denomination: String, material: String, authority: String, mint: String, region: String)
+
+
+/** Parse basic OCRE Issue data from RDF.
+*
+* @param ocre Root of parsed OCRE RDF.
+*/
+def parseBasicOcre(ocre: scala.xml.Elem) : Vector[BasicIssue] = {
+  val typeSeries = ocre \\ "TypeSeriesItem"
+  val typesVect = typeSeries.toVector
+
+  val data = for (t <- typesVect) yield {
+    val lab = (t \\ "prefLabel")(0).text
+
+
+    val denomElems = (t \\ "hasDenomination")
+    val  denom =  if (denomElems.isEmpty) { "none" } else {     denomElems(0).attributes.value.toString.replaceFirst("http://nomisma.org/id/","")
+    }
+
+
+    val materialElems = (t \\ "hasMaterial")
+    val  material =  if (materialElems.isEmpty) { "none" } else {     materialElems(0).attributes.value.toString.replaceFirst("http://nomisma.org/id/","")
+    }
+
+
+
+    val authorityElems = (t \\ "hasAuthority")
+    val  authority =  if (authorityElems.isEmpty) { "none" } else {     authorityElems(0).attributes.value.toString.replaceFirst("http://nomisma.org/id/","")
+    }
+
+
+
+    val mintElems = (t \\ "hasMint")
+    val  mint =  if (mintElems.isEmpty) { "none" } else {     mintElems(0).attributes.value.toString.replaceFirst("http://nomisma.org/id/","")
+    }
+
+
+    val regionElems = (t \\ "hasRegion")
+    val  region =  if (regionElems.isEmpty) { "none" } else {     regionElems(0).attributes.value.toString.replaceFirst("http://nomisma.org/id/","")
+    }
+
+
+    val id =  t.attributes.value(0).toString.replaceFirst("http://numismatics.org/ocre/id/", "")
+    //+ s"#${lab}#${denom}#${material}#${authority}#${mint}#${region}"
+    BasicIssue(id, lab, denom, material, authority, mint, region)
+  }
+  data.toVector
+}
+
+case class Ocre(issue:  Vector[BasicIssue], legends: Vector[Legend], typeDescriptions: Vector[Description], portraits: Vector[Portrait])
 
 
 
@@ -140,7 +191,10 @@ def parseOcre(ocre: scala.xml.Elem): Ocre = {
   val portraitElems = dv.filter( d => (d  \\ "hasPortrait").size > 0 )
   val portraits = portraitVector(portraitElems)
 
-  Ocre(legends, typeDescriptions, portraits)
+  val issues = parseBasicOcre(ocre)
+
+  Ocre(issues, legends, typeDescriptions, portraits)
+
 }
 
 
