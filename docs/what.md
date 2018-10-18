@@ -28,4 +28,4 @@ and add this to your library dependencies:
     "edu.holycross.shot.cite" %%% "nomisma" % VERSION
 
 
-For maven, ivy or gradle equivalents, refer to https://bintray.com/neelsmith/maven/nomisma.
+For maven, ivy or gradle equivalents, refer to <https://bintray.com/neelsmith/maven/nomisma>.

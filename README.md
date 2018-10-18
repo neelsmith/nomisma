@@ -32,7 +32,7 @@ For maven, ivy or gradle equivalents, refer to <https://bintray.com/neelsmith/ma
 
 ## Documentation
 
-Is being planned for <https://neelsmith.github.io/nomisma/>.
+Is beginning to appear at <https://neelsmith.github.io/nomisma/>.
 
 
 ## Data sets
