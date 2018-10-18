@@ -1,6 +1,8 @@
 name := "Utilities for working with numismatic data from nomisma.org"
 
-crossScalaVersions := Seq("2.11.8", "2.12.1")
+
+crossScalaVersions in ThisBuild := Seq("2.11.8", "2.12.4")
+scalaVersion := (crossScalaVersions in ThisBuild).value.last
 
 
 lazy val root = project.in(file(".")).
@@ -15,7 +17,7 @@ lazy val crossed = crossProject.in(file(".")).
     settings(
       name := "nomisma",
       organization := "edu.holycross.shot",
-      version := "0.2.0",
+      version := "0.3.0",
       licenses += ("GPL-3.0",url("https://opensource.org/licenses/gpl-3.0.html")),
 
       libraryDependencies ++= Seq(
@@ -29,9 +31,9 @@ lazy val crossed = crossProject.in(file(".")).
     ).
     jsSettings(
       skip in packageJSDependencies := false,
-      persistLauncher in Compile := true,
-      persistLauncher in Test := false
+      scalaJSUseMainModuleInitializer in Compile := true
+
     )
 
 lazy val crossedJVM = crossed.jvm
-lazy val crossedJS = crossed.js.enablePlugins(ScalaJSPlugin)
+lazy val crossedJS = crossed.js//.enablePlugins(ScalaJSPlugin)

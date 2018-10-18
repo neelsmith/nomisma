@@ -21,6 +21,11 @@ val header = "id#label#denomination#material#authority#mint#region\n"
 case class BasicIssue(id: String, label:  String,
 denomination: String, material: String, authority: String, mint: String, region: String)
 
+
+/** Parse basic OCRE Issue data from RDF.
+*
+* @param ocre Root of parsed OCRE RDF.
+*/
 def parseBasicOcre(ocre: scala.xml.Elem) : Vector[BasicIssue] = {
   val typeSeries = ocre \\ "TypeSeriesItem"
   val typesVect = typeSeries.toVector

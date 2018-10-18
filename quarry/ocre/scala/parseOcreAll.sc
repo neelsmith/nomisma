@@ -147,20 +147,23 @@ def typeDescriptionVector(typeDescrs: Vector[scala.xml.Node]) : Vector[Descripti
 * @param descriptionV Vector of OCRE Description nodes.
 */
 def portraitVector(descriptionV: Vector[scala.xml.Node]) : Vector[Portrait] = {
-  val portraitText = for (p <- descriptionV) yield {
+  val portraits = for (p <- descriptionV) yield {
     val rdgs = p \\ "hasPortrait"
-    //val rdg = rdgs(0)
-    //p.attributes.value.toString + "#" + rdg.text
+    // p.attributes.value.toString is BOTH
+    // coin ID and side!
     if (rdgs.nonEmpty) {
-      p.attributes.value.toString + "#" + rdgs(0).attributes.value
-      //rdgs(0).txt
+      val coinSide = p.attributes.value.toString.split("#")
+      println("COIN SIDE " + coinSide.toVector)
+      println("ATTRS "  + rdgs(0).attributes)
+      Some(Portrait(coinSide(0), coinSide(1), rdgs(0).attributes.toString))//value ))
+
     } else {
-      ""
+      None
     }
   }
-  val validPortaitText  = portraitText.filter(_ != null).map(_.toString)
-
-  val portraitsRaw = for (p <- validPortaitText) yield {
+  portraits.flatten
+/*
+  val portraitsRaw = for (p <- portraitText.flatten) yield {
     val triple = p.split("#")
     if (triple.size == 3) {
       Some(Portrait(triple(0), triple(1), triple(2))  )
@@ -170,6 +173,7 @@ def portraitVector(descriptionV: Vector[scala.xml.Node]) : Vector[Portrait] = {
     }
   }
   portraitsRaw.filter(_.isDefined).map(_.get)
+  */
 }
 
 
