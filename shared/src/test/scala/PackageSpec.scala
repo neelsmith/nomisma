@@ -9,5 +9,8 @@ class PackageSpec extends FlatSpec {
     assert (prettyId("aetolian_league") == "Aetolian League")
   }
 
+  it should "recognize valid string values for a coin's side" in  {
+    assert(coinSide("obverse").get == Obverse)
+  }
 
 }

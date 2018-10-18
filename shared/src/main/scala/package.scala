@@ -83,4 +83,18 @@ package object nomisma {
     """"
     lineString
   }
+
+
+  /** Given a string label for a coin side,
+  * find CoinSide.
+  *
+  * @param s String label for obverse or reverse of coin.
+  */
+  def coinSide(s: String) : Option[CoinSide] = {
+    s match {
+      case "obverse" => Some(Obverse)
+      case "reverse" => Some(Reverse)
+      case _ => None
+    }
+  }
 }
