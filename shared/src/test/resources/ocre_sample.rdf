@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF xmlns:dcterms="http://purl.org/dc/terms/"
+         xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+         xmlns:oa="http://www.w3.org/ns/oa#"
+         xmlns:crm="http://www.cidoc-crm.org/cidoc-crm/"
+         xmlns:oxf="http://www.orbeon.com/oxf/processors"
+         xmlns:nm="http://nomisma.org/id/"
+         xmlns:p="http://www.orbeon.com/oxf/pipeline"
+         xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+         xmlns:foaf="http://xmlns.com/foaf/0.1/"
+         xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:nmo="http://nomisma.org/ontology#"
+         xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+         xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#"
+         xmlns:pelagios="http://pelagios.github.io/vocab/terms#"
+         xmlns:dcmitype="http://purl.org/dc/dcmitype/"
+         xmlns:void="http://rdfs.org/ns/void#"
+         xmlns:relations="http://pelagios.github.io/vocab/relations#">
+
+
+
+
+    <nmo:TypeSeriesItem rdf:about="http://numismatics.org/ocre/id/ric.1(2).aug.1A">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:prefLabel xml:lang="en">RIC I (second edition) Augustus 1A</skos:prefLabel>
+        <skos:definition xml:lang="en">RIC I (second edition) Augustus 1A</skos:definition>
+        <dcterms:source rdf:resource="http://nomisma.org/id/ric"/>
+        <dcterms:replaces rdf:resource="http://numismatics.org/ocre/id/ric.1(2).aug.1a"/>
+        <nmo:representsObjectType rdf:resource="http://nomisma.org/id/coin"/>
+        <nmo:hasManufacture rdf:resource="http://nomisma.org/id/struck"/>
+        <nmo:hasMaterial rdf:resource="http://nomisma.org/id/ar"/>
+        <nmo:hasDenomination rdf:resource="http://nomisma.org/id/quinarius"/>
+        <nmo:hasAuthority rdf:resource="http://nomisma.org/id/augustus"/>
+        <nmo:hasIssuer rdf:resource="http://nomisma.org/id/p_carisius"/>
+        <nmo:hasMint rdf:resource="http://nomisma.org/id/emerita"/>
+        <nmo:hasRegion rdf:resource="http://nomisma.org/id/lusitania"/>
+        <nmo:hasStartDate rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear">-0025</nmo:hasStartDate>
+        <nmo:hasEndDate rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear">-0023</nmo:hasEndDate>
+        <nmo:hasObverse rdf:resource="http://numismatics.org/ocre/id/ric.1(2).aug.1A#obverse"/>
+        <nmo:hasReverse rdf:resource="http://numismatics.org/ocre/id/ric.1(2).aug.1A#reverse"/>
+        <void:inDataset rdf:resource="http://numismatics.org/ocre/"/>
+    </nmo:TypeSeriesItem>
+    <rdf:Description rdf:about="http://numismatics.org/ocre/id/ric.1(2).aug.1A#obverse">
+        <nmo:hasLegend>AVGVST</nmo:hasLegend>
+        <dcterms:description xml:lang="en">Head of Augustus, bare, left</dcterms:description>
+        <nmo:hasPortrait rdf:resource="http://nomisma.org/id/augustus"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://numismatics.org/ocre/id/ric.1(2).aug.1A#reverse">
+        <nmo:hasLegend>P CARISI LEG</nmo:hasLegend>
+        <dcterms:description xml:lang="en">Victory standing right, placing wreath on trophy with dagger and sword at base</dcterms:description>
+        <nmo:hasPortrait rdf:resource="http://collection.britishmuseum.org/id/person-institution/60915"/>
+    </rdf:Description>
+    <nmo:TypeSeriesItem rdf:about="http://numismatics.org/ocre/id/ric.1(2).aug.1B">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:prefLabel xml:lang="en">RIC I (second edition) Augustus 1B</skos:prefLabel>
+        <skos:definition xml:lang="en">RIC I (second edition) Augustus 1B</skos:definition>
+        <dcterms:source rdf:resource="http://nomisma.org/id/ric"/>
+        <dcterms:replaces rdf:resource="http://numismatics.org/ocre/id/ric.1(2).aug.1b"/>
+        <nmo:representsObjectType rdf:resource="http://nomisma.org/id/coin"/>
+        <nmo:hasManufacture rdf:resource="http://nomisma.org/id/struck"/>
+        <nmo:hasDenomination rdf:resource="http://nomisma.org/id/quinarius"/>
+        <nmo:hasMaterial rdf:resource="http://nomisma.org/id/ar"/>
+        <nmo:hasAuthority rdf:resource="http://nomisma.org/id/augustus"/>
+        <nmo:hasIssuer rdf:resource="http://nomisma.org/id/p_carisius"/>
+        <nmo:hasMint rdf:resource="http://nomisma.org/id/emerita"/>
+        <nmo:hasRegion rdf:resource="http://nomisma.org/id/lusitania"/>
+        <nmo:hasStartDate rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear">-0025</nmo:hasStartDate>
+        <nmo:hasEndDate rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear">-0023</nmo:hasEndDate>
+        <nmo:hasObverse rdf:resource="http://numismatics.org/ocre/id/ric.1(2).aug.1B#obverse"/>
+        <nmo:hasReverse rdf:resource="http://numismatics.org/ocre/id/ric.1(2).aug.1B#reverse"/>
+        <void:inDataset rdf:resource="http://numismatics.org/ocre/"/>
+    </nmo:TypeSeriesItem>
+    <rdf:Description rdf:about="http://numismatics.org/ocre/id/ric.1(2).aug.1B#obverse">
+        <nmo:hasLegend>AVGVST</nmo:hasLegend>
+        <dcterms:description xml:lang="en">Head of Augustus, bare, left</dcterms:description>
+        <nmo:hasPortrait rdf:resource="http://nomisma.org/id/augustus"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://numismatics.org/ocre/id/ric.1(2).aug.1B#reverse">
+        <nmo:hasLegend>P CARISI LEG</nmo:hasLegend>
+        <dcterms:description xml:lang="en">Victory standing right, placing wreath on trophy with dagger and sword at base</dcterms:description>
+        <nmo:hasPortrait rdf:resource="http://collection.britishmuseum.org/id/person-institution/60915"/>
+    </rdf:Description>
+    <nmo:TypeSeriesItem rdf:about="http://numismatics.org/ocre/id/ric.1(2).aug.2A">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:prefLabel xml:lang="en">RIC I (second edition) Augustus 2A</skos:prefLabel>
+        <skos:definition xml:lang="en">RIC I (second edition) Augustus 2A</skos:definition>
+        <dcterms:source rdf:resource="http://nomisma.org/id/ric"/>
+        <dcterms:replaces rdf:resource="http://numismatics.org/ocre/id/ric.1(2).aug.2a"/>
+        <nmo:representsObjectType rdf:resource="http://nomisma.org/id/coin"/>
+        <nmo:hasManufacture rdf:resource="http://nomisma.org/id/struck"/>
+        <nmo:hasDenomination rdf:resource="http://nomisma.org/id/denarius"/>
+        <nmo:hasMaterial rdf:resource="http://nomisma.org/id/ar"/>
+        <nmo:hasAuthority rdf:resource="http://nomisma.org/id/augustus"/>
+        <nmo:hasIssuer rdf:resource="http://nomisma.org/id/p_carisius"/>
+        <nmo:hasMint rdf:resource="http://nomisma.org/id/emerita"/>
+        <nmo:hasRegion rdf:resource="http://nomisma.org/id/lusitania"/>
+        <nmo:hasStartDate rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear">-0025</nmo:hasStartDate>
+        <nmo:hasEndDate rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear">-0023</nmo:hasEndDate>
+        <nmo:hasObverse rdf:resource="http://numismatics.org/ocre/id/ric.1(2).aug.2A#obverse"/>
+        <nmo:hasReverse rdf:resource="http://numismatics.org/ocre/id/ric.1(2).aug.2A#reverse"/>
+        <void:inDataset rdf:resource="http://numismatics.org/ocre/"/>
+    </nmo:TypeSeriesItem>
+    <rdf:Description rdf:about="http://numismatics.org/ocre/id/ric.1(2).aug.2A#obverse">
+        <nmo:hasLegend>IMP CAESAR AVGVST</nmo:hasLegend>
+        <dcterms:description xml:lang="en">Head of Augustus, bare, right</dcterms:description>
+        <nmo:hasPortrait rdf:resource="http://nomisma.org/id/augustus"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://numismatics.org/ocre/id/ric.1(2).aug.2A#reverse">
+        <nmo:hasLegend>P CARISIVS LEG PRO PR</nmo:hasLegend>
+        <dcterms:description xml:lang="en">Round shield, spear-head, and curved sword</dcterms:description>
+    </rdf:Description>
+    <nmo:TypeSeriesItem rdf:about="http://numismatics.org/ocre/id/ric.1(2).aug.2B">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:prefLabel xml:lang="en">RIC I (second edition) Augustus 2B</skos:prefLabel>
+        <skos:definition xml:lang="en">RIC I (second edition) Augustus 2B</skos:definition>
+        <dcterms:source rdf:resource="http://nomisma.org/id/ric"/>
+        <dcterms:replaces rdf:resource="http://numismatics.org/ocre/id/ric.1(2).aug.2b"/>
+        <nmo:representsObjectType rdf:resource="http://nomisma.org/id/coin"/>
+        <nmo:hasManufacture rdf:resource="http://nomisma.org/id/struck"/>
+        <nmo:hasDenomination rdf:resource="http://nomisma.org/id/denarius"/>
+        <nmo:hasMaterial rdf:resource="http://nomisma.org/id/ar"/>
+        <nmo:hasAuthority rdf:resource="http://nomisma.org/id/augustus"/>
+        <nmo:hasIssuer rdf:resource="http://nomisma.org/id/p_carisius"/>
+        <nmo:hasMint rdf:resource="http://nomisma.org/id/emerita"/>
+        <nmo:hasRegion rdf:resource="http://nomisma.org/id/lusitania"/>
+        <nmo:hasStartDate rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear">-0025</nmo:hasStartDate>
+        <nmo:hasEndDate rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear">-0023</nmo:hasEndDate>
+        <nmo:hasObverse rdf:resource="http://numismatics.org/ocre/id/ric.1(2).aug.2B#obverse"/>
+        <nmo:hasReverse rdf:resource="http://numismatics.org/ocre/id/ric.1(2).aug.2B#reverse"/>
+        <void:inDataset rdf:resource="http://numismatics.org/ocre/"/>
+    </nmo:TypeSeriesItem>
+    <rdf:Description rdf:about="http://numismatics.org/ocre/id/ric.1(2).aug.2B#obverse">
+        <nmo:hasLegend>IMP CAESAR AVGVST</nmo:hasLegend>
+        <dcterms:description xml:lang="en">Head of Augustus, bare, left</dcterms:description>
+        <nmo:hasPortrait rdf:resource="http://nomisma.org/id/augustus"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://numismatics.org/ocre/id/ric.1(2).aug.2B#reverse">
+        <nmo:hasLegend>P CARISIVS LEG PRO PR</nmo:hasLegend>
+        <dcterms:description xml:lang="en">Round shield, spear-head, and curved sword</dcterms:description>
+    </rdf:Description>
+
+
+
+</rdf:RDF>
