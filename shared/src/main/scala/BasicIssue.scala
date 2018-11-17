@@ -3,6 +3,16 @@ import java.net.URL
 import scala.scalajs.js
 import js.annotation.JSExport
 
+
+/**
+* @param id
+* @param labelText
+* @param denomination
+* @param material
+* @param authority
+* @param mint
+* @param region
+*/
 @JSExport  case class BasicIssue(
   id: String,
   labelText:  String,
