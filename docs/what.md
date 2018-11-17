@@ -5,8 +5,7 @@ layout: page
 
 ## Work with data in simple tabular formats
 
-Some of the `nomisma.org` data sets are already converted to tabular formats:  if you just want to work with `csv` files, using databases, GIS, or data visualization applicatoins,
-look in the `tables` directory of <https://github.com/neelsmith/nomisma>.
+Some of the `nomisma.org` data sets are already converted to tabular formats:  if you just want to work with `csv` files using databases, GIS, or data visualization applicatoins, look in the `tables` directory of <https://github.com/neelsmith/nomisma>.
 
 Example:  see a [Tableau visualization of Greek coin hoards](https://public.tableau.com/profile/neel.smith#!/vizhome/IGCHgeolocatemints/Hoardsandmints).
 

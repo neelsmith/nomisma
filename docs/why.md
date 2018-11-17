@@ -1,5 +1,5 @@
 ---
-title: Why do you need this library?
+title: Why would you use this library?
 layout: page
 ---
 

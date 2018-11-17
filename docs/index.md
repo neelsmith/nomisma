@@ -7,7 +7,7 @@ Documentation for the `nomisma` library for working with numismatic data from `n
 
 Main topics:
 
--   [Why do you need this library](why)?
+-   [Why would you use this library](why)?
 -   [What can you do with it](what)?
 -   [How do I use it](how)?
 -   [Tabular data sets](tables)
