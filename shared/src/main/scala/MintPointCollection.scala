@@ -22,7 +22,8 @@ import js.annotation.JSExport
   * @param mintName String identifier for mint.
   */
   def forMint(mintName: String): Option[MintPoint] = {
-    val srch = mintPoints.filter(_.mint == mintName)
+    val mintUrl = "http://nomisma.org/id/" + mintName + ".rdf"
+    val srch = mintPoints.filter(_.mint == mintUrl)
     if (srch.isEmpty) {
       None
     } else {
