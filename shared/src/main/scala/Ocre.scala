@@ -16,7 +16,35 @@ case class Ocre(
   mintsGeo: MintPointCollection
 ) {
 
+  def ocreIssue(id: String) : Option[OcreIssue] = {
+    val issueMatches = issues.filter(_.id == id)
+     issueMatches.size  match {
+      case 1 => {
+        val basics = issueMatches(0)
+        val geo = mintsGeo.forMint(basics.mint)
 
+        val rTypeMatches = typeDescriptions.filter(_.coin == id).filter(_.side == Reverse)
+        val rType = if (rTypeMatches.size == 1) { Some(rTypeMatches(0))} else {None}
+
+        val oTypeMatches = typeDescriptions.filter(_.coin == id).filter(_.side == Obverse)
+        val oType = if (oTypeMatches.size == 1) { Some(oTypeMatches(0))} else {None}
+
+
+
+        val rLegendMatches = legends.filter(_.coin == id).filter(_.side == Reverse)
+        val rLegend = if (rLegendMatches.size == 1) { Some(rLegendMatches(0))} else {None}
+
+        val oLegendMatches = legends.filter(_.coin == id).filter(_.side == Obverse)
+        val oLegend = if (oLegendMatches.size == 1) { Some(oLegendMatches(0))} else {None}
+
+        val oPortrait = None // not yet implemented
+        val rPortrait = None // not yet implemented
+
+        Some(OcreIssue(basics, oType, rType, oLegend, rLegend, oPortrait, rPortrait, geo))
+      }
+      case _ => None
+    }
+  }
 }
 
 

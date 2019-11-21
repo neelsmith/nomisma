@@ -13,6 +13,7 @@ import js.annotation.JSExport
     rlegend: Option[Legend],
     oportrait: Option[Portrait],
     rportrait: Option[Portrait],
+    mintGeo: Option[MintPoint]
   ) extends NomismaEntity {
 
   def url = {
