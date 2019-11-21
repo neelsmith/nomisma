@@ -1,4 +1,6 @@
-name := "Utilities for working with numismatic data from nomisma.org"
+name := "nomisma"
+
+//"Utilities for working with numismatic data from nomisma.org"
 
 
 crossScalaVersions in ThisBuild := Seq("2.11.8", "2.12.4")
@@ -26,8 +28,8 @@ lazy val crossed = crossProject.in(file(".")).
 
 
         "org.scalatest" %%% "scalatest" % "3.0.1" % "test",
-        "edu.holycross.shot.cite" %%% "xcite" % "3.6.0",
-        "edu.holycross.shot" %%% "ohco2" % "10.9.2"
+        "edu.holycross.shot.cite" %%% "xcite" % "4.1.1",
+        "edu.holycross.shot" %%% "ohco2" % "10.16.0"
       )
     ).
     jvmSettings(
