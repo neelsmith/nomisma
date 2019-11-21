@@ -12,6 +12,17 @@ case class Legend (coin: String, side: CoinSide, legend: String)
 
 object Legend {
 
+
+  def apply(cex: String): Vector[Legend] = {
+    val cols = cex.split("#")
+    if (cols.size < 3) {
+      Vector.empty[Legend]
+    } else {
+      val olegend = Legend(cols(0), Obverse, cols(1))
+      val rlegend = Legend(cols(0), Reverse, cols(2))
+      Vector(olegend, rlegend)
+    }
+  }
   /** Given a Vector of RDF Description nodes for OCRE data,
   * return a Vector of [[Legend]]s.
   *

@@ -31,6 +31,16 @@ import js.annotation.JSExport
 
 object BasicIssue {
 
+
+  def apply(cex: String) : BasicIssue = {
+    def cols = cex.split("#")
+    if (cols.size < 7) {
+      throw new Exception("Could not parse CEX string for BasicIssue: too few columns in " + cex)
+    }
+    BasicIssue(cols(0), cols(1), cols(2), cols(3), cols(4), cols(5), cols(6))
+  }
+
+
   /** Create [[BasicIssue]]s from parsed XML of OCRE
   * RDF data.
   *
