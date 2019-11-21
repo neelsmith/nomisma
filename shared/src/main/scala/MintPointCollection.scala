@@ -36,14 +36,7 @@ import js.annotation.JSExport
   * @param mints Vector of string values identifying mints.
   */
   def forMints(mints: Vector[String]): MintPointCollection = {
-    var rslt = scala.collection.mutable.ArrayBuffer[MintPoint]()
-    for (m <- mints) {
-      val pt = forMint(m)
-      pt match  {
-        case None =>
-        case _ => rslt += pt.get
-      }
-    }
-    MintPointCollection(rslt.toVector)
+    val opts = mints.map(forMint(_))
+    MintPointCollection(opts.flatten)
   }
 }

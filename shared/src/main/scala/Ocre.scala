@@ -16,6 +16,16 @@ case class Ocre(
   mintsGeo: MintPointCollection
 ) {
 
+
+  def ocreIssues(ids: Vector[String]): Vector[OcreIssue] = {
+    val opts = ids.map(ocreIssue(_))
+    opts.flatten
+  }
+
+  /** Given an object identifier, construct an [[OcreIssue]].
+  *
+  * @param id Object identifier for issue.
+  */
   def ocreIssue(id: String) : Option[OcreIssue] = {
     val issueMatches = issues.filter(_.id == id)
      issueMatches.size  match {
@@ -28,8 +38,6 @@ case class Ocre(
 
         val oTypeMatches = typeDescriptions.filter(_.coin == id).filter(_.side == Obverse)
         val oType = if (oTypeMatches.size == 1) { Some(oTypeMatches(0))} else {None}
-
-
 
         val rLegendMatches = legends.filter(_.coin == id).filter(_.side == Reverse)
         val rLegend = if (rLegendMatches.size == 1) { Some(rLegendMatches(0))} else {None}
@@ -44,6 +52,11 @@ case class Ocre(
       }
       case _ => None
     }
+  }
+
+
+  def kml : String = {
+    mintsGeo.forMints(issues.map(_.mint)).mintPoints.map(_.toKml).mkString("\n\n")
   }
 }
 

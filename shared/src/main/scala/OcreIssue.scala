@@ -25,4 +25,15 @@ import js.annotation.JSExport
     Cite2Urn("urn:cite2:nomisma:ocre.hc:" + basics.id)
   }
   def label = basics.labelText
+
+
+  def kml: String = {
+    mintGeo match {
+      case None => ""
+      case _ => mintGeo.get.toKml
+    }
+  }
+
+
+
 }
