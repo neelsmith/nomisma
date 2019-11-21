@@ -20,7 +20,7 @@ import js.annotation.JSExport
   material: String,
   authority: String,
   mint: String,
-  region: String) extends NomismaEntity {
+  region: String) {
 
   def url = {
     new URL("http:nomisma.org/id/" + id)

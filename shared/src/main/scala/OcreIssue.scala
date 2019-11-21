@@ -1,4 +1,5 @@
 package edu.holycross.shot.nomisma
+import edu.holycross.shot.cite._
 import java.net.URL
 import scala.scalajs.js
 import js.annotation.JSExport
@@ -18,6 +19,10 @@ import js.annotation.JSExport
 
   def url = {
     new URL("http:nomisma.org/id/" + basics.id)
+  }
+
+  def urn: Cite2Urn = {
+    Cite2Urn("urn:cite2:nomisma:ocre.hc:" + basics.id)
   }
   def label = basics.labelText
 }

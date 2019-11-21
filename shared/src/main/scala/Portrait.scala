@@ -1,4 +1,6 @@
 package edu.holycross.shot.nomisma
+
+import edu.holycross.shot.cite._
 import java.net.URL
 
 /**  Legend for a single side of a coin.
@@ -11,6 +13,11 @@ case class Portrait (coin: String, side: CoinSide, portrait: URL) extends Nomism
 
   def url = portrait
   def label = portrait.toString.replaceAll("http://collection.britishmuseum.org/id/person-institution/", "").replaceAll("http://nomisma.org/id/", "")
+
+  def objectId : String =  portrait.toString.replaceAll("http://nomisma.org/id/", "")
+  def urn = {
+    Cite2Urn("urn:cite2:nomisma:portrait.hc:" + objectId)
+  }
 
 }
 
