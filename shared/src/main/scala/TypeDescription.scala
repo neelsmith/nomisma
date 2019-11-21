@@ -12,6 +12,19 @@ case class TypeDescription (coin: String, side: CoinSide, description: String)
 object TypeDescription {
 
 
+
+  def apply(cex: String): Vector[TypeDescription] = {
+    val cols = cex.split("#")
+    if (cols.size < 3) {
+      Vector.empty[TypeDescription]
+    } else {
+      val otype = TypeDescription(cols(0), Obverse, cols(1))
+      val rtype = TypeDescription(cols(0), Reverse, cols(2))
+      Vector(otype, rtype)
+    }
+  }
+
+
   /** Given a Vector of OCRE Description nodes,
   * return a Vector of [[TypeDescription]]s.
   *

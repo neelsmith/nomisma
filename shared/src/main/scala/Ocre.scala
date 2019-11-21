@@ -8,11 +8,24 @@ package edu.holycross.shot.nomisma
 * @param typeDescriptions
 * @param portraits
 */
-case class Ocre(issues:  Vector[BasicIssue], legends: Vector[Legend], typeDescriptions: Vector[TypeDescription], portraits: Vector[Portrait])
+case class Ocre(
+  issues:  Vector[BasicIssue],
+  legends: Vector[Legend],
+  typeDescriptions: Vector[TypeDescription],
+  portraits: Vector[Portrait],
+  mintsGeo: MintPointCollection
+) {
+
+
+}
 
 
 object Ocre {
 
+
+  def addGeo(ocre: Ocre, geo: MintPointCollection): Ocre = {
+    Ocre(ocre.issues, ocre.legends, ocre.typeDescriptions, ocre.portraits, geo)
+  }
   /**
   *
   * @param ocre Root of parsed OCRE data set.
@@ -32,7 +45,7 @@ object Ocre {
 
     val issues = BasicIssue.parseOcreXml(ocre)
 
-    Ocre(issues, legends, typeDescriptions, portraits)
+    Ocre(issues, legends, typeDescriptions, portraits, MintPointCollection(Vector.empty[MintPoint]))
 
   }
 
