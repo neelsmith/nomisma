@@ -6,7 +6,7 @@ class OcreObjectSpec extends FlatSpec {
   val rdf = XML.loadFile("jvm/src/test/resources/ocre_sample.rdf")
 
   "The Ocre object" should "parse OCRE from RDF source" in {
-    val ocre = Ocre.parseRdf(rdf)
+    val ocre = Ocre2Source.parseRdf(rdf)
     val expectedIssues = 4
     assert(ocre.issues.size == expectedIssues)
 

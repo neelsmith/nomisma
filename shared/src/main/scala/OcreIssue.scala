@@ -5,7 +5,8 @@ import edu.holycross.shot.cite._
 import scala.scalajs.js.annotation._
 
 
-
+/** A class representing a single issue in OCRE.
+*/
 @JSExportTopLevel("OcreIssue")
 case class OcreIssue(
     id: String,
@@ -22,25 +23,22 @@ case class OcreIssue(
     revLegend: String,
     revPortraitId: String,
     dateRange: Option[YearRange]
-    /*
-    startDate: Option[Int],
-    endDate: Option[Int]
-*/
   ) extends NomismaEntity {
 
 
-
-
+  /** Construct URL used by nomisma.org as an identifier.
+  */
   def urlString = {
     "http:nomisma.org/id/" + id
   }
-  //def url = {
-  //  new URL(urlString)
-  //}
 
+  /** Construct a Cite2Urn for this issue.
+  */
   def urn: Cite2Urn = {
     Cite2Urn("urn:cite2:nomisma:ocre.hc:" + id)
   }
+
+  /** Construct human-readable label for this issue.*/
   def label = labelText
 
   def kml: String = ""
@@ -57,8 +55,11 @@ case class OcreIssue(
 
 object OcreIssue {
 
-
-
+  /** Parse a string as Int, and return
+  * Option[Int]  if successful.
+  *
+  * @param s String to parse.
+  */
   def yearInt(s: String): Option[Int] = {
     try {
       Some(s.toInt)
@@ -69,6 +70,10 @@ object OcreIssue {
     }
   }
 
+  /** Construct an [[OcreIssue]] from a line of CEX data.
+  *
+  * @param cex One of CEX data for an [[OcreIssue]].
+  */
   def apply(cex: String) : OcreIssue = {
     def cols = cex.split("#")
     if (cols.size < 15) {
