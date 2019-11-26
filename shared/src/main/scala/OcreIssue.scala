@@ -26,6 +26,8 @@ case class OcreIssue(
 
   ) extends NomismaEntity {
 
+    
+
 
   def urlString = {
     "http:nomisma.org/id/" + id
@@ -52,6 +54,8 @@ case class OcreIssue(
 
 
 object OcreIssue {
+
+
 
 
   def apply(cex: String) : OcreIssue = {

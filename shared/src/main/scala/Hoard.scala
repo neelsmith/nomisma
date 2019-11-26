@@ -18,7 +18,7 @@ import scala.scalajs.js.annotation._
 case class Hoard (
   id: String,
   label: String,
-  closingDate: Option[ClosingDate],
+  closingDate: Option[YearRange],
   mints: Vector[String],
   geo: Option[Point]
 ) {
@@ -39,7 +39,7 @@ case class Hoard (
   def pointAverage: Option[Integer] = {
     closingDate match {
       case None => None
-      case cd: Some[ClosingDate] => Some(cd.get.pointAverage)
+      case cd: Some[YearRange] => Some(cd.get.pointAverage)
     }
   }
 

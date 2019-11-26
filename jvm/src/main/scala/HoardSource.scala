@@ -164,7 +164,7 @@ object HoardSource {
             } else {}
           }
         }
-        val closingNodes = ch \\ "hasClosingDate"
+        val closingNodes = ch \\ "hasYearRange"
         val closing =  {
           closingNodes.size match {
             case 0 => None
@@ -201,18 +201,18 @@ object HoardSource {
 
 
 
-      /** Create [[ClosingDate]] from informaiton in the
+      /** Create [[YearRange]] from informaiton in the
       * parsed RDF XML for a hoard.
       *
       * @param hoardNode Parsed `Hoard` element in RDF XML used
       * by `nomisma.org`.
       */
-      def closingDate(hoardNode: scala.xml.Node) : Option[ClosingDate] = {
+      def closingDate(hoardNode: scala.xml.Node) : Option[YearRange] = {
         val rangeVals = hoardNode \\ "hasStartDate"
         rangeVals.size match {
           case 0 =>
             try {
-              Some(ClosingDate(hoardNode.text.toInt, None))
+              Some(YearRange(hoardNode.text.toInt, None))
             } catch {
               case e: java.lang.NumberFormatException => {
                 println("UNABLE TO PARSE "+ hoardNode.text + s" (length ${hoardNode.text.size})")
@@ -221,7 +221,7 @@ object HoardSource {
             }
           case 2 =>
           try {
-           Some(ClosingDate(rangeVals(0).text.toInt,rangeVals(1).text.toInt))
+           Some(YearRange(rangeVals(0).text.toInt,rangeVals(1).text.toInt))
           } catch {
             case e: java.lang.NumberFormatException => {
               println("UNABLE TO PARSE "+ hoardNode.text)

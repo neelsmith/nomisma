@@ -2,7 +2,6 @@ package edu.holycross.shot.nomisma
 
 
 import scala.xml._
-//import com.esri.core.geometry._
 import scala.collection.mutable.ArrayBuffer
 import scala.collection.mutable.Map
 
@@ -99,7 +98,7 @@ case class HoardCollection(hoards: Vector[Hoard])  {
   }
 
 
-  def closingDateVector: Vector[ClosingDate] = {
+  def closingDateVector: Vector[YearRange] = {
     dated.hoards.map(_.closingDate.get)
   }
 
@@ -118,10 +117,10 @@ case class HoardCollection(hoards: Vector[Hoard])  {
   }
 
   def maxDate = {
-    val d1List = dated.hoards.map(_.closingDate.get.d1)
+    val year1List = dated.hoards.map(_.closingDate.get.year1)
     //val d2List = dated.hoards.filter(_.closingDate.get.d2 != None).map(_.closingDate.get.d2)
-    //if (d1List.max > d2List.max) { d1List.max} else {d2List.max}
-    d1List.max
+    //if (year1List.max > d2List.max) { year1List.max} else {d2List.max}
+    year1List.max
 
   }
 
@@ -132,8 +131,8 @@ case class HoardCollection(hoards: Vector[Hoard])  {
     temp.min
   }
 
-  def trimToAvgDateRange(d1: Integer, d2: Integer) = {
-    dated.hoards.filter(_.pointAverage.get >= d1).filter(_.pointAverage.get <= d2)
+  def trimToAvgDateRange(year1: Integer, d2: Integer) = {
+    dated.hoards.filter(_.pointAverage.get >= year1).filter(_.pointAverage.get <= d2)
   }
 
   def csv: String = {
@@ -143,7 +142,7 @@ case class HoardCollection(hoards: Vector[Hoard])  {
 
 /*
   val maxDate: Integer = {
-    val maxD1 = hoards.map(_.closingDate.d1).max
+    val maxD1 = hoards.map(_.closingDate.year1).max
     val maxD2 = hoards.map(_.closingDate.d2).max
     if (maxD1 > maxD2) {
       maxD1

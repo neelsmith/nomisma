@@ -5,7 +5,7 @@ import org.scalatest.FlatSpec
 class ContentsGraphSpec extends FlatSpec {
 
   "A Contents Graph"  should "support map mints to geographic coodinates" in {
-    val pointDate = ClosingDate(-450)
+    val pointDate = YearRange(-450)
     val hoard = Hoard("dummy hoard", "dummy",Some(pointDate),Vector("athens"),Some(new Point(23,26)))
     hoard.prettyPrint
   }
