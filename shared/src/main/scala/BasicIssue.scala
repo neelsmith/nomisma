@@ -1,7 +1,7 @@
 package edu.holycross.shot.nomisma
 import java.net.URL
 import scala.scalajs.js
-import js.annotation.JSExport
+import scala.scalajs.js.annotation._
 
 
 /**
@@ -13,7 +13,8 @@ import js.annotation.JSExport
 * @param mint
 * @param region
 */
-@JSExport  case class BasicIssue(
+@JSExportTopLevel("BasicIssue")
+case class BasicIssue(
   id: String,
   labelText:  String,
   denomination: String,

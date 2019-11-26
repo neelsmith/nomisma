@@ -1,6 +1,7 @@
 package edu.holycross.shot.nomisma
 import scala.scalajs.js
-import js.annotation.JSExport
+
+import scala.scalajs.js.annotation._
 
 /** Closing date of a hoard as modelled by `nomisma.org`.
 * Closing date may be either a single integer year, or a
@@ -9,7 +10,8 @@ import js.annotation.JSExport
 * @param d1 Earlier date in range, or single point.
 * @param d2 Later date in range, if any.
 */
-@JSExport case class ClosingDate (d1: Integer, d2: Option[Integer] = None) {
+@JSExportTopLevel("ClosingDate")
+case class ClosingDate (d1: Integer, d2: Option[Integer] = None) {
   require (d1 != 0, "There is no year 0 in our era.")
 
 

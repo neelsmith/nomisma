@@ -5,8 +5,9 @@ import java.net.URL
 
 class PortraitSpec extends FlatSpec {
 
-  
-  val augustus = new URL("http://nomisma.org/id/augustus")
+
+  //val augustus = new URL("http://nomisma.org/id/augustus")
+  val augustus = "http://nomisma.org/id/augustus"
 
   "A Portrait"  should "have a CoinSide" in {
     val portrait = Portrait("coinId", Obverse, augustus)
@@ -22,7 +23,7 @@ class PortraitSpec extends FlatSpec {
   it should "have a url function" in {
     val portrait = Portrait("coinId", Obverse, augustus)
     val expected = augustus
-    assert(portrait.url == augustus)
+    assert(portrait.urlString == expected)
   }
 
 }

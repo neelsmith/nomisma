@@ -1,7 +1,7 @@
 package edu.holycross.shot.nomisma
 
 import scala.scalajs.js
-import js.annotation.JSExport
+import scala.scalajs.js.annotation._
 
 
 
@@ -13,7 +13,8 @@ import js.annotation.JSExport
 * @param mintPoints Geographic points for mints represented
 * in the hoard.
 */
-@JSExport case class ContentsGraph (
+@JSExportTopLevel("ContentsGraph")
+case class ContentsGraph (
   id: String,
   hoard: Point,
   mintPoints: Vector[MintPoint]

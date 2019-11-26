@@ -1,14 +1,14 @@
 package edu.holycross.shot.nomisma
 
-import scala.scalajs.js
-import js.annotation.JSExport
+import scala.scalajs.js.annotation._
 
 /** A geographically located mint.
 *
 * @param mint Identifier for mint.
 * @param pt Geographic location of mint.
 */
-@JSExport case class MintPoint(mint: String, pt: Point) {
+@JSExportTopLevel("MintPoint")
+case class MintPoint(mint: String, pt: Point) {
 
 
   /** Representation of the mint point as a KML placemark.

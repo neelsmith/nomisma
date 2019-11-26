@@ -7,9 +7,9 @@ case object Obverse extends CoinSide
 case object Reverse extends CoinSide
 
 
-import java.net.URL
+// import java.net.URL
 trait NomismaEntity {
-  def url:  URL
+  def urlString:  String//URL
   def label: String
   def urn: Cite2Urn
 }

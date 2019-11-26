@@ -1,11 +1,12 @@
 package edu.holycross.shot.nomisma
-import scala.scalajs.js
-import js.annotation.JSExport
+
+import scala.scalajs.js.annotation._
 
 
 /**
 */
-@JSExport  case class IssueCollection(
+@JSExportTopLevel("IssueCollection")
+case class IssueCollection(
   issues: Vector[BasicIssue]) {
 
 }

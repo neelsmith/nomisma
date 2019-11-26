@@ -1,6 +1,7 @@
 package edu.holycross.shot.nomisma
 
 
+import scala.scalajs.js.annotation._
 /** The contents of an edition of OCRE.
 *
 * @param issues
@@ -8,6 +9,7 @@ package edu.holycross.shot.nomisma
 * @param typeDescriptions
 * @param portraits
 */
+@JSExportTopLevel("Ocre")
 case class Ocre(
   issues:  Vector[BasicIssue],
   legends: Vector[Legend],

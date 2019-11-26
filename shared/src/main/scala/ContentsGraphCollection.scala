@@ -3,15 +3,15 @@ package edu.holycross.shot.nomisma
 
 import scala.collection.mutable.ArrayBuffer
 
-import scala.scalajs.js
-import js.annotation.JSExport
+import scala.scalajs.js.annotation._
 
 /** Collection of hoards viewed as graph of find spots
 * to mint locations.
 *
 * @param hoards Hoards viewed as [[ContentsGraph]] objects.
 */
-@JSExport case class ContentsGraphCollection (hoards: Vector[ContentsGraph]) {
+@JSExportTopLevel("ContentsGraphCollection")
+case class ContentsGraphCollection (hoards: Vector[ContentsGraph]) {
 
   val hoardIcon = "http://maps.google.com/mapfiles/kml/shapes/placemark_circle_highlight.png"
   val mintIcon = "http://maps.google.com/mapfiles/kml/shapes/capital_small.png"

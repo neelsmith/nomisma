@@ -1,8 +1,6 @@
 package edu.holycross.shot.nomisma
 
-
-import scala.scalajs.js
-import js.annotation.JSExport
+import scala.scalajs.js.annotation._
 
 
 /** A geographic point.
@@ -10,7 +8,8 @@ import js.annotation.JSExport
 * @param x X or longitude value.
 * @param y Y or latitude value.
 */
-@JSExport case class Point(x: Double, y: Double) {
+@JSExportTopLevel("Point")
+case class Point(x: Double, y: Double) {
 
   /** Use comma-delimited for default toString representation.
   */

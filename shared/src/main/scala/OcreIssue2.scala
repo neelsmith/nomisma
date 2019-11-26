@@ -1,12 +1,11 @@
 package edu.holycross.shot.nomisma
 import edu.holycross.shot.cite._
-import java.net.URL
-import scala.scalajs.js
-import js.annotation.JSExport
+//import java.net.URL
 
+import scala.scalajs.js.annotation._
 
-
-@JSExport  case class OcreIssue2(
+@JSExportTopLevel("OcreIssue2")
+case class OcreIssue2(
     basics: BasicIssue,
     otype: Option[TypeDescription],
     rtype: Option[TypeDescription],
@@ -17,10 +16,14 @@ import js.annotation.JSExport
     mintGeo: Option[MintPoint]
   ) extends NomismaEntity {
 
-  def url = {
-    new URL("http:nomisma.org/id/" + basics.id)
+  def urlString = {
+    "http:nomisma.org/id/" + basics.id
   }
 
+  /*def url = {
+    new URL(urlString)
+  }
+*/
   def urn: Cite2Urn = {
     Cite2Urn("urn:cite2:nomisma:ocre.hc:" + basics.id)
   }

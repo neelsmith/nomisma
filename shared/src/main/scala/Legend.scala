@@ -1,5 +1,6 @@
 package edu.holycross.shot.nomisma
 
+import scala.scalajs.js.annotation._
 
 /**  Legend for a single side of a coin.
 *
@@ -7,6 +8,7 @@ package edu.holycross.shot.nomisma
 * @param side
 * @param legend
 */
+@JSExportTopLevel("Legend")
 case class Legend (coin: String, side: CoinSide, legend: String)
 
 

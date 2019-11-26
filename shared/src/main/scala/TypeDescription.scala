@@ -1,12 +1,14 @@
 package edu.holycross.shot.nomisma
 
 
+import scala.scalajs.js.annotation._
 /**  Description of a coin's type on a single side.
 *
 * @param coin
 * @param side
 * @param description
 */
+@JSExportTopLevel("TypeDescription")
 case class TypeDescription (coin: String, side: CoinSide, description: String)
 
 object TypeDescription {

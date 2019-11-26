@@ -1,7 +1,7 @@
 package edu.holycross.shot.nomisma
 
 import edu.holycross.shot.cite._
-import java.net.URL
+import scala.scalajs.js.annotation._
 
 /**  Legend for a single side of a coin.
 *
@@ -9,9 +9,10 @@ import java.net.URL
 * @param side
 * @param legend
 */
-case class Portrait (coin: String, side: CoinSide, portrait: URL) extends NomismaEntity {
+@JSExportTopLevel("Portrait")
+case class Portrait (coin: String, side: CoinSide, portrait: String) extends NomismaEntity {
 
-  def url = portrait
+  def urlString = portrait.toString
   def label = portrait.toString.replaceAll("http://collection.britishmuseum.org/id/person-institution/", "").replaceAll("http://nomisma.org/id/", "")
 
   def objectId : String =  portrait.toString.replaceAll("http://nomisma.org/id/", "")
@@ -39,7 +40,8 @@ object Portrait {
 
         ///println("ATTRS " + rdgs(0).attributes.toVector(0).value)
 
-        val portraitUrl = new URL(rdgs(0).attributes.toVector(0).value.toString)
+        //val portraitUrl = new URL(rdgs(0).attributes.toVector(0).value.toString)
+        val portraitUrl = rdgs(0).attributes.toVector(0).value.toString
 
         val side = coinSide(coinParts(1))
         side match {

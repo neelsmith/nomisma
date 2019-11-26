@@ -1,14 +1,14 @@
 package edu.holycross.shot.nomisma
 
-import scala.scalajs.js
-import js.annotation.JSExport
 
+import scala.scalajs.js.annotation._
 
 /** Wrapping class for a Vector of [[MintPoint]]s.
 *
 * @param mintPoints Vector of [[MintPoint]]s.
 */
-@JSExport case class MintPointCollection(mintPoints: Vector[MintPoint] )  {
+@JSExportTopLevel("MintPointCollection")
+case class MintPointCollection(mintPoints: Vector[MintPoint] )  {
 
 
   /** Number of mints in the collection.
