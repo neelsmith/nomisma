@@ -17,16 +17,16 @@ case class Ocre(
 ) {
 
 
-  def ocreIssues(ids: Vector[String]): Vector[OcreIssue] = {
+  def ocreIssues(ids: Vector[String]): Vector[OcreIssue2] = {
     val opts = ids.map(ocreIssue(_))
     opts.flatten
   }
 
-  /** Given an object identifier, construct an [[OcreIssue]].
+  /** Given an object identifier, construct an [[OcreIssue2]].
   *
   * @param id Object identifier for issue.
   */
-  def ocreIssue(id: String) : Option[OcreIssue] = {
+  def ocreIssue(id: String) : Option[OcreIssue2] = {
     val issueMatches = issues.filter(_.id == id)
      issueMatches.size  match {
       case 1 => {
@@ -48,7 +48,7 @@ case class Ocre(
         val oPortrait = None // not yet implemented
         val rPortrait = None // not yet implemented
 
-        Some(OcreIssue(basics, oType, rType, oLegend, rLegend, oPortrait, rPortrait, geo))
+        Some(OcreIssue2(basics, oType, rType, oLegend, rLegend, oPortrait, rPortrait, geo))
       }
       case _ => None
     }

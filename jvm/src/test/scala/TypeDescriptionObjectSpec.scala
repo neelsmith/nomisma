@@ -3,16 +3,10 @@ import org.scalatest.FlatSpec
 import scala.xml._
 
 
-class TypeDescriptionSpec extends FlatSpec {
+class TypeDescriptionObjectSpec extends FlatSpec {
 
 
-  val rdf = XML.loadFile("shared/src/test/resources/ocre_sample.rdf")
-
-  "A TypeDescription"  should "have a CoinSide" in {
-    val typeDescription = TypeDescription("coinId", Obverse, "Laureate portrait, r.")
-    assert (typeDescription.side == Obverse)
-  }
-
+  val rdf = XML.loadFile("jvm/src/test/resources/ocre_sample.rdf")
 
   "The TypeDescription object" should "extract TypeDescriptions from OCRE RDF " in {
     val descrs = rdf \\ "Description"

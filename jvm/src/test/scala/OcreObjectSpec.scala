@@ -3,7 +3,7 @@ import org.scalatest.FlatSpec
 import scala.xml._
 
 class OcreObjectSpec extends FlatSpec {
-  val rdf = XML.loadFile("shared/src/test/resources/ocre_sample.rdf")
+  val rdf = XML.loadFile("jvm/src/test/resources/ocre_sample.rdf")
 
   "The Ocre object" should "parse OCRE from RDF source" in {
     val ocre = Ocre.parseRdf(rdf)

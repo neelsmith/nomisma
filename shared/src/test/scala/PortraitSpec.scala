@@ -5,7 +5,7 @@ import java.net.URL
 
 class PortraitSpec extends FlatSpec {
 
-  //val rdf = XML.loadFile("shared/src/test/resources/ocre_sample.rdf")
+  
   val augustus = new URL("http://nomisma.org/id/augustus")
 
   "A Portrait"  should "have a CoinSide" in {
@@ -25,15 +25,4 @@ class PortraitSpec extends FlatSpec {
     assert(portrait.url == augustus)
   }
 
-/*
-  "The Portrait object" should "extract Portraits from OCRE RDF " in {
-    val descrs = rdf \\ "Description"
-    val dv = descrs.toVector
-
-    val portraitElems = dv.filter( d => (d  \\ "hasPortrait").size > 0 )
-    val portraits = Portrait.portraitVector(portraitElems)
-
-    val totalExpected = 6
-    assert(portraits.size == totalExpected)
-  }*/
 }

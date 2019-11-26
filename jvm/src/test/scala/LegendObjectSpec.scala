@@ -2,16 +2,12 @@ package edu.holycross.shot.nomisma
 import org.scalatest.FlatSpec
 import scala.xml._
 
-class LegendSpec extends FlatSpec {
+class LegendObjectSpec extends FlatSpec {
 
 
-  val rdf = XML.loadFile("shared/src/test/resources/ocre_sample.rdf")
+  val rdf = XML.loadFile("jvm/src/test/resources/ocre_sample.rdf")
 
 
-  "A Legend"  should "have a CoinSide" in {
-    val legend = Legend("coinId", Obverse, "EX SC")
-    assert (legend.side == Obverse)
-  }
 
   "The Legend object" should "extract Legends from OCRE RDF " in {
     val descrs = rdf \\ "Description"
