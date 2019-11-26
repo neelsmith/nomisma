@@ -40,12 +40,23 @@ class YearRangeSpec extends FlatSpec {
     assert(rangeDate.pointAverage == -440)
   }
 
-  it should "override the default toString functin" in {
+  it should "override the default toString function" in {
     val pointDate = YearRange(-450)
     val rangeDate = YearRange(-450,-430)
 
     assert(pointDate.toString == "-450")
     assert(rangeDate.toString == "-450:-430")
+  }
+
+  it should "have a contains function" in {
+    val pointDate = YearRange(-450)
+    assert(pointDate.contains(-450))
+    assert(pointDate.contains(-451) == false)
+
+    val rangeDate = YearRange(-450,-430)
+    assert(rangeDate.contains(-440))
+    assert(rangeDate.contains(-451) == false)
+
   }
 
 

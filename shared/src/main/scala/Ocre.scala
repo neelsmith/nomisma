@@ -56,10 +56,29 @@ case class Ocre(
     }
     authMap.toMap
   }
+
+
+  def authoritiesForYear(yr: Int) :  Vector[String] = {
+    val auths = byAuthority
+    println("Check on " + yr)
+    val matches = for (auth <- auths.keySet.toVector) yield {
+      print("Authority " + auth + "....")
+      val contained = auths(auth).dateRange.contains(yr)
+      println(contained)
+      if (contained) {
+        Some(auth)
+      } else {
+        None
+      }
+    }
+    matches.flatten
+  }
+}
+
 /*
   def rangesByAuthority: Map[String, YearRange] = {
   }*/
-}
+
 
 
 object Ocre {

@@ -15,6 +15,12 @@ case class YearRange (year1: Int, year2: Option[Int] = None) {
   require (year1 != 0, "There is no year 0 in our era.")
 
 
+  def contains(yr: Int): Boolean  = {
+    year2 match {
+      case None => yr == year1
+      case _ => (yr >= year1) && (yr <= year2.get)
+    }
+  }
   /** True if values for dates are valid.
   */
   def rangeOK = {

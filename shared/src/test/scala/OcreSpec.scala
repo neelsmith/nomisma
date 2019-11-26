@@ -49,4 +49,15 @@ class OcreSpec extends FlatSpec {
     val expectedRange = YearRange(-25, Some(-18))
     assert (expectedRange == authMap("augustus").dateRange)
   }
+
+  it should "find a list of authorities for a year value" in {
+    val ocre = Ocre(cex, true)
+    val auths1 = ocre.authoritiesForYear(-20)
+    assert(auths1.size == 1)
+    assert(auths1(0)== "augustus")
+
+    val auths2 = ocre.authoritiesForYear(50)
+    assert(auths2.isEmpty)
+
+  }
 }
