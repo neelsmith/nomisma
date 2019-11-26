@@ -27,4 +27,26 @@ class OcreSpec extends FlatSpec {
     val expectedMin : Int = -25
     assert(expectedMin == ocre.minDate)
   }
+
+  it should "find the highest date in the Ocre" in {
+    val ocre = Ocre(cex, true)
+    val expectedMax : Int = -18
+    assert(expectedMax == ocre.maxDate)
+  }
+
+  it should "find a date range for the Ocre" in {
+    val ocre = Ocre(cex, true)
+    val expectedRange = YearRange(-25, Some(-18))
+    assert (expectedRange == ocre.dateRange)
+  }
+
+  it should "subset the Ocre by authority" in {
+    val ocre = Ocre(cex, true)
+    val authMap = ocre.byAuthority
+    val expectedSize = 2
+    assert(authMap("augustus").size == expectedSize)
+
+    val expectedRange = YearRange(-25, Some(-18))
+    assert (expectedRange == authMap("augustus").dateRange)
+  }
 }

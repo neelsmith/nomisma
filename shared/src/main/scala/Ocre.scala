@@ -26,12 +26,39 @@ case class Ocre(
     Ocre(datedIssues)
   }
 
+  // Naively assuming that there will be at least one datable
+  // issue...
   def minDate: Int = {
     datable.issues.map(_.dateRange.get.year1).min
   }
 
+  def maxDate: Int = {
+    val yr2s = datable.issues.map(_.dateRange).flatten.map(_.year2.get)
+    yr2s.size match {
+      case 0 => datable.issues.map(_.dateRange.get.year1).max
+      case _ => yr2s.max
+    }
+  }
 
-  //issues.filter(_.dateRange != None).map(_.dateRange.get.year1).min
+  def dateRange: YearRange = {
+    if (minDate == maxDate) {
+      YearRange(minDate, None)
+    } else {
+      YearRange(minDate, Some(maxDate))
+    }
+  }
+
+  def byAuthority : Map[String, Ocre] = {
+    val auths = issues.map(_.authority)
+    val authMap = for (auth <- auths) yield {
+      val subset = issues.filter(_.authority == auth)
+      (auth -> Ocre(subset))
+    }
+    authMap.toMap
+  }
+/*
+  def rangesByAuthority: Map[String, YearRange] = {
+  }*/
 }
 
 
@@ -44,7 +71,6 @@ object Ocre {
       case true => fromCexStrings(lines.tail)
       case false =>fromCexStrings(lines)
     }
-
   }
 
   def fromCexStrings(cexLines : Vector[String]) : Ocre = {
