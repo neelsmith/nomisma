@@ -11,7 +11,7 @@ import scala.scalajs.js.annotation._
 * @param year2 Later date in range, if any.
 */
 @JSExportTopLevel("YearRange")
-case class YearRange (year1: Integer, year2: Option[Integer] = None) {
+case class YearRange (year1: Int, year2: Option[Int] = None) {
   require (year1 != 0, "There is no year 0 in our era.")
 
 
@@ -20,7 +20,7 @@ case class YearRange (year1: Integer, year2: Option[Integer] = None) {
   def rangeOK = {
     year2 match {
       case None =>  true
-      case _ => (year2.get > year1)
+      case _ => (year2.get >= year1)
     }
   }
   require(rangeOK,s"Date range must be expressed in order earlier to later, not ${year1} to ${year2.get}")
@@ -28,10 +28,10 @@ case class YearRange (year1: Integer, year2: Option[Integer] = None) {
 
   /** Representation of date as a single integer value.
   */
-  def pointAverage: Integer = {
+  def pointAverage: Int = {
     year2 match {
       case None => year1
-      case i: Some[Integer] => (year1 + i.get) / 2
+      case i: Some[Int] => (year1 + i.get) / 2
     }
   }
 
@@ -40,21 +40,21 @@ case class YearRange (year1: Integer, year2: Option[Integer] = None) {
   */
   override def toString = {
     year2 match {
-      case d: Some[Integer] => s"${year1}:${d.get}"
+      case d: Some[Int] => s"${year1}:${d.get}"
       case _ => year1.toString
     }
   }
 
   def toString(separator: String): String = {
     year2 match {
-      case d: Some[Integer] => s"${year1}${separator}${d.get}"
+      case d: Some[Int] => s"${year1}${separator}${d.get}"
       case _ => year1.toString
     }
   }
 
   def csv(separator: String): String = {
     year2 match {
-      case d: Some[Integer] => s"${year1}${separator}${d.get}"
+      case d: Some[Int] => s"${year1}${separator}${d.get}"
       case _ => year1.toString + separator
     }
   }
@@ -73,7 +73,7 @@ object YearRange {
   * @param year1 Earlier date in range.
   * @param year2 Later date in range.
   */
-  def apply(year1: Integer, year2: Integer): YearRange = {
+  def apply(year1: Int, year2: Int): YearRange = {
     YearRange(year1, Some(year2))
   }
 }
