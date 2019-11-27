@@ -73,7 +73,12 @@ case class Ocre(
     }
     matches.flatten
   }
+  def authorityLabelForYear(yr: Int): String = {
+    authoritiesForYear(yr).mkString(", ")
+  }
 }
+
+
 
 /*
   def rangesByAuthority: Map[String, YearRange] = {
