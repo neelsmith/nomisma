@@ -67,7 +67,7 @@ def parseBasicOcre(ocre: scala.xml.Elem) : Vector[BasicIssue] = {
     }
 
 
-    val id =  t.attributes.value(0).toString.replaceFirst("http://numismatics.org/ocre/id/", "")
+    val id =  t.attributes.value(0).toString.replaceFirst("http://numismatics.org/ocre/id/ric.", "")
     //+ s"#${lab}#${denom}#${material}#${authority}#${mint}#${region}"
     BasicIssue(id, lab, denom, material, authority, mint, region)
   }
@@ -168,7 +168,7 @@ def portraitVector(descriptionV: Vector[scala.xml.Node]) : Vector[Portrait] = {
 *
 * @param ocre Root of parsed OCRE data set.
 */
-def parseOcre(ocre: scala.xml.Elem): Ocre2 = {
+def parseOcre(ocre: scala.xml.Elem): OcreRdf = {
   val descrs = ocre \\ "Description"
   val dv = descrs.toVector
   val legends = legendVector(dv)
@@ -183,10 +183,10 @@ def parseOcre(ocre: scala.xml.Elem): Ocre2 = {
 
   val issues = parseBasicOcre(ocre)
 
-  Ocre2(issues, legends, typeDescriptions, portraits, MintPointCollection(Vector.empty))
+  OcreRdf(issues, legends, typeDescriptions, portraits, MintPointCollection(Vector.empty))
 }
 
-def loadAndParse(fName: String): Ocre2 = {
+def loadAndParse(fName: String): OcreRdf = {
   val root = loadOcre(fName)
   parseOcre(root)
 }
@@ -196,8 +196,8 @@ def info = {
   println("Things you can do with this script:\n")
 
   println("\tloadOcre(fName: String): scala.xml.Elem")
-  println("\tparseOcre(ocre: scala.xml.Elem): Ocre2")
-  println("\tloadAndParse(fName: String): Ocre2")
+  println("\tparseOcre(ocre: scala.xml.Elem): OcreRdf")
+  println("\tloadAndParse(fName: String): OcreRdf")
   println("\nTo see this message:\n\tinfo")
 }
 

@@ -8,13 +8,13 @@ import scala.xml._
 
 /**
 */
-object Ocre2Source {
+object OcreRdfSource {
 
-  /** Parse RDF into an Ocre2 object.
+  /** Parse RDF into an OcreRdf object.
   *
   * @param ocre Root of parsed OCRE data set.
   */
-  def parseRdf(ocre: scala.xml.Elem): Ocre2 = {
+  def parseRdf(ocre: scala.xml.Elem): OcreRdf = {
     val descrs = ocre \\ "Description"
     val dv = descrs.toVector
     val legends = Legend.legendVector(dv)
@@ -29,6 +29,6 @@ object Ocre2Source {
 
     val issues = BasicIssue.parseOcreXml(ocre)
 
-    Ocre2(issues, legends, typeDescriptions, portraits, MintPointCollection(Vector.empty[MintPoint]))
+    OcreRdf(issues, legends, typeDescriptions, portraits, MintPointCollection(Vector.empty[MintPoint]))
   }
 }

@@ -4,8 +4,8 @@ import edu.holycross.shot.cite._
 
 import scala.scalajs.js.annotation._
 
-@JSExportTopLevel("OcreIssue2")
-case class OcreIssue2(
+@JSExportTopLevel("OcreIssueSimplified")
+case class OcreIssueSimplified(
     basics: BasicIssue,
     otype: Option[TypeDescription],
     rtype: Option[TypeDescription],

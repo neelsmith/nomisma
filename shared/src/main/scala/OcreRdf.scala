@@ -9,8 +9,8 @@ import scala.scalajs.js.annotation._
 * @param typeDescriptions
 * @param portraits
 */
-@JSExportTopLevel("Ocre2")
-case class Ocre2(
+@JSExportTopLevel("OcreRdf")
+case class OcreRdf(
   issues:  Vector[BasicIssue],
   legends: Vector[Legend],
   typeDescriptions: Vector[TypeDescription],
@@ -62,16 +62,16 @@ case class Ocre2(
     opts.flatten
   }
 
-  def ocreIssue2s(ids: Vector[String]): Vector[OcreIssue2] = {
+  def ocreIssue2s(ids: Vector[String]): Vector[OcreIssueSimplified] = {
     val opts = ids.map(ocreIssue2(_))
     opts.flatten
   }
 
-  /** Given an object identifier, construct an [[OcreIssue2]].
+  /** Given an object identifier, construct an [[OcreIssueSimplified]].
   *
   * @param id Object identifier for issue.
   */
-  def ocreIssue2(id: String) : Option[OcreIssue2] = {
+  def ocreIssue2(id: String) : Option[OcreIssueSimplified] = {
     val issueMatches = issues.filter(_.id == id)
      issueMatches.size  match {
       case 1 => {
@@ -93,7 +93,7 @@ case class Ocre2(
         val oPortrait = None // not yet implemented
         val rPortrait = None // not yet implemented
 
-        Some(OcreIssue2(basics, oType, rType, oLegend, rLegend, oPortrait, rPortrait, geo))
+        Some(OcreIssueSimplified(basics, oType, rType, oLegend, rLegend, oPortrait, rPortrait, geo))
       }
       case _ => None
     }
@@ -106,17 +106,17 @@ case class Ocre2(
 }
 
 
-object Ocre2 {
+object OcreRdf {
 
 
-  def addGeo(ocre: Ocre2, geo: MintPointCollection): Ocre2 = {
-    Ocre2(ocre.issues, ocre.legends, ocre.typeDescriptions, ocre.portraits, geo)
+  def addGeo(ocre: OcreRdf, geo: MintPointCollection): OcreRdf = {
+    OcreRdf(ocre.issues, ocre.legends, ocre.typeDescriptions, ocre.portraits, geo)
   }
   /**
   *
   * @param ocre Root of parsed OCRE data set.
   */
-  def parseRdf(ocre: scala.xml.Elem): Ocre2 = {
+  def parseRdf(ocre: scala.xml.Elem): OcreRdf = {
     val descrs = ocre \\ "Description"
     val dv = descrs.toVector
     val legends = Legend.legendVector(dv)
@@ -131,7 +131,7 @@ object Ocre2 {
 
     val issues = BasicIssue.parseOcreXml(ocre)
 
-    Ocre2(issues, legends, typeDescriptions, portraits, MintPointCollection(Vector.empty[MintPoint]))
+    OcreRdf(issues, legends, typeDescriptions, portraits, MintPointCollection(Vector.empty[MintPoint]))
 
   }
 
