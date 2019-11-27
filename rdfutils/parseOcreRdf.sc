@@ -181,12 +181,9 @@ def yearRangeFromTypeSeries(typeSeries: scala.xml.Node) : Option[YearRange] = {
   println("Returning computed year range option " + yearRangeOpt)
   yearRangeOpt
 }
-def datesVector(typeSeriesV: Vector[scala.xml.Node]) = {
-
-  val datedata = for (t <- typeSeriesV) yield {
+def datesVector(typeSeriesV: Vector[scala.xml.Node]): Vector[IssueYearRange] = {
+  val dateOptions = for (t <- typeSeriesV) yield {
     val coinId = t.attributes.value.toString.replaceFirst("http://numismatics.org/ocre/id/ric.","").replaceFirst("1(2)","1_2" )
-
-
     val yearRangeOpts = try {
       val yrOpt = yearRangeFromTypeSeries(t)
       println("Computed range " + yrOpt)
@@ -200,7 +197,9 @@ def datesVector(typeSeriesV: Vector[scala.xml.Node]) = {
         None
       }
     }
+    yearRangeOpts
   }
+  dateOptions.toVector.flatten
 }
 
 /**
