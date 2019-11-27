@@ -5,9 +5,7 @@ import scala.scalajs.js.annotation._
 /** The contents of an edition of OCRE.
 *
 * @param issues
-* @param legends
-* @param typeDescriptions
-* @param portraits
+* @param mintsGeo
 */
 @JSExportTopLevel("Ocre")
 case class Ocre(

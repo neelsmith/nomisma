@@ -20,7 +20,46 @@ case class Ocre2(
 
 
   def ocreIssue(id: String) : Option[OcreIssue] = {
-    None
+    val issueMatches = issues.filter(_.id == id)
+     issueMatches.size  match {
+      case 1 => {
+        val basics = issueMatches(0)
+        val geo = mintsGeo.forMint(basics.mint)
+
+        val rTypeMatches = typeDescriptions.filter(_.coin == id).filter(_.side == Reverse)
+        val rType = if (rTypeMatches.size == 1) {
+          rTypeMatches(0).description
+        } else {""}
+
+        val oTypeMatches = typeDescriptions.filter(_.coin == id).filter(_.side == Obverse)
+        val oType = if (oTypeMatches.size == 1) {
+          oTypeMatches(0).description
+        } else {""}
+
+        val rLegendMatches = legends.filter(_.coin == id).filter(_.side == Reverse)
+        val rLegend = if (rLegendMatches.size == 1) {
+          rLegendMatches(0).legend
+        } else {""}
+
+        val oLegendMatches = legends.filter(_.coin == id).filter(_.side == Obverse)
+        val oLegend = if (oLegendMatches.size == 1) {
+          oLegendMatches(0).legend
+        } else {""}
+
+        val oPortrait = "" // not yet implemented
+        val rPortrait = "" // not yet implemented
+        val dateRange = None // not yet implemented
+
+        Some(OcreIssue(basics.id, basics.labelText, basics.denomination, basics.material, basics.authority, basics.mint, basics.region, oType, oLegend, oPortrait, rType, rLegend,  rPortrait, dateRange))
+      }
+      case _ => None
+    }
+  }
+
+
+  def ocreIssues(ids: Vector[String]): Vector[OcreIssue] = {
+    val opts = ids.map(ocreIssue(_))
+    opts.flatten
   }
 
   def ocreIssue2s(ids: Vector[String]): Vector[OcreIssue2] = {
