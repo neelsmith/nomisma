@@ -95,7 +95,7 @@ def legendVector(descriptionV: Vector[scala.xml.Node]) : Vector[Legend] = {
     if (triple.size == 3) {
       Some(Legend(triple(0), sideForString(triple(1)), triple(2))  )
     } else {
-      println("Struck out on " + l)
+      println("Struck out on legend for " + l)
       None
     }
   }
@@ -119,7 +119,7 @@ def typeDescriptionVector(typeDescrs: Vector[scala.xml.Node]) : Vector[TypeDescr
     if (triple.size == 3) {
       Some(TypeDescription(triple(0), sideForString(triple(1)), triple(2))  )
     } else {
-      println("Struck out on " + d)
+      println("Struck out on description for " + d)
       None
     }
   }
@@ -148,21 +148,60 @@ def portraitVector(descriptionV: Vector[scala.xml.Node]) : Vector[Portrait] = {
     }
   }
   portraits.flatten
-/*
-  val portraitsRaw = for (p <- portraitText.flatten) yield {
-    val triple = p.split("#")
-    if (triple.size == 3) {
-      Some(Portrait(triple(0), triple(1), triple(2))  )
-    } else {
-      println("Struck out on " + p)
-      None
-    }
-  }
-  portraitsRaw.filter(_.isDefined).map(_.get)
-  */
 }
 
+case class IssueYearRange(coin: String, yearRange: YearRange)
 
+def yearRangeFromTypeSeries(typeSeries: scala.xml.Node) : Option[YearRange] = {
+  val sdates = (typeSeries \\ "hasStartDate")
+  val yearRangeOpt = if (sdates.isEmpty) {
+    println("No start date.")
+    None
+
+  } else {
+
+    val d1 = sdates(0).text.toInt
+    println("Start date " + d1)
+    val edates = (typeSeries \\ "hasEndDate")
+    val rng = if (edates.isEmpty) {
+      println("no end date")
+      val yrg = YearRange(d1, None)
+      println("range " + yrg)
+      Some(yrg)
+
+    } else {
+      val d2 = edates(0).text.toInt
+      println("End date " + d2)
+      val yrg = YearRange(d1,Some(d2))
+      println("range " + yrg)
+      Some(yrg)
+    }
+    rng
+  }
+  println("Returning computed year range option " + yearRangeOpt)
+  yearRangeOpt
+}
+def datesVector(typeSeriesV: Vector[scala.xml.Node]) = {
+
+  val datedata = for (t <- typeSeriesV) yield {
+    val coinId = t.attributes.value.toString.replaceFirst("http://numismatics.org/ocre/id/ric.","").replaceFirst("1(2)","1_2" )
+
+
+    val yearRangeOpts = try {
+      val yrOpt = yearRangeFromTypeSeries(t)
+      println("Computed range " + yrOpt)
+      println(s"${coinId}, ${yrOpt.get}\n")
+      Some(IssueYearRange(coinId, yrOpt.get))
+
+    } catch {
+      case t: Throwable => {
+        println("For " + coinId + ", failed to create date range: " + t.toString)
+        println(s"${coinId}, None\n")
+        None
+      }
+    }
+  }
+}
 
 /**
 *
@@ -183,6 +222,9 @@ def parseOcre(ocre: scala.xml.Elem): OcreRdf = {
 
   val issues = parseBasicOcre(ocre)
 
+
+  val typeData = ocre \\ "TypeSeriesItem"
+  val dateVector = datesVector(typeData.toVector)
   OcreRdf(issues, legends, typeDescriptions, portraits, MintPointCollection(Vector.empty))
 }
 
@@ -198,7 +240,7 @@ def info = {
   println("\tloadOcre(fName: String): scala.xml.Elem")
   println("\tparseOcre(ocre: scala.xml.Elem): OcreRdf")
   println("\tloadAndParse(fName: String): OcreRdf")
-  println("\nTo see this message:\n\tinfo")
+  println("\nTo see this message:\n\n\tinfo")
 }
 
 
