@@ -13,4 +13,10 @@ class PackageSpec extends FlatSpec {
     assert(coinSide("obverse").get == Obverse)
   }
 
+  it should "generate ID component for URNs from OCRE URLs" in {
+    val urlString = "5.gall(2).504"
+    val expected = "5.gall_2.504"
+    assert(ricIdFromUrl(urlString) == expected)
+  }
+
 }

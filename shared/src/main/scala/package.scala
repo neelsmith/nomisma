@@ -17,9 +17,19 @@ package edu.holycross.shot
 package object nomisma {
   import scala.xml._
 
-
   def ricIdFromUrl(lod: String): String = {
-    lod.replaceFirst("http://numismatics.org/ocre/id/ric.", "")
+    lod.
+    replaceFirst("http://numismatics.org/ocre/id/ric.", "").
+    replaceFirst("1\\(2\\)", "1_2").
+    replaceFirst("zeno\\(1\\)_e","zeno_1_e").
+    replaceFirst("zeno\\(2\\)_e","zeno_2_e").
+    replaceFirst("2_1\\(2\\)","2_1_2").
+    replaceFirst("5.gall\\(1\\)", "5.gall_1").
+    replaceFirst("5.gall\\(2\\)", "5.gall_2").
+    replaceFirst("5.gall_sala\\(1\\)","5.gall_sala_1").
+    replaceFirst("5.gall_sala\\(2\\)","5.gall_sala_2").
+    replaceFirst("5.sala\\(1\\)", "5.sala_1").
+    replaceFirst("5.sala\\(2\\)", "5.sala_2")
   }
 
   /** Extract the unique ID value from a long
