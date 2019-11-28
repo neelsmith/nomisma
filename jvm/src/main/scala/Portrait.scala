@@ -25,12 +25,37 @@ case class Portrait (coin: String, side: CoinSide, portrait: String) extends Nom
 
 object Portrait {
 
+  def sideForString(s: String): CoinSide = {
+    s.toLowerCase match {
+      case "reverse" => Reverse
+      case "obverse" => Obverse
+      case sideLabel: String => throw new Exception("Unrecognized value for coin side: " + sideLabel)
+    }
+  }
   /** Given a Vector of OCRE Description nodes,
   * return a Vector of [[Portrait]]s.
   *
   * @param descriptionV Vector of OCRE Description nodes.
   */
   def portraitVector(descriptionV: Vector[scala.xml.Node]) : Vector[Portrait] = {
+    val portraits = for (p <- descriptionV) yield {
+      val rdgs = p \\ "hasPortrait"
+      // p.attributes.value.toString is BOTH
+      // coin ID and side!
+      if (rdgs.nonEmpty) {
+        val coinSide = p.attributes.value.toString.split("#")
+        //println("COIN SIDE " + coinSide.toVector)
+        //println("ATTRS "  + rdgs(0).attributes)
+        Some(Portrait(coinSide(0), sideForString(coinSide(1)), rdgs(0).attributes.toString))//value ))
+
+      } else {
+        None
+      }
+    }
+    portraits.flatten
+  }
+  
+  def portraitVectorHosed(descriptionV: Vector[scala.xml.Node]) : Vector[Portrait] = {
     val portraits = for (p <- descriptionV) yield {
       val rdgs = (p \\ "hasPortrait").toVector
       // p.attributes.value.toString is BOTH

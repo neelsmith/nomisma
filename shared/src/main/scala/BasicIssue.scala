@@ -1,5 +1,5 @@
 package edu.holycross.shot.nomisma
-import java.net.URL
+//import java.net.URL
 import scala.scalajs.js
 import scala.scalajs.js.annotation._
 
@@ -23,8 +23,9 @@ case class BasicIssue(
   mint: String,
   region: String) {
 
-  def url = {
-    new URL("http:nomisma.org/id/" + id)
+  def urlString = {
+    //new URL("http:nomisma.org/id/" + id)
+    id
   }
   def label = labelText
 }
