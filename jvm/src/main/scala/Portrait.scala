@@ -7,7 +7,7 @@ import scala.scalajs.js.annotation._
 *
 * @param coin
 * @param side
-* @param legend
+* @param portrait
 */
 @JSExportTopLevel("Portrait")
 case class Portrait (coin: String, side: CoinSide, portrait: String) extends NomismaEntity {

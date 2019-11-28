@@ -47,11 +47,24 @@ case class OcreRdf(
           oLegendMatches(0).legend
         } else {""}
 
-        val oPortrait = "" // not yet implemented
-        val rPortrait = "" // not yet implemented
-        val dateRange = None // not yet implemented
+        val oPortaitMatches = portraits.filter(_.coin == id).filter(_.side == Obverse)
+        val oPortrait = if (oPortaitMatches.size == 1) {
+          oPortaitMatches(0).portrait
+        } else {""}
 
-        Some(OcreIssue(basics.id, basics.labelText, basics.denomination, basics.material, basics.authority, basics.mint, basics.region, oType, oLegend, oPortrait, rType, rLegend,  rPortrait, dateRange))
+        val rPortaitMatches = portraits.filter(_.coin == id).filter(_.side == Reverse)
+        val rPortrait = if (rPortaitMatches.size == 1) {
+          rPortaitMatches(0).portrait
+        } else {""}
+
+
+        val dateMatches = dateRanges.filter(_.coin == id)
+        val dateRangeOpt = if (dateMatches.size == 1) {
+          Some(dateMatches(0).yearRange)
+        } else {None}
+
+
+        Some(OcreIssue(basics.id, basics.labelText, basics.denomination, basics.material, basics.authority, basics.mint, basics.region, oType, oLegend, oPortrait, rType, rLegend,  rPortrait, dateRangeOpt))
       }
       case _ => None
     }
