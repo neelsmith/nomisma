@@ -39,16 +39,13 @@ def parseBasicOcre(ocre: scala.xml.Elem) : Vector[BasicIssue] = {
   val data = for (t <- typesVect) yield {
     val lab = (t \\ "prefLabel")(0).text
 
-
     val denomElems = (t \\ "hasDenomination")
     val  denom =  if (denomElems.isEmpty) { "none" } else {     denomElems(0).attributes.value.toString.replaceFirst("http://nomisma.org/id/","")
     }
 
-
     val materialElems = (t \\ "hasMaterial")
     val  material =  if (materialElems.isEmpty) { "none" } else {     materialElems(0).attributes.value.toString.replaceFirst("http://nomisma.org/id/","")
     }
-
 
 
     val authorityElems = (t \\ "hasAuthority")
@@ -56,16 +53,13 @@ def parseBasicOcre(ocre: scala.xml.Elem) : Vector[BasicIssue] = {
     }
 
 
-
     val mintElems = (t \\ "hasMint")
     val  mint =  if (mintElems.isEmpty) { "none" } else {     mintElems(0).attributes.value.toString.replaceFirst("http://nomisma.org/id/","")
     }
 
-
     val regionElems = (t \\ "hasRegion")
     val  region =  if (regionElems.isEmpty) { "none" } else {     regionElems(0).attributes.value.toString.replaceFirst("http://nomisma.org/id/","")
     }
-
 
     val id =  t.attributes.value(0).toString.replaceFirst("http://numismatics.org/ocre/id/ric.", "")
     //+ s"#${lab}#${denom}#${material}#${authority}#${mint}#${region}"
@@ -150,7 +144,7 @@ def portraitVector(descriptionV: Vector[scala.xml.Node]) : Vector[Portrait] = {
   portraits.flatten
 }
 
-case class IssueYearRange(coin: String, yearRange: YearRange)
+//case class IssueYearRange(coin: String, yearRange: YearRange)
 
 def yearRangeFromTypeSeries(typeSeries: scala.xml.Node) : Option[YearRange] = {
   val sdates = (typeSeries \\ "hasStartDate")
@@ -181,6 +175,7 @@ def yearRangeFromTypeSeries(typeSeries: scala.xml.Node) : Option[YearRange] = {
   println("Returning computed year range option " + yearRangeOpt)
   yearRangeOpt
 }
+
 def datesVector(typeSeriesV: Vector[scala.xml.Node]): Vector[IssueYearRange] = {
   val dateOptions = for (t <- typeSeriesV) yield {
     val coinId = t.attributes.value.toString.replaceFirst("http://numismatics.org/ocre/id/ric.","").replaceFirst("1(2)","1_2" )
@@ -224,7 +219,7 @@ def parseOcre(ocre: scala.xml.Elem): OcreRdf = {
 
   val typeData = ocre \\ "TypeSeriesItem"
   val dateVector = datesVector(typeData.toVector)
-  OcreRdf(issues, legends, typeDescriptions, portraits, MintPointCollection(Vector.empty))
+  OcreRdf(issues, legends, typeDescriptions, portraits, dateVector, MintPointCollection(Vector.empty))
 }
 
 def loadAndParse(fName: String): OcreRdf = {

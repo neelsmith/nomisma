@@ -29,6 +29,8 @@ object OcreRdfSource {
 
     val issues = BasicIssue.parseOcreXml(ocre)
 
-    OcreRdf(issues, legends, typeDescriptions, portraits, MintPointCollection(Vector.empty[MintPoint]))
+    val dateRanges = Vector.empty[IssueYearRange] // NOT YET IMPLEMENTED
+
+    OcreRdf(issues, legends, typeDescriptions, portraits, dateRanges, MintPointCollection(Vector.empty[MintPoint]))
   }
 }

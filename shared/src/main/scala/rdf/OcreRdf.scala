@@ -15,6 +15,7 @@ case class OcreRdf(
   legends: Vector[Legend],
   typeDescriptions: Vector[TypeDescription],
   portraits: Vector[Portrait],
+  dateRanges: Vector[IssueYearRange],
   mintsGeo: MintPointCollection
 ) {
 
@@ -110,7 +111,7 @@ object OcreRdf {
 
 
   def addGeo(ocre: OcreRdf, geo: MintPointCollection): OcreRdf = {
-    OcreRdf(ocre.issues, ocre.legends, ocre.typeDescriptions, ocre.portraits, geo)
+    OcreRdf(ocre.issues, ocre.legends, ocre.typeDescriptions, ocre.portraits, ocre.dateRanges, geo)
   }
   /**
   *
@@ -131,7 +132,9 @@ object OcreRdf {
 
     val issues = BasicIssue.parseOcreXml(ocre)
 
-    OcreRdf(issues, legends, typeDescriptions, portraits, MintPointCollection(Vector.empty[MintPoint]))
+    val dateRanges = Vector.empty[IssueYearRange] // NOT YET IMPLEMENTED
+
+    OcreRdf(issues, legends, typeDescriptions, portraits, dateRanges, MintPointCollection(Vector.empty[MintPoint]))
 
   }
 
