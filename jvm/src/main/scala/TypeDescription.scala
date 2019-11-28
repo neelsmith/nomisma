@@ -49,7 +49,7 @@ object TypeDescription {
 
 
       } else {
-        println("Struck out on description for " + d)
+        println("Failed to parse type description from " + d)
         None
       }
     }

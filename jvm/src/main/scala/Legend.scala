@@ -48,7 +48,7 @@ object Legend {
         }
 
       } else {
-        println("Struck out on " + l)
+        println("Failed to parse legend structure for " + l)
         None
       }
     }
