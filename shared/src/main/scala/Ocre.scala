@@ -15,6 +15,20 @@ case class Ocre(
 
   def size : Int = issues.size
 
+  def cex: String = {
+    val headerLine = "ID#Label#Denomination#Metal#Authority#Mint#Region#ObvType#ObvLegend#ObvPortraitId#RevType#RevLegend#RevPortraitId#StartDate#EndDate\n"
+    /*
+    val total = issues.size
+    val cexIssues = for ((issue, count)  <- issues.zipWithIndex) yield {
+      println(s"Converting ${issue.id}: ${count}/${total}")
+      issue.cex
+    }
+    headerLine + cexIssues.toVector.mkString("\n")
+*/
+    headerLine + issues.map(_.cex).mkString("\n")
+
+  }
+
   def kml : String = {
     mintsGeo.forMints(issues.map(_.mint)).mintPoints.map(_.toKml).mkString("\n\n")
   }

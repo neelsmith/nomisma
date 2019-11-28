@@ -41,6 +41,19 @@ case class OcreIssue(
   /** Construct human-readable label for this issue.*/
   def label = labelText
 
+
+
+  def cex: String  = {
+    //ID#Label#Denomination#Metal#Authority#Mint#Region#ObvType#ObvLegend#ObvPortraitId#RevType#RevLegend#RevPortraitId#StartDate#EndDate
+    val basic =
+    s"${id}#${labelText}#${denomination}#${material}#${authority}#${mint}#${region}#${obvType}#${obvLegend}#${obvPortraitId}#${revType}#${revLegend}#${revPortraitId}#"
+    val dateCex = dateRange match {
+      case None => "##"
+      case _ => dateRange.get.cex()
+    }
+    basic + dateCex
+  }
+
   def kml: String = ""
 /*
   def kml: String = {

@@ -19,8 +19,26 @@ case class OcreRdf(
   mintsGeo: MintPointCollection
 ) {
 
+  def toOcre: Ocre = {
+    Ocre(ocreIssues)
+  }
 
+  def ocreIssues : Vector[OcreIssue] = {
+    val ids = issues.map(_.id)
+    ocreIssues(ids)
+  }
+  def ocreIssues(ids: Vector[String]): Vector[OcreIssue] = {
+
+    val total = ids.size
+    val opts = for ((id,count) <- ids.zipWithIndex) yield {
+      println(s"Converting ${id}: ${count}/${total}")
+      ocreIssue(id)
+    }
+    //val opts = ids.map(ocreIssue(_))
+    opts.flatten
+  }
   def ocreIssue(id: String) : Option[OcreIssue] = {
+    //println(s"Converting ${id} to OcreIssue...")
     val issueMatches = issues.filter(_.id == id)
      issueMatches.size  match {
       case 1 => {
@@ -69,13 +87,6 @@ case class OcreRdf(
       case _ => None
     }
   }
-
-
-  def ocreIssues(ids: Vector[String]): Vector[OcreIssue] = {
-    val opts = ids.map(ocreIssue(_))
-    opts.flatten
-  }
-
   def ocreIssuesSimplified(ids: Vector[String]): Vector[OcreIssueSimplified] = {
     val opts = ids.map(ocreIssueSimplified(_))
     opts.flatten

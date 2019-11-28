@@ -65,6 +65,13 @@ case class YearRange (year1: Int, year2: Option[Int] = None) {
     }
   }
 
+  def cex(separator: String = "#"): String = {
+    year2 match {
+      case d: Some[Int] => s"${year1}${separator}${d.get}"
+      case _ => year1.toString + separator
+    }
+  }
+
 
 }
 
