@@ -16,7 +16,11 @@ package edu.holycross.shot
 */
 package object nomisma {
   import scala.xml._
-  //import com.esri.core.geometry._
+
+
+  def ricIdFromUrl(lod: String): String = {
+    lod.replaceFirst("http://numismatics.org/ocre/id/ric.", "")
+  }
 
   /** Extract the unique ID value from a long
   * identifying URL.

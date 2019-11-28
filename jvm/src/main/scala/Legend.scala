@@ -20,6 +20,7 @@ object Legend {
     if (cols.size < 3) {
       Vector.empty[Legend]
     } else {
+
       val olegend = Legend(cols(0), Obverse, cols(1))
       val rlegend = Legend(cols(0), Reverse, cols(2))
       Vector(olegend, rlegend)
@@ -43,7 +44,10 @@ object Legend {
         val side = coinSide (triple(1))
         side match {
           case None => None
-          case _  => Some(Legend(triple(0),  side.get, triple(2) ))
+          case _  => {
+            val id = ricIdFromUrl(triple(0))
+            Some(Legend(id,  side.get, triple(2) ))
+          }
 
         }
 

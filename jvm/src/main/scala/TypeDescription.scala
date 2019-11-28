@@ -42,9 +42,11 @@ object TypeDescription {
       val triple = d.split("#")
       if (triple.size == 3) {
       val side = coinSide (triple(1))
+      val id = ricIdFromUrl(triple(0))
+
       side match {
         case None => {println("Bad formatting for coin side: " + triple(1)); None}
-        case _  =>   Some(TypeDescription(triple(0),  side.get, triple(2))  )
+        case _  =>   Some(TypeDescription(id,  side.get, triple(2))  )
       }
 
 

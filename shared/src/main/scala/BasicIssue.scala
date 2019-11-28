@@ -4,6 +4,7 @@ import scala.scalajs.js
 import scala.scalajs.js.annotation._
 
 
+
 /**
 * @param id
 * @param labelText
@@ -56,7 +57,8 @@ object BasicIssue {
       // apparently, all records DO have an id,
       // a label, and an authority,
       // so not adding onerous error checking
-      val id =  t.attributes.value(0).toString.replaceFirst("http://numismatics.org/ocre/id/", "")
+      //val id =  t.attributes.value(0).toString.
+      val id = ricIdFromUrl(t.attributes.value(0).toString)
 
       val lab = (t \\ "prefLabel")(0).text
 
