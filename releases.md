@@ -1,5 +1,7 @@
 # Release notes
 
+**1.0.0**: `RdfOcre` class instantiates a full `RdfOcre` instance from RDF source file currently downloaded from `nomisma.org`.
+
 **0.7.0**: create new `Ocre` class with numerous useful corpus functions.
 
 **0.6.0**: clean separation of JVM and JS

@@ -5,7 +5,7 @@
 Follow work on this project at <https://neelsmith.github.io/nomisma/>.
 
 
-## Current version: **0.7.0**.
+## Current version: **1.0.0**.
 
 Status: in active development. [Release notes](releases.md)
 
