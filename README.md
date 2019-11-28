@@ -1,17 +1,23 @@
 # `nomisma` library for numismatic data
 
+`nomisma` is a cross-platform library for working with freely available numismatic data from <http://nomisma.org>.  It defines classes that can read the RDF data formats used by `nomisma.org`, and build objects modelling numismatic concepts like issues, mints, and hoards.  
 
-`nomisma` is a cross-platform library for working with freely available numismatic data from <http://nomisma.org>.
+Follow work on this project at <https://neelsmith.github.io/nomisma/>.
+
 
 ## Current version: **0.7.0**.
 
-Status: early development. [Release notes](releases.md)
+Status: in active development. [Release notes](releases.md)
 
-Current models implemented in Scala are based on content of the *Inventory of Greek Coin Hoards* (*IGCH*).
+Current models implemented in Scala are based on content of the *Inventory of Greek Coin Hoards* (*IGCH*) and on the *Online Coins of the Roman Empire* (*OCRE*).
 
-The `quarry` directory has some kludgey scripts to work with data from the *Online Coins of the Roman Empire* (*OCRE*).
+## A note on working with OCRE data
 
-Before a 1.0 release, the *OCRE* material should be integrated with classes based on *IGCH* to implement a consistent set of objects for issues, mints and hoards.
+OCRE documents more than 50,000 issues of Roman imperial coins.  The RDF file openly available from nomisma.org is more than 178 megabytes, too big to include in this git repository.  The tabular data files in `jvm/src/test/resources/cex` are built using the `nomisma` library's `OcreRdf` object from a copy of the RDF file downloaded in November 2017.  The composite file representing each OCRE issue as a single record with 15 fields is less than 19 megabytes.  The library's `Ocre` object easily can parse that on a modest consumer-level laptop.
+
+If you wish to verify or update the data in the tabular data files, you can download a copy of the OCRE data from <http://nomisma.org/datasets>, and parse the resulting RDF file with the `OcreRdf` object. This requires a lot memory. To start an sbt console session, for example, you could use:
+
+    SBT_OPTS="-Xms512M -Xmx4096M -XX:MaxMetaspaceSize=1024M" sbt
 
 
 ## License
@@ -33,13 +39,8 @@ and add this to your library dependencies:
 
 For maven, ivy or gradle equivalents, refer to <https://bintray.com/neelsmith/maven/nomisma>.
 
-
-
 `nomisma` is built using [sbt](http://www.scala-sbt.org/). To build from source and test, use normal `sbt` commands (`compile`, `test` ...)
 
-## Documentation
-
-Is beginning to appear at <https://neelsmith.github.io/nomisma/>.
 
 
 ## Data sets
