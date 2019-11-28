@@ -23,6 +23,11 @@ case class OcreRdf(
     Ocre(ocreIssues)
   }
 
+  def sample(i : Int): Ocre = {
+    val issueSample = issues.take(i)
+    val ocrefied = ocreIssues(issueSample.map(_.id))
+    Ocre(ocrefied)
+  }
   def ocreIssues : Vector[OcreIssue] = {
     val ids = issues.map(_.id)
     ocreIssues(ids)
