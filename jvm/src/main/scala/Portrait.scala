@@ -54,7 +54,7 @@ object Portrait {
     }
     portraits.flatten
   }
-  
+
   def portraitVectorHosed(descriptionV: Vector[scala.xml.Node]) : Vector[Portrait] = {
     val portraits = for (p <- descriptionV) yield {
       val rdgs = (p \\ "hasPortrait").toVector
@@ -62,10 +62,6 @@ object Portrait {
       // coin ID and side
       if (rdgs.nonEmpty) {
         val coinParts = p.attributes.value.toString.split("#")
-
-        ///println("ATTRS " + rdgs(0).attributes.toVector(0).value)
-
-        //val portraitUrl = new URL(rdgs(0).attributes.toVector(0).value.toString)
         val portraitUrl = rdgs(0).attributes.toVector(0).value.toString
 
         val side = coinSide(coinParts(1))
@@ -76,8 +72,6 @@ object Portrait {
             side.get,
             portraitUrl ))
         }
-
-      //value ))
 
       } else {
         None
