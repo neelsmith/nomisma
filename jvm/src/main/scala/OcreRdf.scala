@@ -31,7 +31,9 @@ case class OcreRdf(
 
     val total = ids.size
     val opts = for ((id,count) <- ids.zipWithIndex) yield {
-      println(s"Converting ${id}: ${count}/${total}")
+      if (count % 100 == 0) {
+        println(s"Converting ${id}: ${count}/${total}")
+      }
       ocreIssue(id)
     }
     //val opts = ids.map(ocreIssue(_))
