@@ -19,17 +19,17 @@ object OcreRdfSource {
     val dv = descrs.toVector
     val legends = Legend.legendVector(dv)
 
-
     val typeDescrNodes = dv.filter( d => (d  \\ "description").size > 0 )
     val typeDescriptions =  TypeDescription.typeDescriptionVector(typeDescrNodes)
-
 
     val portraitElems = dv.filter( d => (d  \\ "hasPortrait").size > 0 )
     val portraits = Portrait.portraitVector(portraitElems)
 
+    val dateRanges = Vector.empty[IssueYearRange] // NOT YET IMPLEMENTED
+
+
     val issues = BasicIssue.parseOcreXml(ocre)
 
-    val dateRanges = Vector.empty[IssueYearRange] // NOT YET IMPLEMENTED
 
     OcreRdf(issues, legends, typeDescriptions, portraits, dateRanges, MintPointCollection(Vector.empty[MintPoint]))
   }

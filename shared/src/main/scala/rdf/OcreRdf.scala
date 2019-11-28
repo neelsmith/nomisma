@@ -132,7 +132,11 @@ object OcreRdf {
 
     val issues = BasicIssue.parseOcreXml(ocre)
 
-    val dateRanges = Vector.empty[IssueYearRange] // NOT YET IMPLEMENTED
+
+    val typeData = ocre \\ "TypeSeriesItem"
+    val dateRanges = IssueYearRange.datesVector(typeData.toVector)
+
+
 
     OcreRdf(issues, legends, typeDescriptions, portraits, dateRanges, MintPointCollection(Vector.empty[MintPoint]))
 
