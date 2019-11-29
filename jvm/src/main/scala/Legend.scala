@@ -4,9 +4,9 @@ import scala.scalajs.js.annotation._
 
 /**  Legend for a single side of a coin.
 *
-* @param coin
-* @param side
-* @param legend
+* @param coin Identifier for coin.
+* @param side Obverse or Reverse.
+* @param legend Text of legend.
 */
 @JSExportTopLevel("Legend")
 case class Legend (coin: String, side: CoinSide, legend: String)

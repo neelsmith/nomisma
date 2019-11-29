@@ -1,6 +1,6 @@
 package edu.holycross.shot.nomisma
 import edu.holycross.shot.cite._
-
+import edu.holycross.shot.ohco2._
 
 import scala.scalajs.js.annotation._
 
@@ -42,7 +42,7 @@ case class OcreIssue(
   def label = labelText
 
 
-
+  /** Data for this issue formatted as a single line in CEX format.*/
   def cex: String  = {
     //ID#Label#Denomination#Metal#Authority#Mint#Region#ObvType#ObvLegend#ObvPortraitId#RevType#RevLegend#RevPortraitId#StartDate#EndDate
     val basic =
@@ -52,6 +52,14 @@ case class OcreIssue(
       case _ => dateRange.get.cex()
     }
     basic + dateCex
+  }
+
+  def textNodes: Vector[CitableNode] = {
+    val obvUrn = CtsUrn("urn:cts:hcnum:issues.ric.raw:" + id + ".obv")
+    val obvOpt = if (obvLegend.nonEmpty)  {Some(CitableNode(obvUrn, obvLegend))} else {None}
+    val revUrn = CtsUrn("urn:cts:hcnum:issues.ric.raw:" + id + ".rev")
+    val revOpt = if (revLegend.nonEmpty)  {Some(CitableNode(revUrn, revLegend))} else {None}
+    Vector(obvOpt, revOpt).flatten
   }
 
   def kml: String = ""

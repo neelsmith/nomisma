@@ -149,6 +149,7 @@ object OcreRdf {
   */
   def parseRdf(ocre: scala.xml.Elem): OcreRdf = {
 
+    // Enforce uniqe entries.
     val issues = BasicIssue.parseOcreXml(ocre)
 
     val descrs = ocre \\ "Description"

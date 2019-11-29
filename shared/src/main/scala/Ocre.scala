@@ -1,5 +1,7 @@
 package edu.holycross.shot.nomisma
 
+import edu.holycross.shot.cite._
+import edu.holycross.shot.ohco2._
 
 import scala.scalajs.js.annotation._
 /** The contents of an edition of OCRE.
@@ -15,24 +17,24 @@ case class Ocre(
 
   def size : Int = issues.size
 
+
+  /** Create an ocho2 Corpus of coin legends. */
+  def corpus: Corpus = {
+    Corpus(issues.map(_.textNodes).flatten)
+  }
+
   def cex: String = {
     val headerLine = "ID#Label#Denomination#Metal#Authority#Mint#Region#ObvType#ObvLegend#ObvPortraitId#RevType#RevLegend#RevPortraitId#StartDate#EndDate\n"
-    /*
-    val total = issues.size
-    val cexIssues = for ((issue, count)  <- issues.zipWithIndex) yield {
-      println(s"Converting ${issue.id}: ${count}/${total}")
-      issue.cex
-    }
-    headerLine + cexIssues.toVector.mkString("\n")
-*/
     headerLine + issues.map(_.cex).mkString("\n")
-
   }
 
   def kml : String = {
     mintsGeo.forMints(issues.map(_.mint)).mintPoints.map(_.toKml).mkString("\n\n")
   }
 
+  def take(n: Int): Ocre = {
+    Ocre(issues.take(n), mintsGeo)
+  }
   def datable: Ocre = {
     val datedIssues = issues.filter(_.dateRange != None)
     Ocre(datedIssues)
