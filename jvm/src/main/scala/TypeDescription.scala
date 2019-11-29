@@ -1,20 +1,28 @@
 package edu.holycross.shot.nomisma
 
 
+import wvlet.log._
+import wvlet.log.LogFormatter.SourceCodeLogFormatter
+
 import scala.scalajs.js.annotation._
+
 /**  Description of a coin's type on a single side.
 *
-* @param coin
-* @param side
-* @param description
+* @param coin Identifier for coin.
+* @param side Obverse or Reverse.
+* @param description Description of the type.
 */
 @JSExportTopLevel("TypeDescription")
 case class TypeDescription (coin: String, side: CoinSide, description: String)
 
-object TypeDescription {
+object TypeDescription extends LogSupport {
 
 
 
+  /** Construct a [[TypeDescription]] from a single line of delimited text data.
+  *
+  * @param cex Delimited text data.
+  */
   def apply(cex: String): Vector[TypeDescription] = {
     val cols = cex.split("#")
     if (cols.size < 3) {
@@ -33,6 +41,7 @@ object TypeDescription {
   * @param descriptionV Vector of OCRE Description nodes.
   */
   def typeDescriptionVector(typeDescrs: Vector[scala.xml.Node]) : Vector[TypeDescription] = {
+    info("Parsing " + typeDescrs.size + " RDF Description elements.")
     val descriptionText = for (d <-typeDescrs) yield {
       val rdgs = d \\ "description"
       val rdg = rdgs(0)
@@ -55,6 +64,8 @@ object TypeDescription {
         None
       }
     }
-    descrsRaw.filter(_.isDefined).map(_.get)
+    val results = descrsRaw.filter(_.isDefined).map(_.get)
+    info("Extracted " + results.size + " TypeDesription objects.")
+    results
   }
 }
