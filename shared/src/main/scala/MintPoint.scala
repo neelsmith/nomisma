@@ -1,6 +1,9 @@
 package edu.holycross.shot.nomisma
 
 import scala.scalajs.js.annotation._
+import wvlet.log._
+import wvlet.log.LogFormatter.SourceCodeLogFormatter
+
 
 /** A geographically located mint.
 *
@@ -26,7 +29,7 @@ case class MintPoint(mint: String, pt: Point) {
   }
 }
 
-object MintPoint {
+object MintPoint extends LogSupport {
 
   def apply(cex: String) : MintPoint = {
     def cols = cex.split("#")
@@ -41,7 +44,7 @@ object MintPoint {
       } catch {
 
         case t: Throwable => {
-          println("MintPoint: unable to parse point from " + cex)
+          warn("MintPoint: unable to parse point from " + cex)
           throw t
         }
       }

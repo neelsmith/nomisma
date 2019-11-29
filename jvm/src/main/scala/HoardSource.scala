@@ -6,6 +6,10 @@ import java.io.File
 import scala.xml._
 
 
+
+import wvlet.log._
+import wvlet.log.LogFormatter.SourceCodeLogFormatter
+
 import scala.collection.mutable.ArrayBuffer
 import scala.collection.mutable.Map
 
@@ -13,7 +17,7 @@ import scala.collection.mutable.Map
 /** Factory for generating [[HoardCollection]]s and for
 * retrieving spatial data for sets of locations.
 */
-object HoardSource {
+object HoardSource extends LogSupport {
 
   /** Create a [[HoardCollection]] from a file in the RDF format
   * used by `nomisma.org`.
@@ -34,7 +38,7 @@ object HoardSource {
       Some(scala.io.Source.fromURL(url).mkString)
     } catch {
       case e: Throwable => {
-        println("Couldn't get to url " + url)
+        warn("Couldn't get to url " + url)
         None
       }
     }
@@ -50,7 +54,7 @@ object HoardSource {
       Some(scala.io.Source.fromFile(f).mkString)
     } catch {
       case e: Throwable => {
-        println("Couldn't get contents from File " + f)
+        warn("Couldn't get contents from File " + f)
         None
       }
     }
@@ -67,14 +71,14 @@ object HoardSource {
     val urlBase = "https://raw.githubusercontent.com/nomisma/data/master/id/"
 
     val url = urlBase + mint + ".rdf"
-    println("GET URL " + url)
+    debug("GET URL " + url)
     rdfForId(url) match {
       case None => None
       case rdf: Some[String] => {
         val root = XML.loadString(rdf.get)
         val spatialThings = root \\ "SpatialThing"
         if (spatialThings.size != 1) {
-          println("No spatial data for " + mint + "(url " + url + ")")
+          warn("No spatial data for " + mint + "(url " + url + ")")
           None
         } else {
           try {
@@ -82,7 +86,7 @@ object HoardSource {
             Some(MintPoint(spatial._1 , spatial._2))
           } catch {
             case e : Throwable => {
-              println("Something went wrong: " + e)
+              warn("Something went wrong: " + e)
               None
             }
           }
@@ -119,18 +123,18 @@ object HoardSource {
     var rslt = scala.collection.mutable.ArrayBuffer[ContentsGraph]()
     val mintsGeo = geoForMints(hoardCollection.located.mintSet)
 
-    println("Analyzing " + hoardCollection.size + " hoards.")
+    debug("Analyzing " + hoardCollection.size + " hoards.")
     var count = 0
     for (h <- hoardCollection.hoards) yield {
       count = count + 1
-      println("Hoard "+ count)
+      debug("Hoard "+ count)
       // get list of mints, and collection their geo.
 
       try {
         val cg = ContentsGraph(h.id,h.geo.get,mintsGeo.forMints(h.mints).mintPoints)
         rslt += cg
       } catch {
-        case e: Throwable => println("Failed on " + h.id)
+        case e: Throwable => warn("Failed on " + h.id)
       }
     }
     ContentsGraphCollection(rslt.toVector)
@@ -215,7 +219,7 @@ object HoardSource {
               Some(YearRange(hoardNode.text.toInt, None))
             } catch {
               case e: java.lang.NumberFormatException => {
-                println("UNABLE TO PARSE "+ hoardNode.text + s" (length ${hoardNode.text.size})")
+                warn("UNABLE TO PARSE "+ hoardNode.text + s" (length ${hoardNode.text.size})")
                 None
               }
             }
@@ -224,7 +228,7 @@ object HoardSource {
            Some(YearRange(rangeVals(0).text.toInt,rangeVals(1).text.toInt))
           } catch {
             case e: java.lang.NumberFormatException => {
-              println("UNABLE TO PARSE "+ hoardNode.text)
+              warn("UNABLE TO PARSE "+ hoardNode.text)
               None
             }
           }

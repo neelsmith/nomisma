@@ -5,6 +5,9 @@ import edu.holycross.shot.ohco2._
 import scala.scalajs.js.annotation._
 
 
+import wvlet.log._
+import wvlet.log.LogFormatter.SourceCodeLogFormatter
+
 /** A class representing a single issue in OCRE.
 */
 @JSExportTopLevel("OcreIssue")
@@ -74,7 +77,7 @@ case class OcreIssue(
 
 
 
-object OcreIssue {
+object OcreIssue extends LogSupport {
 
   /** Parse a string as Int, and return
   * Option[Int]  if successful.
@@ -110,7 +113,7 @@ object OcreIssue {
       }
     } catch {
       case t: Throwable => {
-        println(s"For coin ${cols(0)}, bad year range: " + t.toString)
+        warn(s"For coin ${cols(0)}, bad year range: " + t.toString)
         None
       }
     }

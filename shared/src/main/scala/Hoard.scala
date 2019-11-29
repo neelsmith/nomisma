@@ -53,17 +53,19 @@ case class Hoard (
     }
   }
 
-  def prettyPrint = {
-    println(s"${label} (${id})")
-    println(dateLabel)
-    geo match {
-      case None => println("Location unknown")
-      case _ => println("Location: " + geo.get)
+
+  def prettyPrint: String = {
+    val idDateLabel = s"${label} (${id})\n"  + dateLabel
+
+    val geoString = geo match {
+      case None => "Location unknown"
+      case _ => "Location: " + geo.get
     }
-    println("Contains coins from mints:")
-    for (m <- mints) {
-      println("\t" + prettyId(m))
+    val mintHeader = "Contains coins from mints:"
+    val mintString = for (m <- mints) yield {
+      "\t" + prettyId(m)
     }
+    idDateLabel + geoString + mintHeader + mintString
   }
 
   def geoString : String = {

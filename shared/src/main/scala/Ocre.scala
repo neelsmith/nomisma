@@ -3,6 +3,10 @@ package edu.holycross.shot.nomisma
 import edu.holycross.shot.cite._
 import edu.holycross.shot.ohco2._
 
+import wvlet.log._
+import wvlet.log.LogFormatter.SourceCodeLogFormatter
+
+
 import scala.scalajs.js.annotation._
 /** The contents of an edition of OCRE.
 *
@@ -13,7 +17,7 @@ import scala.scalajs.js.annotation._
 case class Ocre(
   issues:  Vector[OcreIssue],
   mintsGeo: MintPointCollection = MintPointCollection(Vector.empty[MintPoint])
-) {
+) extends LogSupport {
 
   def size : Int = issues.size
 
@@ -74,11 +78,11 @@ case class Ocre(
 
   def authoritiesForYear(yr: Int) :  Vector[String] = {
     val auths = byAuthority
-    println("Check on " + yr)
+    debug("Check on " + yr)
     val matches = for (auth <- auths.keySet.toVector) yield {
       print("Authority " + auth + "....")
       val contained = auths(auth).dateRange.contains(yr)
-      println(contained)
+      debug(contained)
       if (contained) {
         Some(auth)
       } else {

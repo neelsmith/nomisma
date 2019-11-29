@@ -54,13 +54,13 @@ object TypeDescription extends LogSupport {
       val id = ricIdFromUrl(triple(0))
 
       side match {
-        case None => {println("Bad formatting for coin side: " + triple(1)); None}
+        case None => {warn("Bad formatting for coin side: " + triple(1)); None}
         case _  =>   Some(TypeDescription(id,  side.get, triple(2))  )
       }
 
 
       } else {
-        println("Failed to parse type description from " + d)
+        warn("Failed to parse type description from " + d)
         None
       }
     }
