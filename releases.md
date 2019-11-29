@@ -1,5 +1,7 @@
 # Release notes
 
+**1.2.0**: add logging support.
+
 **1.1.0**: adds functions to create `cex` of `Ocre` and to generate an `ohco2` text corpus for all legends in `Ocre`.
 
 **1.0.0**: `RdfOcre` class instantiates a full `RdfOcre` instance from RDF source file currently downloaded from `nomisma.org`.

@@ -5,7 +5,7 @@
 Follow work on this project at <https://neelsmith.github.io/nomisma/>.
 
 
-## Current version: **1.1.0**.
+## Current version: **1.2.0**.
 
 Status: in active development. [Release notes](releases.md)
 
@@ -31,7 +31,7 @@ The file `cex/ocre.cex` formats data for more than 50,000 issues of Roman imperi
 
 ## Using, building, testing
 
-`nomisma` is compiled for both the JVM and ScalaJS using scala versions 2.11 and 2.12.  Binaries for all platforms are available from jcenter.
+`nomisma` is compiled for both the JVM and ScalaJS using Scala version 2.12.  Binaries for all platforms are available from jcenter.
 
 If you are using `sbt`, include `Resolver.jcenterRepo` in your list of resolvers
 
