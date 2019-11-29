@@ -10,7 +10,17 @@ import scala.xml._
 */
 object OcreRdfSource {
 
-  /** Parse RDF into an OcreRdf object.
+
+  /** Parse a file of nomisma.org's RDF data into an [[OcreRdf]] object.
+  *
+  * @param fName Name of file.
+  */
+  def fromFile(fName: String): OcreRdf = {
+    val root = XML.loadFile(fName)
+    parseRdf(root)
+  }
+
+  /** Parse RDF into an [[OcreRdf]] object.
   *
   * @param ocre Root of parsed OCRE data set.
   */

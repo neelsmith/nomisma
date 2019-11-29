@@ -12,4 +12,10 @@ class LegendSpec extends FlatSpec {
     assert (legend.side == Obverse)
   }
 
+  "The Legend object"  should "create a Vector of Legends from a Vector of RDF description nodes" in  {
+    val root = XML.load("jvm/src/test/resources/ocre_sample.rdf")
+    val descrs = root \\ "Description"
+    val legends = Legend.legendVector(descrs.toVector)
+  }
+
 }

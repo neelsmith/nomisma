@@ -1,6 +1,9 @@
 package edu.holycross.shot.nomisma
 
 
+import wvlet.log._
+import wvlet.log.LogFormatter.SourceCodeLogFormatter
+
 import scala.scalajs.js.annotation._
 /** The contents of an edition of OCRE.
 *
@@ -17,10 +20,12 @@ case class OcreRdf(
   portraits: Vector[Portrait],
   dateRanges: Vector[IssueYearRange],
   mintsGeo: MintPointCollection
-) {
+) extends LogSupport {
 
-  def toOcre: Ocre = {
-    Ocre(ocreIssues)
+  Logger.setDefaultLogLevel(LogLevel.INFO)
+
+  def toOcre(msgPoint: Int = 100): Ocre = {
+    Ocre(ocreIssues(msgPoint))
   }
 
   def sample(i : Int): Ocre = {
@@ -28,23 +33,24 @@ case class OcreRdf(
     val ocrefied = ocreIssues(issueSample.map(_.id))
     Ocre(ocrefied)
   }
-  def ocreIssues : Vector[OcreIssue] = {
+  def ocreIssues(msgPoint: Int) : Vector[OcreIssue] = {
     val ids = issues.map(_.id)
-    ocreIssues(ids)
+    ocreIssues(ids, msgPoint)
   }
   def ocreIssues(ids: Vector[String], msgPoint: Int = 100): Vector[OcreIssue] = {
     val total = ids.size
     val opts = for ((id,count) <- ids.zipWithIndex) yield {
       if (count % msgPoint == 0) {
-        println(s"Converting ${id}: ${count}/${total}")
+        info(s"Converting ${id}: ${count + 1}/${total}")
       }
       ocreIssue(id)
     }
     //val opts = ids.map(ocreIssue(_))
     opts.flatten
   }
+
+
   def ocreIssue(id: String) : Option[OcreIssue] = {
-    //println(s"Converting ${id} to OcreIssue...")
     val issueMatches = issues.filter(_.id == id)
      issueMatches.size  match {
       case 1 => {
