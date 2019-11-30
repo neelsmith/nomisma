@@ -1,16 +1,10 @@
 
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/neelsmith/nomisma/master)
-
-
 # `nomisma` library for numismatic data
-
-
 
 
 `nomisma` is a cross-platform library for working with freely available numismatic data from <http://nomisma.org/datasets>.  It defines classes that can read the RDF data formats used by `nomisma.org`, and build objects modeling numismatic concepts like issues, mints, and hoards.  
 
 Follow blog posts on this project at <http://neelsmith.info/tag-coins/>.
-
 
 
 
@@ -35,7 +29,7 @@ The file `cex/ocre.cex` formats data for more than 50,000 issues of Roman imperi
 
 ## Documentation
 
-- In the `jupyter` directory, Jupyter notebooks illustrating usage of this library. View on `mybinder.org`: [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/neelsmith/nomisma/master)
+- The blog posts at <http://neelsmith.info/tag-coins/> are accompanied by a github repository at <https://github.com/neelsmith/nomisma-jupyter>.  Work with the notebook repository on on `mybinder.org`: [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/neelsmith/nomisma-jupyter/master)
 - (out of date) documentation: <https://neelsmith.github.io/nomisma/>
 
 
