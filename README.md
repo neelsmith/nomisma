@@ -7,7 +7,7 @@ Follow blog posts on this project at <http://neelsmith.info/tag-coins/>.
 
 
 
-## Current version: **1.2.0**.
+## Current version: **1.4.0**.
 
 Status: in active development. [Release notes](releases.md)
 
@@ -28,7 +28,7 @@ The file `cex/ocre.cex` formats data for more than 50,000 issues of Roman imperi
 
 ## Documentation
 
-
+- Jupyter notebooks illustrating usage of this library: [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/neelsmith/nomisma/master)
 - (out of date) documentation: <https://neelsmith.github.io/nomisma/>
 
 

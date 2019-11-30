@@ -1,6 +1,10 @@
 # Release notes
 
-**1.2.0**: add logging support.
+**1.4.0** add function to build an `Ocre` directly from a URL to data in CEX format.
+
+**1.3.0**: add functions to directly build an `Ocre` from RDF data in a file or available from a URL.
+
+**1.2.0**: add logging support with airframe logger.
 
 **1.1.0**: adds functions to create `cex` of `Ocre` and to generate an `ohco2` text corpus for all legends in `Ocre`.
 

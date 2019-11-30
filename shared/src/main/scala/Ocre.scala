@@ -128,4 +128,5 @@ object Ocre {
   def addGeo(ocre: Ocre, geo: MintPointCollection): Ocre = {
     Ocre(ocre.issues, geo)
   }
+
 }
