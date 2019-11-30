@@ -1,8 +1,9 @@
 
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/neelsmith/nomisma/master)
+
 
 # `nomisma` library for numismatic data
 
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/neelsmith/nomisma/master)
 
 
 
