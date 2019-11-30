@@ -35,7 +35,7 @@ The file `cex/ocre.cex` formats data for more than 50,000 issues of Roman imperi
 
 ## Documentation
 
-- Jupyter notebooks illustrating usage of this library: [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/neelsmith/nomisma/master)
+- In the `jupyter` directory, Jupyter notebooks illustrating usage of this library. View on `mybinder.org`: [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/neelsmith/nomisma/master)
 - (out of date) documentation: <https://neelsmith.github.io/nomisma/>
 
 
