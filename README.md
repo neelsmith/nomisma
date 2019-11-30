@@ -1,4 +1,10 @@
+
+
 # `nomisma` library for numismatic data
+
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/neelsmith/nomisma/master)
+
+
 
 `nomisma` is a cross-platform library for working with freely available numismatic data from <http://nomisma.org/datasets>.  It defines classes that can read the RDF data formats used by `nomisma.org`, and build objects modeling numismatic concepts like issues, mints, and hoards.  
 
