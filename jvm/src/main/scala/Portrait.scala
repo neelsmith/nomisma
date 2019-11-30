@@ -20,7 +20,8 @@ case class Portrait (coin: String, side: CoinSide, portrait: String) extends  No
   def urlString = portrait.toString
   def label = portrait.toString.replaceAll("http://collection.britishmuseum.org/id/person-institution/", "").replaceAll("http://nomisma.org/id/", "")
 
-  def objectId : String =  portrait.toString.replaceAll("http://nomisma.org/id/", "")
+  def objectId : String =  ricIdFromUrl("portrait.toString")
+    //portrait.toString.replaceAll("http://nomisma.org/id/", "")
   def urn = {
     Cite2Urn("urn:cite2:nomisma:portrait.hc:" + objectId)
   }

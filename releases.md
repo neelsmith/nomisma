@@ -1,6 +1,8 @@
 # Release notes
 
-**1.4.0** add function to build an `Ocre` directly from a URL to data in CEX format.
+**1.4.1**: use proper function for converting RIC URL to ID value in Potrait and YearRange objects.
+
+**1.4.0**: add function to build an `Ocre` directly from a URL to data in CEX format.
 
 **1.3.0**: add functions to directly build an `Ocre` from RDF data in a file or available from a URL.
 

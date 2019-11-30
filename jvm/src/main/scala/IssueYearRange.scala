@@ -55,7 +55,8 @@ object IssueYearRange extends LogSupport {
   def datesVector(typeSeriesV: Vector[scala.xml.Node]): Vector[IssueYearRange] = {
     info("Parsing " + typeSeriesV.size + " type series elements.")
     val dateOptions = for (t <- typeSeriesV) yield {
-      val coinId = t.attributes.value.toString.replaceFirst("http://numismatics.org/ocre/id/ric.","").replaceFirst("1(2)","1_2" )
+      val coinId = ricIdFromUrl("t.attributes.value.toString")
+        // t.attributes.value.toString.replaceFirst("http://numismatics.org/ocre/id/ric.","").replaceFirst("1(2)","1_2" )
       val yearRangeOpts = try {
         val yrOpt = yearRangeFromTypeSeries(t)
         //debug("Computed range " + yrOpt)
