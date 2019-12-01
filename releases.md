@@ -1,5 +1,7 @@
 # Release notes
 
+**1.4.2**: bug fixes in RDF parsing of date and portrait identifiers.
+
 **1.4.1**: use proper function for converting RIC URL to ID value in Potrait and YearRange objects.
 
 **1.4.0**: add function to build an `Ocre` directly from a URL to data in CEX format.
