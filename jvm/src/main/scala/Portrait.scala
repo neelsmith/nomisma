@@ -30,7 +30,7 @@ case class Portrait (coin: String, side: CoinSide, portrait: String) extends  No
 
 
 object Portrait extends LogSupport {
-
+  Logger.setDefaultLogLevel(LogLevel.INFO)
   def sideForString(s: String): CoinSide = {
     s.toLowerCase match {
       case "reverse" => Reverse
@@ -51,10 +51,18 @@ object Portrait extends LogSupport {
       // coin ID and side!
       if (rdgs.nonEmpty) {
         val coinSide = p.attributes.value.toString.split("#")
-        //debug("COIN SIDE " + coinSide.toVector)
-        //debug("ATTRS "  + rdgs(0).attributes)
         val id = ricIdFromUrl(coinSide(0))
-        Some(Portrait(id, sideForString(coinSide(1)), rdgs(0).attributes.value.toString.trim))
+
+        debug(s"Portrait coin side for ${id}: " + coinSide.toVector)
+        // test if readings has attribute; use value of readings if none
+        debug(s"Portrait attributes for ${id}: "  + rdgs(0).attributes)
+        val portraitId = if (rdgs(0).attributes.isEmpty){
+          rdgs(0).text.toString.trim
+        } else {
+          rdgs(0).attributes.value.toString.trim
+        }
+
+        Some(Portrait(id, sideForString(coinSide(1)),portraitId ))
 
       } else {
         None

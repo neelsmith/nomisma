@@ -1,5 +1,7 @@
 # Release notes
 
+**1.4.3**: catch exceptional case in RDF parsing where nomisma.org does NOT use an attribute with a URL as identifier for a portrait but instead has raw text content of the XML node.  Sigh.
+
 **1.4.2**: bug fixes in RDF parsing of date and portrait identifiers.
 
 **1.4.1**: use proper function for converting RIC URL to ID value in Potrait and YearRange objects.
