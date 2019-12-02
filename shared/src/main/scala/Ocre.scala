@@ -2,6 +2,7 @@ package edu.holycross.shot.nomisma
 
 import edu.holycross.shot.cite._
 import edu.holycross.shot.ohco2._
+import edu.holycross.shot.histoutils._
 
 import wvlet.log._
 import wvlet.log.LogFormatter.SourceCodeLogFormatter
@@ -27,17 +28,72 @@ case class Ocre(
     Corpus(issues.map(_.textNodes).flatten)
   }
 
+  /** Create CEX string representing each issue as one
+  * row of data.
+  */
   def cex: String = {
     val headerLine = "ID#Label#Denomination#Metal#Authority#Mint#Region#ObvType#ObvLegend#ObvPortraitId#RevType#RevLegend#RevPortraitId#StartDate#EndDate\n"
     headerLine + issues.map(_.cex).mkString("\n")
   }
 
+  /** Compose KML for all mints present in this [[Ocre]].
+  */
   def kml : String = {
     mintsGeo.forMints(issues.map(_.mint)).mintPoints.map(_.toKml).mkString("\n\n")
   }
 
   def take(n: Int): Ocre = {
     Ocre(issues.take(n), mintsGeo)
+  }
+
+
+  /** Create histogram of values for a given property.
+  *
+  * @param Name of property to create histogram for.
+  */
+  def histogram(propertyName: String) : Histogram[String] = {
+    propertyName match {
+      case "denomination" => {
+        val validValues = hasDenomination.issues.map(_.denomination)
+        val frequencies = validValues.groupBy(denom => denom).toVector.map{ case (k,v) => Frequency(k,v.size)}
+        Histogram(frequencies)
+      }
+      case "material" => {
+        val validValues = hasMaterial.issues.map(_.material)
+        val frequencies = validValues.groupBy(metal => metal).toVector.map{ case (k,v) => Frequency(k,v.size)}
+        Histogram(frequencies)
+      }
+      case "authority" => {
+        val validValues = hasAuthority.issues.map(_.authority)
+        val frequencies = validValues.groupBy(auth => auth).toVector.map{ case (k,v) => Frequency(k,v.size)}
+        Histogram(frequencies)
+      }
+      case "mint" => {
+        val validValues = hasMint.issues.map(_.mint)
+        val frequencies = validValues.groupBy(mint => mint).toVector.map{ case (k,v) => Frequency(k,v.size)}
+        Histogram(frequencies)
+      }
+      case "region" => {
+        val validValues = hasRegion.issues.map(_.region)
+        val frequencies = validValues.groupBy(reg => reg).toVector.map{ case (k,v) => Frequency(k,v.size)}
+        Histogram(frequencies)
+      }
+      case "obvPortraitId" => {
+        val validValues = hasObvPortraitId.issues.map(_.obvPortraitId)
+        val frequencies = validValues.groupBy(port => port).toVector.map{ case (k,v) => Frequency(k,v.size)}
+        Histogram(frequencies)
+      }
+      case "revPortraitId" => {
+        val validValues = hasObvPortraitId.issues.map(_.revPortraitId)
+        val frequencies = validValues.groupBy(port => port).toVector.map{ case (k,v) => Frequency(k,v.size)}
+        Histogram(frequencies)
+      }
+
+      case _ => {
+        warn("Unrecognized name for controlled-vocabulary property: " + propertyName)
+        Histogram(Vector.empty[Frequency[String]])
+      }
+    }
   }
 
   def denominationList: Vector[String] = issues.map(_.denomination).distinct.sorted
@@ -71,9 +127,6 @@ case class Ocre(
     Ocre(regionIssues)
   }
 
-
-  //def obvTypeList: Vector[String] = Vector("")
-  //def obvLegendList: Vector[String] = Vector("")
   def obvPortraitIdList: Vector[String] = {
     issues.filter(_.obvPortraitId.nonEmpty).map(_.obvPortraitId).distinct.sorted
   }
@@ -86,6 +139,7 @@ case class Ocre(
     val oLegendIssues = issues.filter(_.obvLegend.nonEmpty)
     Ocre(oLegendIssues)
   }
+
   def hasObvType: Ocre = {
     val oTypeIssues = issues.filter(_.obvType.nonEmpty)
     Ocre(oTypeIssues)
@@ -95,10 +149,12 @@ case class Ocre(
     val rLegendIssues = issues.filter(_.revLegend.nonEmpty)
     Ocre(rLegendIssues)
   }
+
   def hasRevType: Ocre = {
     val rTypeIssues = issues.filter(_.revType.nonEmpty)
     Ocre(rTypeIssues)
   }
+
   def revPortraitIdList: Vector[String] = {
     issues.filter(_.revPortraitId.nonEmpty).map(_.revPortraitId).distinct.sorted
   }

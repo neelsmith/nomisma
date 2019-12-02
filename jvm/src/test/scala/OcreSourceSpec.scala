@@ -29,7 +29,7 @@ class OcreSourceSpec extends FlatSpec {
   }
 
   it should "retrieve CEX data from a URL and build an OCRE" in {
-    val url = "https://raw.githubusercontent.com/neelsmith/nomisma/master/cex/ocre-valid.cex"
+    val url = "https://raw.githubusercontent.com/neelsmith/nomisma/master/cex/ocre-cite-ids.cex"
     val ocre = OcreSource.fromUrl(url)
     println(ocre.size)
   }
