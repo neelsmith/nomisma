@@ -55,7 +55,7 @@ object Legend extends LogSupport {
         side match {
           case None => None
           case _  => {
-            val id = ricIdFromUrl(triple(0))
+            val id = UrlManager.ricIdFromUrl(triple(0))
             Some(Legend(id,  side.get, triple(2) ))
           }
         }

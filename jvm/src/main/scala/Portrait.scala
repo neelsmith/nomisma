@@ -20,7 +20,7 @@ case class Portrait (coin: String, side: CoinSide, portrait: String) extends  No
   def urlString = portrait.toString
   def label = portrait.toString.replaceAll("http://collection.britishmuseum.org/id/person-institution/", "").replaceAll("http://nomisma.org/id/", "")
 
-  def objectId : String =  ricIdFromUrl(portrait.toString)
+  def objectId : String =  UrlManager.ricIdFromUrl(portrait.toString)
     //portrait.toString.replaceAll("http://nomisma.org/id/", "")
   def urn = {
     Cite2Urn("urn:cite2:nomisma:portrait.hc:" + objectId)
@@ -51,7 +51,7 @@ object Portrait extends LogSupport {
       // coin ID and side!
       if (rdgs.nonEmpty) {
         val coinSide = p.attributes.value.toString.split("#")
-        val id = ricIdFromUrl(coinSide(0))
+        val id = UrlManager.ricIdFromUrl(coinSide(0))
 
         debug(s"Portrait coin side for ${id}: " + coinSide.toVector)
         // test if readings has attribute; use value of readings if none

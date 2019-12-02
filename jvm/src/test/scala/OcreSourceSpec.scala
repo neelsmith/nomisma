@@ -23,6 +23,7 @@ class OcreSourceSpec extends FlatSpec {
   it should "retrieve RDF data from a URL and build an Ocre" in {
       val url = "https://raw.githubusercontent.com/neelsmith/nomisma/master/jvm/src/test/resources/ocre_sample.rdf"
       val messageFrequency = 1
+      println("Attempting to retrieve data from url " + url)
       val ocre = OcreSource.fromRdfUrl(url, messageFrequency)
       val expectedIssues = 4
       assert(ocre.size == expectedIssues)

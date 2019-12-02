@@ -58,7 +58,7 @@ object BasicIssue {
       // a label, and an authority,
       // so not adding onerous error checking
       //val id =  t.attributes.value(0).toString.
-      val id = ricIdFromUrl(t.attributes.value(0).toString)
+      val id = UrlManager.ricIdFromUrl(t.attributes.value(0).toString)
 
       val lab = (t \\ "prefLabel")(0).text
 

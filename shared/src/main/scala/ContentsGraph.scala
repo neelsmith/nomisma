@@ -25,7 +25,7 @@ case class ContentsGraph (
   */
   def mintsHtml = {
     val wrapped = mintPoints.map {
-      pt => "<li><a href='" + urlFromId(pt.mint) + "'>" + prettyId(pt.mint) + "</a></li>"
+      pt => "<li><a href='" + UrlManager.urlFromId(pt.mint) + "'>" + UrlManager.prettyId(pt.mint) + "</a></li>"
     }
     "<ul>" + wrapped.mkString("\n") + "</ul>"
   }

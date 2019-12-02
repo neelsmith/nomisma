@@ -153,7 +153,7 @@ object HoardSource extends LogSupport {
         val chAtts = ch.attributes.toVector
         for (att <- chAtts) {
           if (att.key == "about") {
-            hoardId = idFromUrl(att.value.text)
+            hoardId = UrlManager.idFromUrl(att.value.text)
           } else {}
         }
         val label = ch \ "prefLabel"
@@ -164,7 +164,7 @@ object HoardSource extends LogSupport {
           val attV = m.attributes.toVector
           for (a <- attV) {
             if (a.key == "resource") {
-              mints += idFromUrl(a.value.text)
+              mints += UrlManager.idFromUrl(a.value.text)
             } else {}
           }
         }

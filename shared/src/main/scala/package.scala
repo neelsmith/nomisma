@@ -17,47 +17,6 @@ package edu.holycross.shot
 package object nomisma {
   import scala.xml._
 
-  def ricIdFromUrl(lod: String): String = {
-    lod.
-    replaceFirst("http://numismatics.org/ocre/id/ric.", "").
-    replaceFirst("1\\(2\\)", "1_2").
-    replaceFirst("zeno\\(1\\)_e","zeno_1_e").
-    replaceFirst("zeno\\(2\\)_e","zeno_2_e").
-    replaceFirst("2_1\\(2\\)","2_1_2").
-    replaceFirst("5.gall\\(1\\)", "5.gall_1").
-    replaceFirst("5.gall\\(2\\)", "5.gall_2").
-    replaceFirst("5.gall_sala\\(1\\)","5.gall_sala_1").
-    replaceFirst("5.gall_sala\\(2\\)","5.gall_sala_2").
-    replaceFirst("5.sala\\(1\\)", "5.sala_1").
-    replaceFirst("5.sala\\(2\\)", "5.sala_2")
-  }
-
-  /** Extract the unique ID value from a long
-  * identifying URL.
-  *
-  * @param lod Linked Open Data URL.
-  */
-  def idFromUrl (lod: String) : String = {
-    lod.replaceAll(".+/","").replaceAll("#.+","")
-  }
-
-  /** Create `nomisma.org` URL from an ID value.
-  *
-  * @param id ID value.
-  */
-  def urlFromId (id: String) : String = {
-    "http://nomisma.org/id/" + id
-  }
-
-  /** Pretty print ID value.
-  *
-  * @param id ID value.
-  */
-  def prettyId(id: String) : String = {
-    id.replaceAll("_"," ").split(' ').map(_.capitalize).mkString(" ")
-  }
-
-
   /** Extract coordinate data from a `SpatialThing` node
   * and pair it with the hoard ID.
   *
@@ -68,7 +27,7 @@ package object nomisma {
     val attV = n.attributes.toVector
     for (a <- attV) {
       if (a.key == "about") {
-        hoardKey = idFromUrl( a.value.text)
+        hoardKey = UrlManager.idFromUrl( a.value.text)
       } else {}
     }
     val lat = n \ "lat"

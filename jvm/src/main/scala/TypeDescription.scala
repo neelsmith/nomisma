@@ -51,7 +51,7 @@ object TypeDescription extends LogSupport {
       val triple = d.split("#")
       if (triple.size == 3) {
       val side = coinSide (triple(1))
-      val id = ricIdFromUrl(triple(0))
+      val id = UrlManager.ricIdFromUrl(triple(0))
 
       side match {
         case None => {warn("Bad formatting for coin side: " + triple(1)); None}

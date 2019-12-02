@@ -63,7 +63,7 @@ case class Hoard (
     }
     val mintHeader = "Contains coins from mints:"
     val mintString = for (m <- mints) yield {
-      "\t" + prettyId(m)
+      "\t" + UrlManager.prettyId(m)
     }
     idDateLabel + geoString + mintHeader + mintString
   }
@@ -90,7 +90,7 @@ case class Hoard (
 
   def mintsHtml: String = {
     val wrapped = mints.map {
-      s => "<li><a href='" + urlFromId(s) + "'>" + prettyId(s) + "</a></li>"
+      s => "<li><a href='" + UrlManager.urlFromId(s) + "'>" + UrlManager.prettyId(s) + "</a></li>"
     }
     "<ul>" + wrapped.mkString("\n") + "</ul>"
   }
