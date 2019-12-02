@@ -1,6 +1,8 @@
 # Release notes
 
-**1.6.0**: `Ocre` generates `Histogram` objets for property names.
+**1.7.0**: adds the `UrlManager` class, and an `issue` function on `Ocre`objects.
+
+**1.6.0**: `Ocre` generates `Histogram` objects for property names.
 
 **1.5.0**: new functions on `Ocre` objects for finding lists of values for particular properties, and for creating a new `Ocre` limited to issues containing values for a given property.
 

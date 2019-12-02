@@ -28,13 +28,18 @@ object UrlUrnPair extends LogSupport {
   *
   * @param cex Delimited text string pairing URL and URN values.
   */
-  def apply(cex: String, delimiter: String = "#"): UrlUrnPair = {
-    val cols = cex.split(delimiter)
+  def apply(data: String, delimiter: String = "\t"): UrlUrnPair = {
+    val cols = data.split(delimiter)
+    if (cols.size != 2) {
+      val msg = "Unable to split " + data  + " into two columns"
+      warn(msg)
+      throw new Exception("UrlUrnPair: " + msg)
+    }
     try {
       UrlUrnPair(cols(0), Cite2Urn(cols(1)))
     } catch {
       case t: Throwable => {
-        warn("Unable to form UrlUrnPair from string " + cex)
+        warn("Unable to form UrlUrnPair from string " + data)
         throw t
       }
     }

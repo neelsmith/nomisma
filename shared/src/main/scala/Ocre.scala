@@ -46,6 +46,20 @@ case class Ocre(
     Ocre(issues.take(n), mintsGeo)
   }
 
+  def issue(idVal: String) : Option[OcreIssue] = {
+    val matches = issues.filter(_.id == idVal)
+    matches.size match {
+      case 0 => {
+        warn("No match for OCRE ID " + idVal)
+        None
+      }
+      case 1 => Some(matches(0))
+      case _ => {
+        warn("Serious error in your data:  somehow matched " + matches.size + " issues for supposedly unique ID " + idVal)
+        None
+      }
+    }
+  }
 
   /** Create histogram of values for a given property.
   *

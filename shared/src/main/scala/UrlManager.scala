@@ -13,7 +13,8 @@ import scala.scalajs.js.annotation._
 case class UrlManager(
   pairs: Vector[UrlUrnPair]
 ) extends LogSupport {
-
+  
+  def size : Int = pairs.size
 }
 
 object UrlManager {
@@ -23,9 +24,9 @@ object UrlManager {
   * @param cex Delimited-text pairings of URLs and URNs,
   * one per line.
   */
-  def apply(cex: String) : UrlManager = {
-    val lns = cex.split("\n").toVector
-    val pairings: Vector[UrlUrnPair] = lns.map(UrlUrnPair(_))
+  def apply(data: String, delimiter: String = "\t") : UrlManager = {
+    val lns = data.split("\n").toVector
+    val pairings: Vector[UrlUrnPair] = lns.map(UrlUrnPair(_, delimiter))
     UrlManager(pairings)
   }
 
