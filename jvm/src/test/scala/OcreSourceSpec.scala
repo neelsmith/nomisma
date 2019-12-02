@@ -7,7 +7,7 @@ class OcreSourceSpec extends FlatSpec {
 
 
   "The OcreSource object" should "be able to create an Ocre from source data in CEX Format" in  {
-    val fName = "cex/ocre-valid.cex"
+    val fName = "cex/ocre-cite-ids.cex"
     val ocre = OcreSource.fromFile(fName)
     assert(ocre.size > 50000)
   }

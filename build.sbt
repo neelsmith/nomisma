@@ -32,7 +32,9 @@ lazy val crossed = crossProject.in(file(".")).
 
         "org.scalatest" %%% "scalatest" % "3.0.1" % "test",
         "edu.holycross.shot.cite" %%% "xcite" % "4.1.1",
-        "edu.holycross.shot" %%% "ohco2" % "10.16.0"
+        "edu.holycross.shot" %%% "ohco2" % "10.16.0",
+
+        "edu.holycross.shot" %%% "histoutils" % "2.2.0"
       )
     ).
     jvmSettings(
