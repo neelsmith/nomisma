@@ -6,4 +6,7 @@
     - One empty record was manually removed.
     - in all identifiers, the hyphen '-' was changed to '_'
 
-The file `ocre-url-urn-map.tsv` is a two-column tab-delimited file pairing full original URLs used as identifiers in OCRE to URNs used by the nomisma library.
+
+The file `ocre-url-cts-map.tsv` is a two-column tab-delimited file pairing full original URLs used as identifiers in OCRE to CTS URNs used by the nomisma library.
+
+The file `ocre-url-cite2-map.tsv` is a two-column tab-delimited file pairing full original URLs used as identifiers in OCRE to CITE2 URNs used by the nomisma library to identify coins.
