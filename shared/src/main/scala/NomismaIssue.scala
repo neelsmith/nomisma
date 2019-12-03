@@ -2,7 +2,6 @@ package edu.holycross.shot.nomisma
 import edu.holycross.shot.cite._
 import edu.holycross.shot.ohco2._
 
-
 import wvlet.log._
 import wvlet.log.LogFormatter.SourceCodeLogFormatter
 

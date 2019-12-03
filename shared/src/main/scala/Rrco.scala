@@ -9,108 +9,108 @@ import wvlet.log.LogFormatter.SourceCodeLogFormatter
 
 import scala.scalajs.js.annotation._
 
-/** The contents of an edition of OCRE.
+/** The contents of an edition of Rrco.
 *
 * @param issues
 * @param mintsGeo
 */
-@JSExportTopLevel("Ocre")
-case class Ocre(
-  issues:  Vector[OcreIssue],
+@JSExportTopLevel("Rrco")
+case class Rrco(
+  issues:  Vector[RrcoIssue],
   mintsGeo: MintPointCollection = MintPointCollection(Vector.empty[MintPoint])
 ) extends IssueCollection with LogSupport {
 
 
   // useful for testing
-  def take(n: Int): Ocre = {
-    Ocre(issues.take(n), mintsGeo)
+  def take(n: Int): Rrco = {
+    Rrco(issues.take(n), mintsGeo)
   }
 
-  def hasDenomination: Ocre = {
+  def hasDenomination: Rrco = {
     val denomIssues = issues.filter(issue => (issue.denomination.trim != "none") && ! issue.denomination.trim.contains("uncertain"))
-    Ocre(denomIssues)
+    Rrco(denomIssues)
   }
 
 
-  def hasMaterial: Ocre = {
+  def hasMaterial: Rrco = {
     val materialIssues = issues.filter(issue => (issue.material.trim != "none"))
-    Ocre(materialIssues)
+    Rrco(materialIssues)
   }
 
 
-  def hasAuthority: Ocre = {
+  def hasAuthority: Rrco = {
     val authIssues = issues.filter(issue => (issue.authority.trim != "none") && ! issue.authority.trim.contains("uncertain"))
-    Ocre(authIssues)
+    Rrco(authIssues)
   }
 
 
-  def hasMint: Ocre = {
+  def hasMint: Rrco = {
     val mintIssues = issues.filter(issue => (issue.mint.trim != "none") && ! issue.mint.trim.contains("uncertain"))
-    Ocre(mintIssues)
+    Rrco(mintIssues)
   }
 
 
-  def hasRegion: Ocre = {
+  def hasRegion: Rrco = {
     val regionIssues = issues.filterNot(_.region.contains("uncertain")).filterNot(_.region.contains("none"))
-    Ocre(regionIssues)
+    Rrco(regionIssues)
   }
 
-  def hasObvPortraitId: Ocre = {
+  def hasObvPortraitId: Rrco = {
     val oPortIssues = issues.filter(_.obvPortraitId.nonEmpty)
-    Ocre(oPortIssues)
+    Rrco(oPortIssues)
   }
 
-  def hasObvLegend: Ocre = {
+  def hasObvLegend: Rrco = {
     val oLegendIssues = issues.filter(_.obvLegend.nonEmpty)
-    Ocre(oLegendIssues)
+    Rrco(oLegendIssues)
   }
 
-  def hasObvType: Ocre = {
+  def hasObvType: Rrco = {
     val oTypeIssues = issues.filter(_.obvType.nonEmpty)
-    Ocre(oTypeIssues)
+    Rrco(oTypeIssues)
   }
 
-  def hasRevLegend: Ocre = {
+  def hasRevLegend: Rrco = {
     val rLegendIssues = issues.filter(_.revLegend.nonEmpty)
-    Ocre(rLegendIssues)
+    Rrco(rLegendIssues)
   }
 
-  def hasRevType: Ocre = {
+  def hasRevType: Rrco = {
     val rTypeIssues = issues.filter(_.revType.nonEmpty)
-    Ocre(rTypeIssues)
+    Rrco(rTypeIssues)
   }
 
-  def hasRevPortraitId: Ocre = {
+  def hasRevPortraitId: Rrco = {
     val rPortIssues = issues.filter(_.revPortraitId.nonEmpty)
-    Ocre(rPortIssues)
+    Rrco(rPortIssues)
   }
 
-  def datable: Ocre = {
+  def datable: Rrco = {
     val datedIssues = issues.filter(_.dateRange != None)
-    Ocre(datedIssues)
+    Rrco(datedIssues)
   }
 
-  def byAuthority : Map[String, Ocre] = {
+  def byAuthority : Map[String, Rrco] = {
     val auths = issues.map(_.authority)
     val authMap = for (auth <- auths) yield {
       val subset = issues.filter(_.authority == auth)
-      (auth -> Ocre(subset))
+      (auth -> Rrco(subset))
     }
     authMap.toMap
   }
 }
 
 
-/** Factory object for making [[Ocre]]s. */
-object Ocre {
+/** Factory object for making [[Rrco]]s. */
+object Rrco {
 
-  /** Construct an [[Ocre]] collection a single string
+  /** Construct an [[Rrco]] collection a single string
   * of CEX source.
   *
   * @param cex String of delimited-text data.
   * @param dropHeader True if cex includes a header line.
   */
-  def apply(cex: String, dropHeader: Boolean) : Ocre = {
+  def apply(cex: String, dropHeader: Boolean) : Rrco = {
     val lines = cex.split("\n").toVector
     dropHeader match {
       case true => fromCexStrings(lines.tail)
@@ -118,24 +118,24 @@ object Ocre {
     }
   }
 
-  /** Construct an [[Ocre]] collection CEX from a Vector
+  /** Construct an [[Rrco]] collection CEX from a Vector
   * of text-delimited lines.
   *
   * @param cex String of delimited-text data.
   */
-  def fromCexStrings(cexLines : Vector[String]) : Ocre = {
-    val issues = cexLines.map(OcreIssue(_))
-    Ocre(issues)
+  def fromCexStrings(cexLines : Vector[String]) : Rrco = {
+    val issues = cexLines.map(RrcoIssue(_))
+    Rrco(issues)
   }
 
-  /** Create a new [[Ocre]] instance by associating a [[MintPointCollection]]
-  * with the Vector of [[OcreIssue]]s in an existing [[Ocre]].
+  /** Create a new [[Rrco]] instance by associating a [[MintPointCollection]]
+  * with the Vector of [[RrcoIssue]]s in an existing [[Rrco]].
   *
-  * @param ocre Existing [[Ocre]] with [[OcreIssue]]s to use.
+  * @param rrco Existing [[Rrco]] with [[RrcoIssue]]s to use.
   * @param geo [[MintPointCollection]] to use.
   */
-  def addGeo(ocre: Ocre, geo: MintPointCollection): Ocre = {
-    Ocre(ocre.issues, geo)
+  def addGeo(rrco: Rrco, geo: MintPointCollection): Rrco = {
+    Rrco(rrco.issues, geo)
   }
 
 }
