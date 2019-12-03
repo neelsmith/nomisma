@@ -12,8 +12,8 @@ import scala.scalajs.js.annotation._
 * @param typeDescriptions
 * @param portraits
 */
-@JSExportTopLevel("OcreRdf")
-case class OcreRdf(
+@JSExportTopLevel("NomismaRdfCollection")
+case class NomismaRdfCollection(
   issues:  Vector[BasicIssue],
   legends: Vector[Legend],
   typeDescriptions: Vector[TypeDescription],
@@ -99,16 +99,16 @@ case class OcreRdf(
       case _ => None
     }
   }
-  def ocreIssuesSimplified(ids: Vector[String]): Vector[OcreIssueSimplified] = {
+  def ocreIssuesSimplified(ids: Vector[String]): Vector[NomismaRdfIssue] = {
     val opts = ids.map(ocreIssueSimplified(_))
     opts.flatten
   }
 
-  /** Given an object identifier, construct an [[OcreIssueSimplified]].
+  /** Given an object identifier, construct an [[NomismaRdfIssue]].
   *
   * @param id Object identifier for issue.
   */
-  def ocreIssueSimplified(id: String) : Option[OcreIssueSimplified] = {
+  def ocreIssueSimplified(id: String) : Option[NomismaRdfIssue] = {
     val issueMatches = issues.filter(_.id == id)
      issueMatches.size  match {
       case 1 => {
@@ -130,7 +130,7 @@ case class OcreRdf(
         val oPortrait = None // not yet implemented
         val rPortrait = None // not yet implemented
 
-        Some(OcreIssueSimplified(basics, oType, rType, oLegend, rLegend, oPortrait, rPortrait, geo))
+        Some(NomismaRdfIssue(basics, oType, rType, oLegend, rLegend, oPortrait, rPortrait, geo))
       }
       case _ => None
     }
@@ -143,22 +143,22 @@ case class OcreRdf(
 }
 
 
-object OcreRdf {
+object NomismaRdfCollection {
 
 
-  def addGeo(ocre: OcreRdf, geo: MintPointCollection): OcreRdf = {
-    OcreRdf(ocre.issues, ocre.legends, ocre.typeDescriptions, ocre.portraits, ocre.dateRanges, geo)
+  def addGeo(nomismaRdf: NomismaRdfCollection, geo: MintPointCollection): NomismaRdfCollection = {
+    NomismaRdfCollection(nomismaRdf.issues, nomismaRdf.legends, nomismaRdf.typeDescriptions, nomismaRdf.portraits, nomismaRdf.dateRanges, geo)
   }
   /**
   *
-  * @param ocre Root of parsed OCRE data set.
+  * @param nomismaRdf Root of parsed OCRE data set.
   */
-  def parseRdf(ocre: scala.xml.Elem): OcreRdf = {
+  def parseRdf(root: scala.xml.Elem): NomismaRdfCollection = {
 
     // Enforce uniqe entries.
-    val issues = BasicIssue.parseOcreXml(ocre)
+    val issues = BasicIssue.parseOcreXml(root)
 
-    val descrs = ocre \\ "Description"
+    val descrs = root \\ "Description"
     val dv = descrs.toVector
     val legends = Legend.legendVector(dv)
 
@@ -169,10 +169,10 @@ object OcreRdf {
     val portraits = Portrait.portraitVector(portraitElems)
 
 
-    val typeData = ocre \\ "TypeSeriesItem"
+    val typeData = root \\ "TypeSeriesItem"
     val dateRanges = IssueYearRange.datesVector(typeData.toVector)
 
-    OcreRdf(issues, legends, typeDescriptions, portraits, dateRanges, MintPointCollection(Vector.empty[MintPoint]))
+    NomismaRdfCollection(issues, legends, typeDescriptions, portraits, dateRanges, MintPointCollection(Vector.empty[MintPoint]))
 
   }
 

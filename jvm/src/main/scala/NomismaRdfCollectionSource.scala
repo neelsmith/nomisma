@@ -8,23 +8,23 @@ import scala.xml._
 
 /**
 */
-object OcreRdfSource {
+object NomismaRdfCollectionSource {
 
 
-  /** Parse a file of nomisma.org's RDF data into an [[OcreRdf]] object.
+  /** Parse a file of nomisma.org's RDF data into a [[NomismaRdfCollection]] object.
   *
   * @param fName Name of file.
   */
-  def fromFile(fName: String): OcreRdf = {
+  def fromFile(fName: String): NomismaRdfCollection = {
     val root = XML.loadFile(fName)
     parseRdf(root)
   }
 
-  /** Parse RDF into an [[OcreRdf]] object.
+  /** Parse RDF into an [[NomismaRdfCollection]] object.
   *
   * @param ocre Root of parsed OCRE data set.
   */
-  def parseRdf(ocre: scala.xml.Elem): OcreRdf = {
+  def parseRdf(ocre: scala.xml.Elem): NomismaRdfCollection = {
     val descrs = ocre \\ "Description"
     val dv = descrs.toVector
     val legends = Legend.legendVector(dv)
@@ -41,6 +41,6 @@ object OcreRdfSource {
     val issues = BasicIssue.parseOcreXml(ocre)
 
 
-    OcreRdf(issues, legends, typeDescriptions, portraits, dateRanges, MintPointCollection(Vector.empty[MintPoint]))
+    NomismaRdfCollection(issues, legends, typeDescriptions, portraits, dateRanges, MintPointCollection(Vector.empty[MintPoint]))
   }
 }

@@ -70,7 +70,7 @@ object OcreSource extends LogSupport {
   */
   def fromRdfFile(fName: String, msgInterval: Int = 100): Ocre = {
     val root = XML.loadFile(fName)
-    val ocreRdf = OcreRdf.parseRdf(root)
+    val ocreRdf = NomismaRdfCollection.parseRdf(root)
     ocreRdf.toOcre(msgInterval)
   }
 
@@ -81,7 +81,7 @@ object OcreSource extends LogSupport {
   */
   def fromRdfUrl(urlString : String = "http://numismatics.org/ocre/nomisma.rdf", msgInterval: Int = 100) : Ocre = {
       val root = XML.load(urlString)
-      val ocreRdf = OcreRdf.parseRdf(root)
+      val ocreRdf = NomismaRdfCollection.parseRdf(root)
       ocreRdf.toOcre(msgInterval)
   }
 }

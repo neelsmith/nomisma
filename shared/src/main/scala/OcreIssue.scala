@@ -26,14 +26,8 @@ case class OcreIssue(
     revLegend: String,
     revPortraitId: String,
     dateRange: Option[YearRange]
-  ) extends NomismaEntity {
+  ) extends NomismaIssue with NomismaEntity {
 
-
-  /** Construct URL used by nomisma.org as an identifier.
-  */
-  def urlString = {
-    "http:nomisma.org/id/" + id
-  }
 
   /** Construct a Cite2Urn for this issue.
   */
@@ -44,19 +38,8 @@ case class OcreIssue(
   /** Construct human-readable label for this issue.*/
   def label = labelText
 
-
-  /** Data for this issue formatted as a single line in CEX format.*/
-  def cex: String  = {
-    //ID#Label#Denomination#Metal#Authority#Mint#Region#ObvType#ObvLegend#ObvPortraitId#RevType#RevLegend#RevPortraitId#StartDate#EndDate
-    val basic =
-    s"${id}#${labelText}#${denomination}#${material}#${authority}#${mint}#${region}#${obvType}#${obvLegend}#${obvPortraitId}#${revType}#${revLegend}#${revPortraitId}#"
-    val dateCex = dateRange match {
-      case None => "##"
-      case _ => dateRange.get.cex()
-    }
-    basic + dateCex
-  }
-
+  /** Construct Vector of CitableNodes for legends in this issue.
+  */
   def textNodes: Vector[CitableNode] = {
     val obvUrn = CtsUrn("urn:cts:hcnum:issues.ric.raw:" + id + ".obv")
     val obvOpt = if (obvLegend.nonEmpty)  {Some(CitableNode(obvUrn, obvLegend))} else {None}
@@ -100,6 +83,7 @@ object OcreIssue extends LogSupport {
   * @param cex One of CEX data for an [[OcreIssue]].
   */
   def apply(cex: String) : OcreIssue = {
+
     def cols = cex.split("#")
     if (cols.size < 15) {
       throw new Exception("Could not parse CEX string for OcreIssue: too few columns in " + cex)
@@ -120,5 +104,6 @@ object OcreIssue extends LogSupport {
     }
 
     OcreIssue(cols(0), cols(1), cols(2), cols(3), cols(4), cols(5), cols(6).trim, cols(7).trim, cols(8).trim, cols(9).trim, cols(10).trim, cols(11).trim, cols(12).trim, yearRange)
+    
   }
 }

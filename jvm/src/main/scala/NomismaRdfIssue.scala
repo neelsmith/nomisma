@@ -1,11 +1,10 @@
 package edu.holycross.shot.nomisma
 import edu.holycross.shot.cite._
-//import java.net.URL
 
 import scala.scalajs.js.annotation._
 
-@JSExportTopLevel("OcreIssueSimplified")
-case class OcreIssueSimplified(
+@JSExportTopLevel("NomismaRdfIssue")
+case class NomismaRdfIssue(
     basics: BasicIssue,
     otype: Option[TypeDescription],
     rtype: Option[TypeDescription],
