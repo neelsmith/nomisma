@@ -2,15 +2,12 @@ package edu.holycross.shot.nomisma
 import edu.holycross.shot.cite._
 import edu.holycross.shot.ohco2._
 
-import scala.scalajs.js.annotation._
-
 
 import wvlet.log._
 import wvlet.log.LogFormatter.SourceCodeLogFormatter
 
 /** A class representing a single issue in OCRE.
 */
-@JSExportTopLevel("NomismaIssue")
 trait NomismaIssue {
     def id: String
     def denomination: String
