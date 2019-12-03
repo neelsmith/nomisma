@@ -1,5 +1,8 @@
 # Release notes
 
+
+**1.8.0**:  adds CRRO classes.
+
 **1.7.0**: adds the `UrlManager` class, and an `issue` function on `Ocre`objects.
 
 **1.6.0**: `Ocre` generates `Histogram` objects for property names.

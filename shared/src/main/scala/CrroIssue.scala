@@ -10,8 +10,8 @@ import wvlet.log.LogFormatter.SourceCodeLogFormatter
 
 /** A class representing a single issue in OCRE.
 */
-@JSExportTopLevel("RrcoIssue")
-case class RrcoIssue(
+@JSExportTopLevel("CrroIssue")
+case class CrroIssue(
     id: String,
     labelText:  String,
     denomination: String,
@@ -61,7 +61,7 @@ case class RrcoIssue(
 
 
 
-object RrcoIssue extends LogSupport {
+object CrroIssue extends LogSupport {
 
   /** Parse a string as Int, and return
   * Option[Int]  if successful.
@@ -78,15 +78,15 @@ object RrcoIssue extends LogSupport {
     }
   }
 
-  /** Construct an [[RrcoIssue]] from a line of CEX data.
+  /** Construct an [[CrroIssue]] from a line of CEX data.
   *
-  * @param cex One of CEX data for an [[RrcoIssue]].
+  * @param cex One of CEX data for an [[CrroIssue]].
   */
-  def apply(cex: String) : RrcoIssue = {
+  def apply(cex: String) : CrroIssue = {
 
     def cols = cex.split("#")
     if (cols.size < 15) {
-      throw new Exception("Could not parse CEX string for RrcoIssue: too few columns in " + cex)
+      throw new Exception("Could not parse CEX string for CrroIssue: too few columns in " + cex)
     }
 
     val startDate: Option[Int] = yearInt(cols(13))
@@ -103,7 +103,7 @@ object RrcoIssue extends LogSupport {
       }
     }
 
-    RrcoIssue(cols(0), cols(1), cols(2), cols(3), cols(4), cols(5), cols(6).trim, cols(7).trim, cols(8).trim, cols(9).trim, cols(10).trim, cols(11).trim, cols(12).trim, yearRange)
+    CrroIssue(cols(0), cols(1), cols(2), cols(3), cols(4), cols(5), cols(6).trim, cols(7).trim, cols(8).trim, cols(9).trim, cols(10).trim, cols(11).trim, cols(12).trim, yearRange)
 
   }
 }
