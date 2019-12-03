@@ -2,7 +2,8 @@ package edu.holycross.shot.nomisma
 import org.scalatest.FlatSpec
 import edu.holycross.shot.histoutils._
 
-class NomismaIssuesCatalogSpec extends FlatSpec {
+
+class GenericIssuesCatalogSpec extends FlatSpec {
 
 
   val ocre = OcreSource.fromFile("jvm/src/test/resources/ocre-sample10.cex")
