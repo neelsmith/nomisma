@@ -8,7 +8,7 @@ Follow blog posts on this project at <http://neelsmith.info/tag-coins/>.
 
 
 
-## Current version: **1.8.0**.
+## Current version: **2.0.0**.
 
 Status: in active development. [Release notes](releases.md)
 
