@@ -8,10 +8,11 @@ import scala.scalajs.js.annotation._
 import wvlet.log._
 import wvlet.log.LogFormatter.SourceCodeLogFormatter
 
+
 /** A class representing a single issue in OCRE.
 */
-@JSExportTopLevel("OcreIssue")
-case class OcreIssue(
+@JSExportTopLevel("GenericIssue")
+case class GenericIssue(
     id: String,
     labelText:  String,
     denomination: String,
@@ -26,44 +27,20 @@ case class OcreIssue(
     revLegend: String,
     revPortraitId: String,
     dateRange: Option[YearRange]
-  ) extends NomismaIssue with NomismaEntity {
+  ) extends NomismaIssue  {
 
 
-  def urlString: String = ""
-  
-  /** Construct a Cite2Urn for this issue.
-  */
-  def urn: Cite2Urn = {
-    Cite2Urn("urn:cite2:nomisma:ocre.hc:" + id)
-  }
 
   /** Construct human-readable label for this issue.*/
   def label = labelText
 
-  /** Construct Vector of CitableNodes for legends in this issue.
-  */
-  def textNodes: Vector[CitableNode] = {
-    val obvUrn = CtsUrn("urn:cts:hcnum:issues.ric.raw:" + id + ".obv")
-    val obvOpt = if (obvLegend.nonEmpty)  {Some(CitableNode(obvUrn, obvLegend))} else {None}
-    val revUrn = CtsUrn("urn:cts:hcnum:issues.ric.raw:" + id + ".rev")
-    val revOpt = if (revLegend.nonEmpty)  {Some(CitableNode(revUrn, revLegend))} else {None}
-    Vector(obvOpt, revOpt).flatten
-  }
 
   def kml: String = ""
-/*
-  def kml: String = {
-    mintGeo match {
-      case None => ""
-      case _ => mintGeo.get.toKml
-    }
-  }*/
 
 }
 
 
-
-object OcreIssue extends LogSupport {
+object GenericIssue extends LogSupport {
 
   /** Parse a string as Int, and return
   * Option[Int]  if successful.
@@ -80,15 +57,15 @@ object OcreIssue extends LogSupport {
     }
   }
 
-  /** Construct an [[OcreIssue]] from a line of CEX data.
+  /** Construct an [[GenericIssue]] from a line of CEX data.
   *
-  * @param cex One of CEX data for an [[OcreIssue]].
+  * @param cex One of CEX data for an [[GenericIssue]].
   */
-  def apply(cex: String) : OcreIssue = {
+  def apply(cex: String) : GenericIssue = {
 
     def cols = cex.split("#")
     if (cols.size < 15) {
-      throw new Exception("Could not parse CEX string for OcreIssue: too few columns in " + cex)
+      throw new Exception("Could not parse CEX string for GenericIssue: too few columns in " + cex)
     }
 
     val startDate: Option[Int] = yearInt(cols(13))
@@ -105,7 +82,7 @@ object OcreIssue extends LogSupport {
       }
     }
 
-    OcreIssue(cols(0), cols(1), cols(2), cols(3), cols(4), cols(5), cols(6).trim, cols(7).trim, cols(8).trim, cols(9).trim, cols(10).trim, cols(11).trim, cols(12).trim, yearRange)
+    GenericIssue(cols(0), cols(1), cols(2), cols(3), cols(4), cols(5), cols(6).trim, cols(7).trim, cols(8).trim, cols(9).trim, cols(10).trim, cols(11).trim, cols(12).trim, yearRange)
 
   }
 }

@@ -5,7 +5,7 @@ import edu.holycross.shot.ohco2._
 import wvlet.log._
 import wvlet.log.LogFormatter.SourceCodeLogFormatter
 
-/** A class representing a single issue in OCRE.
+/** A trait representing a single issue in OCRE.
 */
 trait NomismaIssue {
     def id: String
@@ -23,15 +23,15 @@ trait NomismaIssue {
     def dateRange: Option[YearRange]
 
   /** Construct URL used by nomisma.org as an identifier.
-  */
+
   def urlString : String = {
     "http:nomisma.org/id/" + id
   }
-
-  /** Construct a Cite2Urn for this issue.
   */
-  def urn: Cite2Urn
+  /** Construct a Cite2Urn for this issue.
 
+  def urn: Cite2Urn
+*/
   /** Construct human-readable label for this issue.*/
   def label : String
 
@@ -48,6 +48,6 @@ trait NomismaIssue {
     basic + dateCex
   }
 
-  def textNodes: Vector[CitableNode]
+  //def textNodes: Vector[CitableNode]
   def kml: String
 }

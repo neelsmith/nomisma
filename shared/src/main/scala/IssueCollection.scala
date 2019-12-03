@@ -8,8 +8,8 @@ import wvlet.log._
 import wvlet.log.LogFormatter.SourceCodeLogFormatter
 
 
-/** The contents of a nomisma.org catalog of issues:
-* RIC (Ocre), RRC (Rrco).
+/** The contents of a nomisma.org catalogs of issues,
+* works with both RIC (Ocre) and RRC (Rrco).
 *
 * @param issues
 * @param mintsGeo
@@ -22,10 +22,7 @@ trait IssueCollection extends LogSupport {
   /** Number of issues in this OCRE.*/
   def size : Int = issues.size
 
-  /** Create an ocho2 Corpus of coin legends. */
-  def corpus: Corpus = {
-    Corpus(issues.map(_.textNodes).flatten)
-  }
+
 
   /** Create CEX string representing each issue as one
   * row of data.

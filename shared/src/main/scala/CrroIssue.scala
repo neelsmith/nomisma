@@ -8,7 +8,7 @@ import scala.scalajs.js.annotation._
 import wvlet.log._
 import wvlet.log.LogFormatter.SourceCodeLogFormatter
 
-/** A class representing a single issue in OCRE.
+/** A class representing a single issue in CRRO.
 */
 @JSExportTopLevel("CrroIssue")
 case class CrroIssue(
@@ -28,6 +28,8 @@ case class CrroIssue(
     dateRange: Option[YearRange]
   ) extends NomismaIssue with NomismaEntity {
 
+
+  def urlString: String = ""
 
   /** Construct a Cite2Urn for this issue.
   */

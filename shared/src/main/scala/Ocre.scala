@@ -11,15 +11,20 @@ import scala.scalajs.js.annotation._
 
 /** The contents of an edition of OCRE.
 *
-* @param issues
-* @param mintsGeo
+* @param issues All issues in this collection.
+* @param mintsGeo Geographic data for mints.
 */
 @JSExportTopLevel("Ocre")
 case class Ocre(
   issues:  Vector[OcreIssue],
   mintsGeo: MintPointCollection = MintPointCollection(Vector.empty[MintPoint])
-) extends IssueCollection with LogSupport {
+) extends IssueCollection  with LogSupport {
 
+  /** Create an ocho2 Corpus of coin legends.
+  */
+  def corpus: Corpus = {
+    Corpus(issues.map(_.textNodes).flatten)
+  }
 
   // useful for testing
   def take(n: Int): Ocre = {
