@@ -24,14 +24,25 @@ case class NomismaRdfCollection(
 
   Logger.setDefaultLogLevel(LogLevel.INFO)
 
+
+  def uniqued: NomismaRdfCollection = NomismaRdfCollection(
+    issues.distinct,
+    legends.distinct,
+    typeDescriptions.distinct,
+    portraits.distinct,
+    dateRanges.distinct,
+    mintsGeo
+  )
+
   def toOcre(msgPoint: Int = 100): Ocre = {
-    Ocre(ocreIssues(msgPoint))
+    //Ocre(ocreIssues(msgPoint))
+    Ocre(uniqued.ocreIssues(msgPoint))
   }
 
   /**  Construct a Vector of concrete [[OcreIssue]] from
   * the generic data of this trait. */
   def ocreIssues(msgPoint: Int) : Vector[OcreIssue] = {
-    val ids = issues.map(_.id)
+    val ids = issues.distinct.map(_.id)
     ocreIssues(ids, msgPoint)
   }
 
@@ -102,9 +113,10 @@ case class NomismaRdfCollection(
   }
 
 
-// STUFF FOR CRRO CLASSES ///////////////////////////////
+// FUNCTIONS FOR BUILDING CRRO CLASSES ///////////////////////////////
   def toCrro(msgPoint: Int = 100): Crro = {
-    Crro(crroIssues(msgPoint))
+    //Crro(crroIssues(msgPoint))
+    Crro(uniqued.crroIssues(msgPoint))
   }
 
   /**  Construct a Vector of concrete [[CrroIssue]]s from

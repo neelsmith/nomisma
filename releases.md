@@ -1,5 +1,9 @@
 # Release notes
 
+
+
+**2.0.1**:  eliminates duplicate records from nomisma.org RDF before attempting to interpret as object model.
+
 **2.0.0**:  generalizes `IssueCollection` trait and implements for `Ocre`, `Crro` and `GenericIssuesCatalog`.
 
 **1.8.0**:  adds CRRO classes.
