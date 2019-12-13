@@ -21,7 +21,7 @@ lazy val crossed = crossProject.in(file(".")).
     settings(
       name := "nomisma",
       organization := "edu.holycross.shot",
-      version := "2.1.0",
+      version := "2.2.0",
       licenses += ("GPL-3.0",url("https://opensource.org/licenses/gpl-3.0.html")),
 
       libraryDependencies ++= Seq(
@@ -33,6 +33,9 @@ lazy val crossed = crossProject.in(file(".")).
         "org.scalatest" %%% "scalatest" % "3.0.1" % "test",
         "edu.holycross.shot.cite" %%% "xcite" % "4.1.1",
         "edu.holycross.shot" %%% "ohco2" % "10.16.0",
+
+
+        "edu.holycross.shot" %% "midvalidator" % "9.1.0",
 
         "edu.holycross.shot" %%% "histoutils" % "2.2.0"
       )

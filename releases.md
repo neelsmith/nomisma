@@ -1,6 +1,8 @@
 # Release notes
 
 
+**2.2.0**: adds implementation of MID orthography trait for OCRE diplomatic and normalized texts.
+
 **2.1.0**: adds `++` function for adding concrete `IssueCollections`, and better String formatting of `YearRange` objects.
 
 **2.0.1**:  eliminates duplicate records from nomisma.org RDF before attempting to interpret as object model.
