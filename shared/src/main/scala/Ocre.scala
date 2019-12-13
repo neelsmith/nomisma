@@ -20,6 +20,13 @@ case class Ocre(
   mintsGeo: MintPointCollection = MintPointCollection(Vector.empty[MintPoint])
 ) extends IssueCollection  with LogSupport {
 
+
+
+  def ++ (ocre : Ocre) : Ocre = {
+    Ocre(issues ++ ocre.issues)
+  }
+
+
   /** Create an ocho2 Corpus of coin legends.
   */
   def corpus: Corpus = {

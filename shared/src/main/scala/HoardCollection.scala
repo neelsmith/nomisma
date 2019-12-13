@@ -13,10 +13,9 @@ import scala.scalajs.js.annotation._
 */
 @JSExportTopLevel("HoardCollection")
 case class HoardCollection(hoards: Vector[Hoard])  {
-  /*
-<<<<<<< HEAD
 
-=======
+
+  /*
   val preface = """<?xml version="1.0" encoding="UTF-8"?>
   <kml xmlns="http://www.opengis.net/kml/2.2">
     <Document>
@@ -69,7 +68,6 @@ case class HoardCollection(hoards: Vector[Hoard])  {
       </IconStyle>
     </Style>
   """
->>>>>>> 3d7500cf10ba0aa4f0147491182cdd723b159a34
 */
   /** Conclusion to KML document.
   */

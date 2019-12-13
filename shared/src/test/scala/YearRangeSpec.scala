@@ -44,8 +44,13 @@ class YearRangeSpec extends FlatSpec {
     val pointDate = YearRange(-450)
     val rangeDate = YearRange(-450,-430)
 
-    assert(pointDate.toString == "-450")
-    assert(rangeDate.toString == "-450:-430")
+    assert(pointDate.toString == "450 BCE")
+    assert(rangeDate.toString == "450 BCE:430 BCE")
+  }
+
+  it should "support providing a separating string for date ranges" in {
+      val rangeDate = YearRange(-14,27)
+      println(rangeDate.toString(" - "))
   }
 
   it should "have a contains function" in {
@@ -57,6 +62,20 @@ class YearRangeSpec extends FlatSpec {
     assert(rangeDate.contains(-440))
     assert(rangeDate.contains(-451) == false)
 
+  }
+
+  "The YearRange object" should "have format single Ints as year Strings" in {
+    val yr0 = YearRange.yearString(0)
+    val expected0 = "0 (?)"
+    assert (yr0 == expected0)
+
+    val ce = YearRange.yearString(117)
+    val expectedCe = "117 CE"
+    assert(ce == expectedCe)
+
+    val bce = YearRange.yearString(-14)
+    val expectedBce = "14 BCE"
+    assert(bce == expectedBce)
   }
 
 

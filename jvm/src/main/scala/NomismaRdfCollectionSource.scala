@@ -20,6 +20,11 @@ object NomismaRdfCollectionSource {
     parseRdf(root)
   }
 
+  def fromUrl(url: String): NomismaRdfCollection = {
+    val root = XML.load(url)
+    parseRdf(root)
+  }
+
   /** Parse RDF into an [[NomismaRdfCollection]] object.
   *
   * @param ocre Root of parsed OCRE data set.

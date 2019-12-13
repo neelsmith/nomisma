@@ -21,6 +21,10 @@ case class Crro(
 ) extends IssueCollection with LogSupport {
 
 
+  def ++ (crro : Crro) : Crro = {
+    Crro(issues ++ crro.issues)
+  }
+
   // useful for testing
   def take(n: Int): Crro = {
     Crro(issues.take(n), mintsGeo)

@@ -18,6 +18,7 @@ trait IssueCollection extends LogSupport {
   def issues:  Vector[NomismaIssue]
   def mintsGeo: MintPointCollection
 
+  //def ++(issueCollection: IssueCollection) : IssueCollection
 
   /** Number of issues in this OCRE.*/
   def size : Int = issues.size
