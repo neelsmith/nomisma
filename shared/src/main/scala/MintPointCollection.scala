@@ -22,8 +22,8 @@ case class MintPointCollection(mintPoints: Vector[MintPoint] )  {
   * @param mintName String identifier for mint.
   */
   def forMint(mintName: String): Option[MintPoint] = {
-    val mintUrl = "http://nomisma.org/id/" + mintName + ".rdf"
-    val srch = mintPoints.filter(_.mint == mintUrl)
+    //val mintUrl = "http://nomisma.org/id/" + mintName + ".rdf"
+    val srch = mintPoints.filter(_.mint == mintName)
     if (srch.isEmpty) {
       None
     } else {
