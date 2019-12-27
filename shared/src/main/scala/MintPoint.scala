@@ -31,8 +31,8 @@ case class MintPoint(mint: String, pt: Point) {
 
 object MintPoint extends LogSupport {
 
-  def apply(cex: String) : MintPoint = {
-    def cols = cex.split("#")
+  def apply(cex: String, delimiter: String = "#") : MintPoint = {
+    def cols = cex.split(delimiter)
     if (cols.size != 3) {
       throw new Exception("Wrong number of columns to parse a MintPoint from " +  cex)
     } else {

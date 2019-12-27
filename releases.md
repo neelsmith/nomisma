@@ -1,5 +1,7 @@
 # Release notes
 
+**3.1.0**: allow dynamically defined delimiter for reading `MintPoint`s from delimited text.
+
 **3.0.0**: adds function to compute date span of an Ocre and frequency of issues per annum.
 
 **2.2.0**: adds implementation of MID orthography trait for OCRE diplomatic and normalized texts.

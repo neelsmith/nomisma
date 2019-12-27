@@ -41,3 +41,13 @@ case class MintPointCollection(mintPoints: Vector[MintPoint] )  {
     MintPointCollection(opts.flatten)
   }
 }
+
+object MintPointCollection {
+  def apply(cex: String, delimiter: String = "#", dropHeader: Boolean = true): MintPointCollection = {
+    val lines = cex.split("\n").toVector
+    val data = if (dropHeader) {
+        lines.tail
+    } else { lines }
+    MintPointCollection(data.map(MintPoint(_, ",")))
+  }
+}
