@@ -94,13 +94,25 @@ case class Crro(
     Crro(datedIssues)
   }
 
-  def byAuthority : Map[String, Crro] = {
-    val auths = issues.map(_.authority)
-    val authMap = for (auth <- auths) yield {
-      val subset = issues.filter(_.authority == auth)
-      (auth -> Crro(subset))
+
+  /** */
+  def byAuthority : Vector[(String, Crro)] = {
+    val byAuth = issues.groupBy(_.authority).map{
+      case (auth, issues) => auth -> Crro(issues)
     }
-    authMap.toMap
+    byAuth.toVector.sortBy{ _._2.dateRange.pointAverage}
+  }
+
+  def issuesForAuthority(auth: String) : Vector[CrroIssue] = {
+    val authNames = byAuthority.map(_._1)
+    val idx = authNames.indexOf(auth)
+    debug(auth + " == " + idx)
+    if (idx < 0) {
+      Vector.empty[CrroIssue]
+    } else {
+      val authCrros = byAuthority.map(_._2)
+      authCrros(idx).issues
+    }
   }
 }
 

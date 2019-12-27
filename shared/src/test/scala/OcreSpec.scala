@@ -42,15 +42,23 @@ class OcreSpec extends FlatSpec {
 
   it should "subset the Ocre by authority" in {
     val ocre = Ocre(cex, true)
-    val authMap = ocre.byAuthority
+    val augustusOcre = Ocre(ocre.issuesForAuthority("augustus"))
+    println(augustusOcre)
+
     val expectedSize = 2
-    assert(authMap("augustus").size == expectedSize)
+    assert(augustusOcre.size == expectedSize)
+
 
     val expectedRange = YearRange(-25, Some(-18))
-    assert (expectedRange == authMap("augustus").dateRange)
+    assert (expectedRange == augustusOcre.dateRange)
   }
 
-  it should "find a list of authorities for a year value" in {
+  it should "compute the frequency of issues for an authority" in {
+    val ocre = Ocre(cex, true)
+    println(ocre.issueFrequency("augustus"))
+  }
+
+  it should "find a list of authorities for a year value" in pending /*{
     val ocre = Ocre(cex, true)
     val auths1 = ocre.authoritiesForYear(-20)
     assert(auths1.size == 1)
@@ -59,5 +67,5 @@ class OcreSpec extends FlatSpec {
     val auths2 = ocre.authoritiesForYear(50)
     assert(auths2.isEmpty)
 
-  }
+  }*/
 }

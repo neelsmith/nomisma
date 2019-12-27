@@ -15,15 +15,14 @@ import wvlet.log.LogFormatter.SourceCodeLogFormatter
 * @param mintsGeo
 */
 trait IssueCollection extends LogSupport {
+
   def issues:  Vector[NomismaIssue]
   def mintsGeo: MintPointCollection
 
   //def ++(issueCollection: IssueCollection) : IssueCollection
 
-  /** Number of issues in this OCRE.*/
+  /** Number of issues in this [[IssueCollection]].*/
   def size : Int = issues.size
-
-
 
   /** Create CEX string representing each issue as one
   * row of data.
@@ -40,6 +39,10 @@ trait IssueCollection extends LogSupport {
   }
 
 
+  /** Retrieve [[NomismaIssue]] for a given ID, if it exists.
+  *
+  * @param idVal ID value to look for.
+  */
   def issue(idVal: String) : Option[NomismaIssue] = {
     val matches = issues.filter(_.id == idVal)
     matches.size match {
@@ -104,25 +107,23 @@ trait IssueCollection extends LogSupport {
     }
   }
 
+
+
+  /** Controlled vocabulary list for denominations.*/
   def denominationList: Vector[String] = issues.map(_.denomination).distinct.sorted
-  def hasDenomination: IssueCollection /*= {
-    val denomIssues = issues.filter(issue => (issue.denomination.trim != "none") && ! issue.denomination.trim.contains("uncertain"))
-    Ocre(denomIssues)
-  }*/
+  /** Create a new [[Ocre]] including only issues that have a denomination value.*/
+  def hasDenomination: IssueCollection
 
   def materialList : Vector[String] = issues.map(_.material).distinct.sorted
-  def hasMaterial: IssueCollection /*= {
-    val materialIssues = issues.filter(issue => (issue.material.trim != "none"))
-    Ocre(materialIssues)
-  }*/
+  /** Create a new [[Ocre]] including only issues that have a value for material.*/
+  def hasMaterial: IssueCollection
 
   def authorityList : Vector[String] = issues.map(_.authority).distinct.sorted
-  def hasAuthority: IssueCollection /* {
-    val authIssues = issues.filter(issue => (issue.authority.trim != "none") && ! issue.authority.trim.contains("uncertain"))
-    Ocre(authIssues)
-  }*/
+  /** Create a new [[Ocre]] including only issues that have a value for denomination.*/
+  def hasAuthority: IssueCollection
 
   def mintList : Vector[String] = issues.map(_.mint).distinct.sorted
+  /** Create a new [[Ocre]] including only issues that have a value for mint.*/
   def hasMint: IssueCollection /* = {
     val mintIssues = issues.filter(issue => (issue.mint.trim != "none") && ! issue.mint.trim.contains("uncertain"))
     Ocre(mintIssues)
@@ -130,10 +131,8 @@ trait IssueCollection extends LogSupport {
 
 
   def regionList : Vector[String] = issues.map(_.region).distinct.sorted
-  def hasRegion: IssueCollection  /*= {
-    val regionIssues = issues.filterNot(_.region.contains("uncertain")).filterNot(_.region.contains("none"))
-    Ocre(regionIssues)
-  }*/
+  /** Create a new [[Ocre]] including only issues that have a value for region.*/
+  def hasRegion: IssueCollection
 
   def obvPortraitIdList: Vector[String]  = {
     issues.filter(_.obvPortraitId.nonEmpty).map(_.obvPortraitId).distinct.sorted
@@ -191,6 +190,14 @@ trait IssueCollection extends LogSupport {
     }
   }
 
+  def dateSpan: Int = {
+    if (minDate == maxDate) {
+      1
+    } else {
+      (maxDate - minDate) + 1
+    }
+  }
+
   def dateRange: YearRange = {
     if (minDate == maxDate) {
       YearRange(minDate, None)
@@ -199,25 +206,31 @@ trait IssueCollection extends LogSupport {
     }
   }
 
-  def byAuthority : Map[String, IssueCollection] /*= {
-    val auths = issues.map(_.authority)
-    val authMap = for (auth <- auths) yield {
-      val subset = issues.filter(_.authority == auth)
-      (auth -> Ocre(subset))
-    }
-    authMap.toMap
-  }*/
+  /** Group issues by issuing authority and sort chronologically.*/
+  def byAuthority : Vector[(String, IssueCollection)]
+
+  def issuesForAuthority(auth: String) : Vector[NomismaIssue]
+
+  def issueFrequency(auth: String): Float = {
+    val authIssues = issuesForAuthority(auth)
+    authIssues.size * 1.0f / dateSpan
+  }
 
 
   def authoritiesForYear(yr: Int) :  Vector[String] = {
     val auths = byAuthority
     debug("Check on " + yr)
-    val matches = for (auth <- auths.keySet.toVector) yield {
-      print("Authority " + auth + "....")
-      val contained = auths(auth).dateRange.contains(yr)
+
+    val authNames = auths.map(_._1)
+    val authOcres = auths.map(_._2)
+
+    val matches = for (  (authOcre, idx)  <- authOcres.zipWithIndex) yield {
+      print("Authority " + authNames(idx) + "....")
+
+      val contained = authOcre.dateRange.contains(yr)
       debug(contained)
       if (contained) {
-        Some(auth)
+        Some(authNames(idx))
       } else {
         None
       }

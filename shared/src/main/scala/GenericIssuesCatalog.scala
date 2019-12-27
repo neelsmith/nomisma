@@ -94,13 +94,16 @@ case class GenericIssuesCatalog(
     GenericIssuesCatalog(datedIssues)
   }
 
-  def byAuthority : Map[String, GenericIssuesCatalog] = {
-    val auths = issues.map(_.authority)
-    val authMap = for (auth <- auths) yield {
-      val subset = issues.filter(_.authority == auth)
-      (auth -> GenericIssuesCatalog(subset))
+  def byAuthority : Vector[(String, GenericIssuesCatalog)] = {
+    val byAuth = issues.groupBy(_.authority).map{
+      case (auth, issues) => auth -> GenericIssuesCatalog(issues)
     }
-    authMap.toMap
+    byAuth.toVector.sortBy{ _._2.dateRange.pointAverage}
+  }
+
+
+  def issuesForAuthority(auth: String) : Vector[GenericIssue] = {
+    Vector.empty[GenericIssue]
   }
 }
 
