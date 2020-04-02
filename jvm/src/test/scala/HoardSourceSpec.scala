@@ -1,6 +1,5 @@
 package edu.holycross.shot.nomisma
 import org.scalatest.FlatSpec
-//import com.esri.core.geometry._
 
 class HoardSourceSpec extends FlatSpec {
 
@@ -25,7 +24,6 @@ class HoardSourceSpec extends FlatSpec {
   }
 
   it should "be able to retrieve spatial data for a mint" in {
-    //val mints = Set("athens","thessalian_league","thasos")
     val mints = Set("athens")
     val geo = HoardSource.geoForMints(mints)
 
@@ -33,15 +31,14 @@ class HoardSourceSpec extends FlatSpec {
     val actualEntry = geo.mintPoints(0)
     assert (actualEntry.mint == "athens")
     assert(actualEntry.pt ==  Point(23.7225,37.974722))
-    //val athensPoint = geo get "athens"
-    //val expected = new Point(23.7225,37.974722)
-    //assert(expected == athensPoint.get)
   }
 
   it should "be able to retrieve spatial data for multiple mints" in  {
-    val mints = Set("athens","thessalian_league","thasos")
+    val mints = Set("athens","thasos", "corinth")
 
     val geo = HoardSource.geoForMints(mints)
+
+    print("HERE's geo " + geo.mintPoints.mkString("\n") )
     assert(geo.size == 3)
     //val athensPoint = geo get "athens"
     //val expected = new Point(23.7225,37.974722)

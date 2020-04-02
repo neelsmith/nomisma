@@ -48,7 +48,7 @@ case class ContentsGraph (
     """
     var mintStrings = scala.collection.mutable.ArrayBuffer[String]()
     for (m <- mintPoints ) {
-      mintStrings += kmlLine("${id} - ${m.mint}", hoard.toString, m.pt.toString)
+      mintStrings += kmlLine(s"${id} - ${m.mint}", hoard.toString, m.pt.toString)
       mintStrings += m.toKml
 
     }

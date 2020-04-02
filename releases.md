@@ -1,6 +1,8 @@
 # Release notes
 
-**3.1.1** `forMint` function on `MintPointCollection` matches on mint ID value, not full RDF identifier.
+**3.1.2**:  fixes a bug in KML formatting.
+
+**3.1.1**: `forMint` function on `MintPointCollection` matches on mint ID value, not full RDF identifier.
 
 **3.1.0**: allow dynamically defined delimiter for reading `MintPoint`s from delimited text.
 

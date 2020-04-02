@@ -151,14 +151,10 @@ case class Hoard (
     raw"""
     <Placemark>
     <name>${id}</name>
-<<<<<<< HEAD
-    <description><p>${dateLabel}</p>
-    ${mintsHtml}
-    </description>
-=======
+
     <description><p>${mintUrl}, ${dateLabel}</p>
     ${mintsHtml}</description>
->>>>>>> 3d7500cf10ba0aa4f0147491182cdd723b159a34
+
     <styleUrl>${sizeUrl}</styleUrl>
     <Point>
       <coordinates>${geoString},0</coordinates>
